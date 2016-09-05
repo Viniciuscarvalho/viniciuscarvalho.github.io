@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vinicius Carvalho | Desenvolvimento Mobile e tudo mais..</title>
+    <description>Desenvolvedor Mobile, trabalhando com iOS e Android e entusista de Ruby</description>
+    <link>http://viniciscarvalho.me/</link>
+    <atom:link href="http://viniciscarvalho.me/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 05 Sep 2016 19:57:53 -0300</pubDate>
+    <lastBuildDate>Mon, 05 Sep 2016 19:57:53 -0300</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>A wonderful serenity has taken possession of my entire soul</title>
+        <description>&lt;p&gt;A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.&lt;/p&gt; &lt;p&gt;I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.&lt;/p&gt; &lt;p&gt;I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.&lt;/p&gt; &lt;p&gt;When, while the lovely valley teems with...</description>
+        <pubDate>Thu, 12 Nov 2015 13:39:18 -0300</pubDate>
+        <link>http://viniciscarvalho.me/a-wonderful-serenity-has-taken-possession-of-my-entire-soul/</link>
+        <guid isPermaLink="true">http://viniciscarvalho.me/a-wonderful-serenity-has-taken-possession-of-my-entire-soul/</guid>
+        
+        <category>welcome</category>
+        
+        
+        <category>welcome</category>
+        
+      </item>
+    
+      <item>
+        <title>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</title>
+        <description>&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&lt;/p&gt; &lt;p&gt;A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.&lt;/p&gt; &lt;p&gt;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to...</description>
+        <pubDate>Thu, 12 Nov 2015 13:38:20 -0300</pubDate>
+        <link>http://viniciscarvalho.me/far-far-away-behind-the-word-mountains-far-from-the-countries-vokalia-and-consonantia/</link>
+        <guid isPermaLink="true">http://viniciscarvalho.me/far-far-away-behind-the-word-mountains-far-from-the-countries-vokalia-and-consonantia/</guid>
+        
+        <category>welcome</category>
+        
+        
+        <category>welcome</category>
+        
+      </item>
+    
+  </channel>
+</rss>
