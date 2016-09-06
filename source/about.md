@@ -7,11 +7,14 @@ slug: about
 ---
 
 # Resume
+
 ## Interests
-Since the end of 2014 began to engage me in iOS community in Brazil and I never stopped, I'm the leader chapter of <a href="http://www.cocoaheads.com.br">CocoaHeads Brazil in Fortaleza</a> and very much like to join the community and participate in the events. Also participate in the <a href="http://www.devbeers.io/">Devbeers Fortaleza</a> community and usually help the Guru-CE, a Ruby Meetup.
+
+Since the end of 2014 began to engage me in iOS community in Brazil and I never stopped, I'm the leader chapter of <a href="http://www.cocoaheads.com.br">CocoaHeads Brazil in Fortaleza</a> and like to join the community and participate in the events. Also participate in the <a href="http://www.devbeers.io/">Devbeers Fortaleza</a> community and usually help the Guru-CE, a Ruby Meetup.
 Writer at equinocios.com
 
 ## Education
+
 - Telecommunications Enginnering Bachelor Degree, Federal Institute of Education, Science and Technology of Ceará - IFCE, Fortaleza, CE (2010 - 2016)
 
 ## Employment
@@ -38,6 +41,7 @@ Protocols application development to Fortaleza Prefecture, in partnership with S
 Application development that served to writing scientific papers and as a basis for developing mobile learning. Had two papers accepted and another 5 applied to conferences.
 
 ## Skills
+
 - Swift & Objective-C & UI/UX;
 
 - Ruby, HTML, Javascript e Git
