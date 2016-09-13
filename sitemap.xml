@@ -3,6 +3,7 @@
   
     
     <url>
+<<<<<<< HEAD
       <loc>http://viniciscarvalho.me/a-wonderful-serenity-has-taken-possession-of-my-entire-soul/</loc>
       
         <lastmod>2015-11-12T13:39:18-03:00</lastmod>
@@ -21,6 +22,11 @@
       <loc>http://viniciscarvalho.me/far-far-away-behind-the-word-mountains-far-from-the-countries-vokalia-and-consonantia/</loc>
       
         <lastmod>2015-11-12T13:38:20-03:00</lastmod>
+=======
+      <loc>http://viniciscarvalho.me/Post-inaugural/</loc>
+      
+        <lastmod>2016-09-05T13:39:18-03:00</lastmod>
+>>>>>>> 195bd7deeb340a489b8a9c36728d1c7a4ebe08a0
       
       
         <changefreq>monthly</changefreq>
@@ -40,7 +46,11 @@
     <url>
       <loc>http://viniciscarvalho.me404.html</loc>
       
+<<<<<<< HEAD
         <lastmod>2016-09-05T19:57:53-03:00</lastmod>
+=======
+        <lastmod>2016-09-06T13:59:29-03:00</lastmod>
+>>>>>>> 195bd7deeb340a489b8a9c36728d1c7a4ebe08a0
       
       
         <changefreq>monthly</changefreq>
@@ -63,7 +73,11 @@
     <url>
       <loc>http://viniciscarvalho.me/category/welcome/</loc>
       
+<<<<<<< HEAD
         <lastmod>2016-09-05T19:57:53-03:00</lastmod>
+=======
+        <lastmod>2016-09-06T13:59:29-03:00</lastmod>
+>>>>>>> 195bd7deeb340a489b8a9c36728d1c7a4ebe08a0
       
       
         <changefreq>monthly</changefreq>
@@ -86,7 +100,11 @@
     <url>
       <loc>http://viniciscarvalho.me</loc>
       
+<<<<<<< HEAD
         <lastmod>2016-09-05T19:57:53-03:00</lastmod>
+=======
+        <lastmod>2016-09-06T13:59:29-03:00</lastmod>
+>>>>>>> 195bd7deeb340a489b8a9c36728d1c7a4ebe08a0
       
       
         <changefreq>monthly</changefreq>
@@ -114,7 +132,11 @@
     <url>
       <loc>http://viniciscarvalho.me/tag/hello-world/</loc>
       
+<<<<<<< HEAD
         <lastmod>2016-09-05T19:57:53-03:00</lastmod>
+=======
+        <lastmod>2016-09-06T13:59:29-03:00</lastmod>
+>>>>>>> 195bd7deeb340a489b8a9c36728d1c7a4ebe08a0
       
       
         <changefreq>monthly</changefreq>
@@ -132,7 +154,11 @@
     <url>
       <loc>http://viniciscarvalho.me/tag/welcome/</loc>
       
+<<<<<<< HEAD
         <lastmod>2016-09-05T19:57:53-03:00</lastmod>
+=======
+        <lastmod>2016-09-06T13:59:29-03:00</lastmod>
+>>>>>>> 195bd7deeb340a489b8a9c36728d1c7a4ebe08a0
       
       
         <changefreq>monthly</changefreq>
