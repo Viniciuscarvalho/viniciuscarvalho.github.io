@@ -8,7 +8,6 @@ slug: about
 
 # Resume
 
-## Interests
 
 Since the end of 2014 began to engage me in iOS community in Brazil and I never stopped, I'm the leader chapter of <a href="http://www.cocoaheads.com.br">CocoaHeads Brazil in Fortaleza</a> and like to join the community and participate in the events. Also participate in the <a href="http://www.devbeers.io/">Devbeers Fortaleza</a> community and usually help the Guru-CE, a Ruby Meetup.
 Writer at equinocios.com
@@ -71,6 +70,8 @@ Example made to an article published in `equinocios.com` and `imasters.com.br` s
 Application created in the first hackaton SAS to foster the development of applications within the enterprise. The application is designed to receive the ESMS data and show graphs and student outcomes.
 
 ## Courses
+
+iOS Nanodegree Udacity
 
 Swift III: Dados, técnicas e melhorias no iOS - Caelum2016
 
