@@ -5,9 +5,23 @@
     <description>Desenvolvedor Mobile, trabalhando com iOS e Android e entusista de Ruby</description>
     <link>http://viniciscarvalho.me/</link>
     <atom:link href="http://viniciscarvalho.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 06 Sep 2016 13:59:29 -0300</pubDate>
-    <lastBuildDate>Tue, 06 Sep 2016 13:59:29 -0300</lastBuildDate>
+    <pubDate>Wed, 14 Sep 2016 16:06:08 -0300</pubDate>
+    <lastBuildDate>Wed, 14 Sep 2016 16:06:08 -0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Estrutura de Models, onde que eu errei?</title>
+        <description>&lt;h3 id=&quot;conceituando-o-model&quot;&gt;Conceituando o Model&lt;/h3&gt; &lt;p&gt;Fala pessoal, tudo beleza com vocês né? Estava eu fazendo um teste de admissão e me deparei com a seguinte situação, como seperar a minha lógica de receber os dados de uma API e fazer a interpreção para objetos? Você pensa, “ah, vou colocar no &lt;code&gt;Model&lt;/code&gt; e depois fazer a conversão do objeto em outra classe, fica mais fácil.” Enganado!&lt;/p&gt; &lt;p&gt;Comecei fazendo a aplicação com este pensamento, de utilizar do &lt;code&gt;init(json: NSDictionary)&lt;/code&gt; e tudo iria ser mais fácil, já que estava acostumado a fazer dessa maneira padrão do iOS. Um outro conceito que é importante observarmos...</description>
+        <pubDate>Tue, 13 Sep 2016 13:40:00 -0300</pubDate>
+        <link>http://viniciscarvalho.me/Estrutura-de-Models,-onde-que-eu-errei%3F/</link>
+        <guid isPermaLink="true">http://viniciscarvalho.me/Estrutura-de-Models,-onde-que-eu-errei%3F/</guid>
+        
+        <category>iOS</category>
+        
+        
+        <category>ios</category>
+        
+      </item>
     
       <item>
         <title>Post inaugural</title>
