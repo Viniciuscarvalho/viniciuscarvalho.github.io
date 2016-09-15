@@ -4,9 +4,15 @@
     
     <url>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <loc>http://viniciscarvalho.me/a-wonderful-serenity-has-taken-possession-of-my-entire-soul/</loc>
       
         <lastmod>2015-11-12T13:39:18-03:00</lastmod>
+=======
+      <loc>http://viniciscarvalho.me/Estrutura-de-Models,-onde-que-eu-errei%3F/</loc>
+      
+        <lastmod>2016-09-13T13:40:00-03:00</lastmod>
+>>>>>>> 98cc8822544eb3ab4d42780752594368876a4101
       
       
         <changefreq>monthly</changefreq>
@@ -19,6 +25,7 @@
   
     
     <url>
+<<<<<<< HEAD
       <loc>http://viniciscarvalho.me/far-far-away-behind-the-word-mountains-far-from-the-countries-vokalia-and-consonantia/</loc>
       
         <lastmod>2015-11-12T13:38:20-03:00</lastmod>
@@ -27,6 +34,11 @@
       
         <lastmod>2016-09-05T13:39:18-03:00</lastmod>
 >>>>>>> 195bd7deeb340a489b8a9c36728d1c7a4ebe08a0
+=======
+      <loc>http://viniciscarvalho.me/Post-inaugural/</loc>
+      
+        <lastmod>2016-09-05T13:39:18-03:00</lastmod>
+>>>>>>> 98cc8822544eb3ab4d42780752594368876a4101
       
       
         <changefreq>monthly</changefreq>
@@ -47,10 +59,14 @@
       <loc>http://viniciscarvalho.me404.html</loc>
       
 <<<<<<< HEAD
+<<<<<<< HEAD
         <lastmod>2016-09-05T19:57:53-03:00</lastmod>
 =======
         <lastmod>2016-09-06T13:59:29-03:00</lastmod>
 >>>>>>> 195bd7deeb340a489b8a9c36728d1c7a4ebe08a0
+=======
+        <lastmod>2016-09-14T16:51:00-03:00</lastmod>
+>>>>>>> 98cc8822544eb3ab4d42780752594368876a4101
       
       
         <changefreq>monthly</changefreq>
@@ -71,6 +87,7 @@
 
     
     <url>
+<<<<<<< HEAD
       <loc>http://viniciscarvalho.me/category/welcome/</loc>
       
 <<<<<<< HEAD
@@ -78,6 +95,29 @@
 =======
         <lastmod>2016-09-06T13:59:29-03:00</lastmod>
 >>>>>>> 195bd7deeb340a489b8a9c36728d1c7a4ebe08a0
+=======
+      <loc>http://viniciscarvalho.me/category/ios/</loc>
+      
+        <lastmod>2016-09-14T16:51:00-03:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    
+
+    
+    <url>
+      <loc>http://viniciscarvalho.me/category/welcome/</loc>
+      
+        <lastmod>2016-09-14T16:51:00-03:00</lastmod>
+>>>>>>> 98cc8822544eb3ab4d42780752594368876a4101
       
       
         <changefreq>monthly</changefreq>
@@ -101,10 +141,14 @@
       <loc>http://viniciscarvalho.me</loc>
       
 <<<<<<< HEAD
+<<<<<<< HEAD
         <lastmod>2016-09-05T19:57:53-03:00</lastmod>
 =======
         <lastmod>2016-09-06T13:59:29-03:00</lastmod>
 >>>>>>> 195bd7deeb340a489b8a9c36728d1c7a4ebe08a0
+=======
+        <lastmod>2016-09-14T16:51:00-03:00</lastmod>
+>>>>>>> 98cc8822544eb3ab4d42780752594368876a4101
       
       
         <changefreq>monthly</changefreq>
@@ -133,10 +177,14 @@
       <loc>http://viniciscarvalho.me/tag/hello-world/</loc>
       
 <<<<<<< HEAD
+<<<<<<< HEAD
         <lastmod>2016-09-05T19:57:53-03:00</lastmod>
 =======
         <lastmod>2016-09-06T13:59:29-03:00</lastmod>
 >>>>>>> 195bd7deeb340a489b8a9c36728d1c7a4ebe08a0
+=======
+        <lastmod>2016-09-14T16:51:00-03:00</lastmod>
+>>>>>>> 98cc8822544eb3ab4d42780752594368876a4101
       
       
         <changefreq>monthly</changefreq>
@@ -155,10 +203,14 @@
       <loc>http://viniciscarvalho.me/tag/welcome/</loc>
       
 <<<<<<< HEAD
+<<<<<<< HEAD
         <lastmod>2016-09-05T19:57:53-03:00</lastmod>
 =======
         <lastmod>2016-09-06T13:59:29-03:00</lastmod>
 >>>>>>> 195bd7deeb340a489b8a9c36728d1c7a4ebe08a0
+=======
+        <lastmod>2016-09-14T16:51:00-03:00</lastmod>
+>>>>>>> 98cc8822544eb3ab4d42780752594368876a4101
       
       
         <changefreq>monthly</changefreq>
