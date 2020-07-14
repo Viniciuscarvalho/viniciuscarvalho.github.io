@@ -40,7 +40,7 @@ plainwhite:
 # - about.md
 
 # Build settings
-theme: plainwhite
+theme: jekyll-theme-dinky
 
 plugins:
   - jekyll-seo-tag
