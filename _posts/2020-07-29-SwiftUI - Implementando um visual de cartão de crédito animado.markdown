@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "SwiftUI - Implementando um visual de cartão de crédito animado"
-date:   2020-07-30 12:00:36 +0530
+date:   2020-07-29 12:00:36 +0530
 categories: iOS, SwiftUI, Apple 
 ---
 Olá bacharéis e diplomatas, uma explicação rápida sobre a história dos bacharéis antes de entrar no assunto SwiftUI. Tinha um grupo de amigos que sempre nos cumprimentavamos de formas inusitadas e teve um famigerado dia que um deles chegou chamando todos de diplomatas e bacharéis tudo por causa desse [vídeo dos trapalhões](https://www.youtube.com/watch?v=G8nFFJLEGtA), assim ficou até hoje eles chamando disso pelo simples fato desse vídeo e eles acharem engraçado no momento. Bem a história de resumo foi essa e sigamos para o que interessa, código! o/
