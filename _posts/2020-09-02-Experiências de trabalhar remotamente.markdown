@@ -14,9 +14,9 @@ Primeiro, ambiente de trabalho. No escritório você não precisa se preocupar m
 
 Segundo, barulhos. Nem todo mundo tem um ambiente propício para trabalhar de casa, geralmente não mora sozinho ou não tem um canto específico da casa que consiga utilizar como escritório, por isso um fone bom é essencial.
 
-Terceiro, pausas e horários. Quando você ta em casa você precisa se atentar aos horários mais do que quando está no escritório, seja uma pausa para beber água, um lanche ou um café. Acho que isso é o que mais sinto falta sabe? Aquela pausa no meio da tarde ou para o almoço com toda a galera, jogar conversa fora sem ser pra falar de trabalho, essas pausas são muito boas e aliviam o dia, sinto falta disso no dia a dia.
+Terceiro, pausas e horários. Quando você ta em casa você precisa se atentar aos horários mais do que quando está no escritório, seja uma pausa para beber água, um lanche ou um café. Acho que isso é o que mais sinto falta sabe? Aquela pausa no meio da tarde ou para o almoço com toda a galera, jogar conversa fora sem ser pra falar de trabalho, essas pausas são muito boas e aliviam o dia, sinto falta disso.
 
-Quarto, clareza nas mensagens. Você bem sabe que se comunicar por texto ainda mais nesse contexto de programação você tem que ser bem claro e objetivo para que o interlocutor seja entendido não é? Pois bem, isso também é uma dificuldade que fica muito claro ainda mais quando se é feito apenas via texto, se tiver dúvida liga, fala por áudio, você vai ver que vai ser bem mais fácil conseguir se explicar, porque antes era só levantar e ir na mesa da pessoa e perguntar não é?
+Quarto, clareza nas mensagens. Você bem sabe que se comunicar por texto ainda mais nesse contexto de programação você tem que ser bem claro e objetivo para que o interlocutor seja entendido não é? Pois bem, isso também é uma dificuldade que fica muito claro, ainda mais quando se é feito apenas via texto, se tiver dúvida liga, fala por áudio, você vai ver que vai ser bem mais fácil conseguir se explicar, porque antes era só levantar e ir na mesa da pessoa e perguntar não é?
 
 Quinto e por último, rotina. Tenha uma rotina assim como era no escritório, horário para entrar, almoçar, lanchar e sair. Assim como falei no tópico de pausas, aqui seria mais para você não perder e misturar os horários.
 
