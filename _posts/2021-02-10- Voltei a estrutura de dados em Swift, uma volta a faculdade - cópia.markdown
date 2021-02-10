@@ -13,7 +13,7 @@ Quem estudou engenharia ou computação vai lembrar muito desses casos de Queue,
 
 Um exemplo com código para demonstrar o que foi falado aqui,
 
-```Swift
+```
 struct QueueStack<T>: Queue {
   private var dequeueStack: [T] = []
   private var enqueueStack: [T] = []
@@ -45,7 +45,7 @@ Explicando um pouco do que ta escrito ai, primeiro criamos as duas Stacks que va
 
 Para testar se as Stacks, temos o seguinte teste,
 
-```Swift
+```
 final class QueueTestCase: XCTestCase {
   var queueArray = QueueArray<String>()
   var queueStack = QueueStack<String>()
