@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Voltei a estrutura de dados em Swift, uma volta a faculdade"
+title:  "Voltei a estrutura de dados em Swift e o porquê disso!"
 date:   2021-02-10 12:00:36 +0530
 categories: Swift, DataStructure, Algorithm 
 ---
