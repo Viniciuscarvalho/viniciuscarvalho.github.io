@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "SOLID em aplicações reais, OCP - Open/Closed Principle"
-date:   2021-02-24 12:00:36 +0530
+date:   2021-04-02 12:00:36 +0530
 categories: Swift, Design Patterns, Algorithm 
 ---
 
