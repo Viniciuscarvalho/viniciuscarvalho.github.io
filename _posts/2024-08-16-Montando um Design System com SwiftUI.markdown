@@ -12,7 +12,7 @@ Fala pessoal, voltei e já voltei com um desafio que nunca tinha encarado em tod
 Aqui não vamos falar o porque devemos construir um Design System, mas sim a concepção de como construir um utilizando o SwiftUI e toda sua robustez, caramba ficou até bonito pareceu até escrito por IA.
 Os primeiros problemas até chegar aqui foi a utilização ou não utilização dos componentes básicos do iOS, como buttons, shapes, entre outros, era feito um wrapper para que conseguisse utilizar algumas propriedades, vou mostrar um exemplo de como era usado anteriormente, 
 
-![Componente_Antigo](Componente-antigo.png)
+![Componente_Antigo](https://imgur.com/a/ypzvitd.png)
 
 Como você observa em muitos dos componentes, ele tem no init tudo que ele vai receber e ser alterado, isso é bem ruim pois torna o componente engessado e todas as vezes que iria ser alterado não é usado o componente da Apple. Lembrando, alguns casos nem sempre vai dar pra usar o próprio que é disponibilizado pela Apple, mas em muitos outros casos conseguiremos utilizar o próprio.
 "Ah Vinicius, mas eu conseguiria criar um convenience init para esses casos e não precisaria ficar passando toda hora isso, seria apenas uma vez."
@@ -112,7 +112,7 @@ VStack {
 }
 ```
 
-![Componente_Button_Style](Componente-Button-Style.png)
+![Componente_Button_Style](https://imgur.com/a/ypzvitd.png)
 
 Aqui foi criado um style para aplicar em um Button simples, mas também podemos criar diferentes custom styles para, Toggle, Label, DisclosureGroup, ControlGroup, GroupBox, Form, todos esses são os possíveis que podem ser criados com esses Customs, isso foi um achado porque antes estava sendo feito um novo componente praticamente ao invés de fazer apenas essa utilização do do Style.
 Isso tudo é direto do SwiftUI, muito massa.
