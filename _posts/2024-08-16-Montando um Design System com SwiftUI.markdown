@@ -75,7 +75,7 @@ struct MyButton<Label: View>: View {
       }
       .font(.system(.title2, design: .rounded, weight: .bold))
       .foregroundColor(.yellow)
-      .background(Capsule().stroke(.yellow, lineWidthL 2))
+      .background(Capsule().stroke(.yellow, lineWidth 2))
     }
 }
 ```
@@ -83,17 +83,15 @@ struct MyButton<Label: View>: View {
 Mas a grande sacada aqui não é a construção do botão e sim fazer um wrapper view que vai suportar esse convenience initiliazer que vai fazer esse wrapper, esse é o verdadeiro pulo do gato.
 
 ```Swift
-struct MyButton where Label == Text {
+extension MyButton where Label == Text {
   @_disfavoredOverload
-  init(_ title: some StringProtocol, role: ButtonRole? = nil, action: @escaping () -> Void) {
+  init(_ title: some StringProtocol, action: @escaping () -> Void) {
     self.action = action
-    self.role = role
     self.label = Text(title)
   }
 
-  init(_ titleKey: LocalizedStringKey, role: ButtonRole? = nil, action: @escaping () -> Void) {
+  init(_ titleKey: LocalizedStringKey, action: @escaping () -> Void) {
     self.action = action
-    self.role = role
     self.label = Text(titleKey)
   }
 }
