@@ -5,7 +5,6 @@ date:   2024-08-16 12:00:36 +0530
 categories: Swift, DesignSystem, SwiftUI 
 ---
 
-# Desafios e nunca ter feito um Design System!
 Fala pessoal, voltei e já voltei com um desafio que nunca tinha encarado em todos esses anos nessa indústria vital. Criar um Design System, ainda mais que era em SwiftUI, algo que nunca tinha feito ou trabalhado antes, apenas em estudos.
 
 ## Problema

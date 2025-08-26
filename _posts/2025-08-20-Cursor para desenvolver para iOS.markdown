@@ -5,8 +5,6 @@ date:   2025-08-19 12:00:36 +0530
 categories: Swift, IA, SwiftUI, Claude
 ---
 
-# Aproveitando todo o hype e uso das IAs
-
 Nos últimos tempos quem não utiliza alguma IA pode se sentir que está um pouco atrasado ou ficando para trás não é mesmo?
 Existem inúmeras hoje em dia, ChatGPT, Gemini, Deepseek, não irei entrar no mérito de explicar o que cada uma é qual modelo utiliza e como funciona, vou tentar abordar o uso do VSCode/Cursor com o [Claude AI](https://claude.ai) que é um Agent para diversas IDEs, mas aqui no caso iremos utilizar o Cursor. Há também uma atualização do Xcode 26 que traz muitas melhorias e integração com essas diversas ferramentas, vou deixar o [link](https://wendyliga.com/blog/xcode-26-custom-model/) aqui para testarem caso estejam na beta, já que esse texto está saindo em agosto.
 
