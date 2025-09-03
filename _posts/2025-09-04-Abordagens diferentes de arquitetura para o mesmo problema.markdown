@@ -19,7 +19,7 @@ The app is working but some elements are missing in MVVM, but I would like to us
 the layers separately without having to change what was still working. Next, I will discuss what was created and how each of the 
 layers turned out, and show a structural design of how they interconnect, thinking at a higher level.
 
-Digamos que esses são os requisitos para o aplicativo em questão, mostrar uma lista de tweets e de um app famoso na China que é o WeChat ou algo semelhante a ele, possuimos um profile image, avatar e uma lista de tweets, teremos também um refresh quando fazemos um pulling down e somente os 5 primeiro itens são mostrados depois de carregado
+Let's say these are the requirements for the application in question: display a list of tweets and a famous app in China called WeChat or something similar to it. We have a profile image, avatar, and a list of tweets. We will also have a refresh when we pull down, and only the first five items are shown after loading.
 
 ## Pieces of Architecture
 
