@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Você precisa de System Design para entender o software"
+title:  "You need System Design to understand software"
 date:   2025-09-16 12:00:36 +0530
 categories: Swift, SwiftUI, iOS, Architecture
 ---
