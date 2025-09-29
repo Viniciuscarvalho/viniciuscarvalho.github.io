@@ -1,142 +1,123 @@
 ---
 layout: post
-title:  "You need System Design to understand software"
-date:   2025-09-16 12:00:36 +0530
-categories: Swift, SwiftUI, iOS, Architecture
+title:  "Applying concepts I learned from System Design"
+date:   2025-09-29 12:00:36 +0530
+categories: Swift, SwiftUI, Tuist, Architecture, TCA
 ---
 
-Continuando os posts em inglês, agora vou contar um pouco sobre como tem sido estudar mais sobre System Design e não a parte visual que é o Design System, isso é uma coisa totaaaalmente diferente tá? E acho que todo desenvolvedor de software, seja mobile ou não, deveria conhecer ponta a ponta a estrutura e montagem de um sistema assim mesmo que você não precise se aprofundar bastante.
+I started to delve deeper into the concepts of the book I mentioned in the previous article. If you haven't read it, go ahead and take a look at the tips. I decided to put the entire flow into practice to do three things I've wanted to do for a long time. One was to create an application from scratch for my portfolio, with many features, from conception to data modeling and screens. I also wanted to delve deeper into a specific architecture, which in this case is Composable or TCA, and invest time in learning more about the features of the system build, which is Tuist.
 
-Where did all this come from to see these software concepts? An article in Gergely Orosz's newsletter talks about how not to get stuck in coding interviews. Here, I will try to address how I have been studying this and the book I am reading on System Design.
+So, this article is to explain my journey so far.
 
 Let's do it.
 
-## Problem
+## Point of start
 
-When I started conducting interviews at the companies I worked for, each one had its own structure and model. There are algorithm interviews and other types as well. What I will discuss here is one of these phases that I am delving into more and more: Mobile System Design.
+In the previous article, I was putting together something related to an interview I had seen from the book, which was to set up a chat system. This is complex, and yes, it is necessary to know the layers and how the system itself works, not just to design screens or what happens there on the screen. Now I wanted to practice two things, which were to put together a complete software package and apply the concepts of architecture from the [Composable](https://github.com/pointfreeco/swift-composable-architecture).
 
-## MIKE framework
+First point, don't replicate anything, so I wanted to create an app from scratch with something I wanted, which was a problem involving exchanging concert tickets. I started by putting together a scope of screens and then went step by step, just like I was reading in the book. This is useful not only for interviews, OK?  - It's for the life of a software developer.
 
-First of all, I had read about this framework in the book Cracking The Coding Interview, and it is specifically designed for solving algorithm tests and approaching this type of problem, but I believe it can also be the key to solving other software problems.
+*Remember: I was both the interviewer and the interviewee in this case, so I had to gather the requirements and say which ones were functional and which ones were non-functional.*
 
-What each of the letters means:
+With the project created, requirements gathered, data models, mock screens, and JSON to consume the data ready, I moved on to the code.
 
-- [M]inimally sketch the naive solution: Start by establishing a baseline approach, even if it’s inefficient. This ensures you understand the problem, and it gives you something to optimize.
-- [I]dentify upper and lower bounds: Use big O analysis to narrow down the range of possible solutions. This helps you quickly discard approaches that are too slow or unrealistically fast. See a helpful visual introduction to Big O analysis.
-- [K]eywords/triggers: Look for hints in the problem statement that suggest specific techniques. For example, a sorted input array might trigger thoughts of binary search, while questions involving parentheses often suggest use of a stack.
-- [E]mploy boosters: If the first three parts don’t get you unstuck, there’s a series of techniques designed to give you a “boost”. These include optimizing the brute force solution, hunting for useful properties, and ways to decrease difficulty.
-This framework isn’t revolutionary; it simply spells out what good problem solvers do instinctively.
+## The code
 
-As you can see, this is much more focused on solving algorithms. What I want to bring up here with this type of approach is to break down the problem before tackling a solution, where we are very accustomed to just executing and executing.
+I wanted to put into practice things that I hadn't built from scratch, Tuist and a new architecture. [Tuist](https://tuist.dev/) is a build system that differs from the one used in Xcode and is very useful for large-scale projects. It's worth checking out and understanding how it works on the website I've provided here. 
 
-Next, I will try to break down a little more about how to proceed with System Design and provide some guidance, which is what I have been practicing and studying.
+*The aim is not to delve into specific topics, but to show what I used to put it together and the real difficulties I faced in creating something.*
 
-## 5 points to start
 
-I will divide the analysis until I arrive at the solution design, which are as follows:
+```Swift
+import ProjectDescription
 
-1) Capturing the briefing
-2) Defining scope and requirements
-3) Finding secondary or hidden requirements
-4) Uncovering failure requirements and edge cases
-5) Turning requirements into a System Design
+let project = Project(
+    name: "SocialApp",
+    packages: [
+        .remote(
+            url: "https://github.com/pointfreeco/swift-composable-architecture",
+            requirement: .upToNextMajor(from: "1.0.0")
+        )
+    ],
+    settings: .settings(
+        configurations: [
+            .debug(name: "Debug"),
+            .release(name: "Release")
+        ]
+    ),
+    targets: [
+        .target(
+            name: "SocialApp",
+            destinations: .iOS,
+            product: .app,
+            bundleId: "dev.tuist.SocialApp",
+            infoPlist: .default,
+            sources: [
+                "./SocialApp/Sources/**",
+                "./SharedModels/Sources/**",
+                "./Projects/Features/Events/Sources/**",
+                "./Projects/Features/TicketsList/Sources/**", 
+                "./Projects/Features/TicketDetail/Sources/**"
+            ],
+            resources: ["SocialApp/Resources/**"],
+            dependencies: [
+                .package(product: "ComposableArchitecture")
+            ],
+            settings: .settings(
+                configurations: [
+                    .debug(name: "Debug"),
+                    .release(name: "Release")
+                ]
+            )
+        ),
 
-This is just part of the book by [Tjeerd](https://www.mobilesystemdesign.com), and I'm studying based on it, which is very comprehensive and straightforward material. I highly recommend it, and it's worth it!
+        .target(
+            name: "SocialAppTests",
+            destinations: .iOS,
+            product: .unitTests,
+            bundleId: "dev.tuist.SocialAppTests",
+            infoPlist: .default,
+            buildableFolders: [
+                "SocialApp/Tests"
+            ],
+            dependencies: [.target(name: "SocialApp")]
+        )
+    ]   
+)
+```
 
-## Capturing the briefing
+The initial structure looks something like this, and when you run the commands `tuist init` and `tuist install`, voilà, we already have the structure set up in our Xcode. Then, with `tuist generate`, we already have the project ready to run. I believe that because it is a different System Build, you can create different features for each one and make each feature isolated just by changing the path in the Project file. This is one of the coolest things I see in Tuist. If I were to use it directly in Xcode, it would be a lot more work. Now imagine if it were a huge project?
 
-I'll tell you about my case. Usually, we receive one or two screens to describe how this can evolve or grow from these screens, and it's a common routine: We receive some designs, some (vague notion of) requirements, and then we are asked “Can you make this?” followed by the fan-favorite “When do you think it will be finished?”
+Now I wanted to validate the creation of how to scale if it were a simple project and then increase to 300 modules, for example. Would TCA help me more or hinder me? Would it be easier or more difficult than a simple approach?
 
-Usually, the interviewee is already confused, and those who are not used to it start doing the architecture part or connecting what the features would do. I know, we've all done this in our eagerness to solve it quickly and because we've done it countless times, right?
-But there's no need to be so eager. Let's take it step by step, explain everything clearly, and show that you understand what is being asked.
-This is very quick and can be done in these first three topics.
+### Problems on the way
 
-- Ask about acceptance criteria;
-- Be clear about the scope: Define key deliverables
-- Listen carefully: Capture all ideas
-- Categorize and confirm: To ensure alignment
+The structure I had sketched out would be:
 
-## Defining scope and requirements
+Services -> DataDomain -> Features (UI)
 
-- Clearly define essential features
-- Explicity categorie
-- Understand dependencies
-- Validate with stakeholders and interviewers
+The problems started to appear when I created a Project for each of the features and had Composable as a dependency. Until then, I didn't know I had to have that dependency. The build was working, but the errors it presented were that there was cross-dependency between features. 
 
-## Finding secondary or hidden requirements
+In Composable, based on the example projects and also with the help of Cursor <3, I understood that I had a connection to my View, which was this connection in the init of my features,
 
-- Imagine walking through an entire feature from user's perspective
-- Clarify vague descriptions
-- Pay atention to competitor comparisons
+```Swift
+public struct EventsView: View {
+    @Bindable var store: StoreOf<EventsFeature>
+    
+    public init(store: StoreOf<EventsFeature>) {
+        self.store = store
+    }
+```
 
-## Turning requirements into a System Design
+That was how I handled events linked to View. Since I wanted to use everything in the library, I didn't want to remove this Store concept, so I removed it and left everything in the same path as it was in Project and removed all Projects from each of the features. Maybe I'll be able to do this later, or maybe I'm doing something wrong with TCA.
 
-Having completed this preliminary analysis, which is quick but necessary, we move on to the high-level requirements, or the functional and non-functional requirements.
-Let's continue with the same example used in one of the books I mentioned above, which was also one of the tests I did, using a two-screen chat communication.
-
-<a href="https://ibb.co/TMnT82Nd"><img src="https://i.ibb.co/hFnMW9Tw/Captura-de-Tela-2025-09-16-s-11-56-15.png" alt="Captura-de-Tela-2025-09-16-s-11-56-15" border="0"></a>
-
-*Let's look at the functional requirements first*,
-
-- Send/receive messages
-- Send/receive files and images
-- Supports 1-1 chats, no groups
-- User can view chats when offline
-- Supports downloading and viewing profile image quality
-
-*The non-functional ones*,
-
-- Offline support (sending messages)
-- Real-time updates
-- Optimization for slow connections and when the battery is low
-
-Having raised these points, we move on to the step-by-step process of the points previously discussed. This should take a maximum of 10 minutes and must be very brief so that we can move on to designing the solution itself.
-
-Next, we create the DataModels for the application in question, so we will have Chat, User, Message, and Attachment. I will not detail the fields here, but it is important to know what you are putting in and what to transmit the application information.
-
-### Decide which architecture?
-
-No. Don't do that. First, understand the problem and try not to put it in the design right away. Remember that what was asked previously is essential for building the software. Before assuming that you will use MVVM or TCA, it may not even be in SwiftUI. All of this must be taken into consideration in the project you are working on and the one you will be joining.
-
-### Turn the Types into a Graph
-
-Now we will first draw at a high level and then detail the flow of a message, for example, which is the case we are addressing.
-
-<a href="https://ibb.co/MkBG8d7x"><img src="https://i.ibb.co/1GzdscTt/Captura-de-Tela-2025-09-16-s-14-49-10.png" alt="Captura-de-Tela-2025-09-16-s-14-49-10" border="0"></a>
-
-This is an example from the Mobile System Design book in the Quick Reference.
-
-We have seen that I am not defining any type of architecture or anything like that, but we can move on to separating the systems and using what the problem will have. Since we are dealing with a chat case, we already know from gathering the functional requirements what we will need to build our system, right? Let's get started.
-
-- ChatService
-- WebSocket
-- SyncEngine
-- APIClient
-- ChatRepository
-- LocalDB
-- FileStorage
-
-*P.S: The purpose here is not to show how to set up the flow, but to present what will be contained in the system. To understand the connections between classes, please study the book.* 
-
-These are some of the boxes we should follow from that first pre-assembly of the image, from which we will continue with the design of our solution. Again, the visual aspect can take a back seat at first, because what matters here is how the message is sent and received. 
-
-To show how the arrows in our design work and connect, this is the main requirement you have to meet: knowing how to explain how a message is sent and received. 
-
-The points that come after that are a consequence of your system, such as how the cache system works, how WebSocket works and communicates with the Repository, how it checks whether the message is being read online or from Storage, the number of calls made to APIClient, will it always be requested?
-All of this is part of building your system so that you can then explain the visual presentation part. Try to group by Domains, so it will be clearer when you are explaining and also to make clear the most and least critical parts of your system.
-
-### One plus
-
-There isn't usually much time to present this part of the methods or what each of the system boxes will have, but it's a big plus to explain, for example, that ChatRepository will have the `saveChats([Chat])` method and also `fetchChats()`. Remember that the solution design goes through all layers, and in the end, it's as if you were looking at the design and were ready to code.
-This is also important for studying and showing what each of the layers and boxes will do in the system itself.
+Another point I identified was something I'm putting to the test, which is the speed of creating a feature or adding functionality to the code I already have. 
+I wanted to add a favorite and unfavorite using SwiftData, and apparently it was something simple, but I may be creating boilerplates for this, as I only have one View and one Feature and the Client that connects to my Domain layer. I will look into it further to see if it was done correctly or not, but I thought it was pluggable enough to grow the number of features.
 
 ## What's next?
 
-I tried to convey an overview of how it is constructed and how I have been studying more about System Design, whether for interviews or interviewing others. It is part of the process for a software engineer to identify these gaps and understand what is being done in each part of the project.
-I will leave some links to interesting videos and also strongly recommend the book [Mobile System Design](https://www.mobilesystemdesign.com), which was widely used as a reference to study and explain some of these concepts.
+Finally, the project's evolution includes phases such as creating an API for information consumption, Firebase authentication, push notifications, adding and removing tickets in the app itself, and a seller rating system. There are some features that are emerging and elevating this proof of concept.
 
-- [4 erros comuns em entrevista de Mobile System Design](https://youtu.be/TP5mCDConxI?si=b_HEsXi72_-wUfYa)
-- [Design Uber Eats Mock Interview](https://www.youtube.com/watch?v=SbXDhAKgWek)
-- [Chat Mock Interview](https://www.youtube.com/watch?v=m6ab37t2ypQ)
+It's excellent to put into practice the concepts I've been studying, Composable, Tuist, System Design from scratch, setting up an API system to design this structure, and also making the project available for collaboration on Github. Next will be bringing the use of iOS 26 and other features to this same project.
 
-Nos vemos no próximo post! See ya!
+See ya, até mais!
