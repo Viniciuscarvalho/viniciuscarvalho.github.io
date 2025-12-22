@@ -2,6 +2,7 @@
 title: "GastandoYa"
 tagline: "Controle suas finanças de forma inteligente."
 description: "Um app iOS de finanças pessoais para registrar lançamentos, analisar gastos, criar metas e manter tudo sincronizado com segurança."
+kind: "app"
 status: "Disponível em breve"
 featured: true
 stack:

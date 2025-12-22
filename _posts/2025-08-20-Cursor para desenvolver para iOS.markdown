@@ -2,7 +2,11 @@
 layout: post
 title:  "Utilizando VSCode/Cursor para desenvolver para iOS"
 date:   2025-08-19 12:00:36 +0530
-categories: Swift, IA, SwiftUI, Claude
+categories:
+  - Swift
+  - IA
+  - SwiftUI
+  - Claude
 ---
 
 Nos últimos tempos quem não utiliza alguma IA pode se sentir que está um pouco atrasado ou ficando para trás não é mesmo?
@@ -12,7 +16,7 @@ Vamos lá!
 
 ## Setup IDE
 
-Vamos começar baixando o [Cursor](www.cursor.com), ele é free, mas tem algumas features que podem ser pagar com a inscrição de $20, uma vez instalado vamos para as extensões e brews necessárias para transformar nosso editor em uma ferramente bem melhor que o Xcode (?), só o tempo dirá!
+Vamos começar baixando o [Cursor](https://www.cursor.com), ele é free, mas tem algumas features que podem ser pagar com a inscrição de $20, uma vez instalado vamos para as extensões e brews necessárias para transformar nosso editor em uma ferramente bem melhor que o Xcode (?), só o tempo dirá!
 
 ### Instalações
 

@@ -2,8 +2,9 @@
 title: "GastandoYa — UI (Screens)"
 tagline: "Um case visual para demonstrar UI/UX, hierarquia e consistência."
 description: "Galeria de telas do GastandoYa usada como portfólio visual (sem depender de um texto longo)."
+kind: "case"
 status: "Case visual"
-featured: true
+featured: false
 stack:
   - SwiftUI
   - iCloud

@@ -3,7 +3,7 @@ layout: default
 ---
 
 {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
-{%- assign featured_apps = site.apps | where: "featured", true | sort: "title" -%}
+{%- assign featured_apps = site.apps | where: "kind", "app" | where: "featured", true | sort: "title" -%}
 
 <section class="relative overflow-hidden">
   <div class="pointer-events-none absolute inset-0 -z-10">

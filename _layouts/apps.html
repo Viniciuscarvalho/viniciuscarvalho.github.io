@@ -2,8 +2,9 @@
 layout: default
 ---
 
-{%- assign featured = site.apps | where: "featured", true | sort: "title" -%}
-{%- assign others = site.apps | where_exp: "a", "a.featured != true" | sort: "title" -%}
+{%- assign only_apps = site.apps | where: "kind", "app" -%}
+{%- assign featured = only_apps | where: "featured", true | sort: "title" -%}
+{%- assign others = only_apps | where_exp: "a", "a.featured != true" | sort: "title" -%}
 {%- assign apps = featured | concat: others -%}
 
 <header class="mx-auto max-w-3xl">
@@ -11,7 +12,7 @@ layout: default
     {{ page.title | escape }}
   </h1>
   <p class="mt-3 text-slate-400">
-    Produtos, experimentos e apps que eu construo (ou estou construindo).
+    Apps que eu construo (ou estou construindo).
   </p>
 </header>
 
