@@ -6,7 +6,8 @@ module.exports = {
     "./_posts/**/*.{markdown,md,html}",
     "./_apps/**/*.{markdown,md,html}",
     "./assets/js/**/*.js",
-    "./**/*.{html,md,markdown}"
+    "./*.{html,md,markdown}",
+    "./{apps,blog,sobre}/**/*.{html,md,markdown}"
   ],
   theme: {
     extend: {
