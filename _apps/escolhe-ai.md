@@ -13,8 +13,12 @@ links:
   website: ""
   app_store: ""
   github: ""
-cover_image: "/assets/perfil_site.png"
-screenshots: []
+cover_image: "/assets/apps/escolhe-ai/screen-1.png"
+screenshots:
+  - "/assets/apps/escolhe-ai/screen-1.png"
+  - "/assets/apps/escolhe-ai/screen-2.png"
+  - "/assets/apps/escolhe-ai/screen-3.png"
+  - "/assets/apps/escolhe-ai/screen-4.png"
 highlights:
   - "Filtros por tags e categorias"
   - "Histórico de restaurantes visitados"
@@ -25,8 +29,8 @@ highlights:
 
 Estou usando este app como laboratório de UX: filtros rápidos, histórico “útil de verdade” e rotas em um toque.
 
-## Próximo passo (pendente)
+## Screenshots
 
-Adicionar as screenshots do app (as imagens que você anexou no chat) em `assets/apps/escolhe-ai/` e referenciar aqui em `cover_image` e `screenshots`.
+As imagens estão em `assets/apps/escolhe-ai/` e são renderizadas automaticamente nesta página.
 
 
