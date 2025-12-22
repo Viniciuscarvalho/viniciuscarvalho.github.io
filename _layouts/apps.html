@@ -1,0 +1,54 @@
+---
+layout: default
+---
+
+{%- assign featured = site.apps | where: "featured", true | sort: "title" -%}
+{%- assign others = site.apps | where_exp: "a", "a.featured != true" | sort: "title" -%}
+{%- assign apps = featured | concat: others -%}
+
+<header class="mx-auto max-w-3xl">
+  <h1 class="text-3xl font-semibold tracking-tight text-slate-100 md:text-4xl">
+    {{ page.title | escape }}
+  </h1>
+  <p class="mt-3 text-slate-400">
+    Produtos, experimentos e apps que eu construo (ou estou construindo).
+  </p>
+</header>
+
+<section class="mx-auto mt-10 grid max-w-6xl gap-6 md:grid-cols-2">
+  {%- if apps.size == 0 -%}
+    <div class="card p-6">
+      <p class="text-slate-300">Nenhum app cadastrado ainda.</p>
+    </div>
+  {%- else -%}
+    {%- for app in apps -%}
+      <a href="{{ app.url | relative_url }}" class="card block p-6 no-underline hover:border-slate-700">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h2 class="text-lg font-semibold text-slate-100">{{ app.title }}</h2>
+            {%- if app.tagline -%}
+              <p class="mt-2 text-sm text-slate-400">{{ app.tagline }}</p>
+            {%- endif -%}
+              {%- if app.description -%}
+                <p class="mt-3 text-sm text-slate-300">{{ app.description }}</p>
+              {%- endif -%}
+          </div>
+          {%- if app.status -%}
+            <span class="shrink-0 rounded-full border border-slate-800 bg-slate-900/60 px-3 py-1 text-xs text-slate-300">
+              {{ app.status }}
+            </span>
+          {%- endif -%}
+        </div>
+        {%- if app.highlights and app.highlights.size > 0 -%}
+          <ul class="mt-4 list-disc pl-5 text-sm text-slate-300">
+            {%- for h in app.highlights limit: 3 -%}
+              <li>{{ h }}</li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </a>
+    {%- endfor -%}
+  {%- endif -%}
+</section>
+
+

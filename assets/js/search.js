@@ -1,43 +1,26 @@
----
----
-
 window.onload = function () {
-    var sjs = SimpleJekyllSearch({
-        searchInput: document.getElementById('searchbar'),
-        resultsContainer: document.getElementById('search-results'),
-        json: '{{ "/search.json" | relative_url }}',
-        searchResultTemplate: '<a href="{url}" target="_blank">{title}</a>',
+    var $searchbar = document.getElementById('searchbar');
+    var $results = document.getElementById('search-results');
+    if (!$searchbar || !$results) return;
+
+    SimpleJekyllSearch({
+        searchInput: $searchbar,
+        resultsContainer: $results,
+        json: '/search.json',
+        searchResultTemplate: '<a class="block rounded-xl border border-slate-800 bg-slate-900/40 px-4 py-3 no-underline hover:border-slate-700" href="{url}"><div class="text-sm text-slate-100">{title}</div><div class="mt-1 text-xs text-slate-400">{date}</div></a>',
         noResultsText: ''
     });
 
-    /* hack ios safari unfocus */
-    if (/Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent))
-        document.body.firstElementChild.tabIndex = 1;
-
-    var $labelGroup = document.querySelector(".posts-labelgroup");
-    var $searchbar = document.getElementById("searchbar");
-    var $postLabel = document.getElementById("posts-label");
-    var $searchResults = document.querySelector(".search-results");
-    var labelWidth = $postLabel.scrollWidth;
-    $postLabel.style.width = labelWidth + "px";
-
-    $labelGroup.addEventListener("click", function (e) {
-        $searchResults.style.display = null;
-        $postLabel.style.width = "0";
-        $labelGroup.setAttribute("class", "posts-labelgroup focus-within");
-        $searchbar.focus();
-        e.stopPropagation();
-    }, false);
-
-    $labelGroup.addEventListener("mouseleave", function () {
-        document.body.onclick = searchCollapse;
-    });
-
-    var searchCollapse = function (e) {
-        $searchResults.style.display = "none";
-        $labelGroup.setAttribute("class", "posts-labelgroup");
-        $postLabel.style.width = labelWidth + "px";
-        document.body.onclick = null;
+    var updateVisibility = function () {
+        if ($searchbar.value && $searchbar.value.trim().length > 0) {
+            $results.classList.remove("hidden");
+        } else {
+            $results.classList.add("hidden");
+            $results.innerHTML = "";
+        }
     };
+
+    $searchbar.addEventListener("input", updateVisibility);
+    updateVisibility();
 }
 

@@ -1,0 +1,87 @@
+---
+layout: default
+---
+
+<article class="mx-auto max-w-4xl">
+  <a class="inline-flex items-center gap-2 text-sm text-slate-300 no-underline hover:text-emerald-300" href="{{ "/apps/" | relative_url }}">
+    <span aria-hidden="true">←</span>
+    Voltar para Apps
+  </a>
+
+  <header class="mt-6">
+    <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+      <div class="min-w-0">
+        <h1 class="text-3xl font-semibold tracking-tight text-slate-100 md:text-4xl">
+          {{ page.title | escape }}
+        </h1>
+        {%- if page.tagline -%}
+          <p class="mt-3 text-slate-400">{{ page.tagline }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- if page.status -%}
+        <div class="shrink-0">
+          <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/60 px-3 py-1 text-xs text-slate-300">
+            {{ page.status }}
+          </span>
+        </div>
+      {%- endif -%}
+    </div>
+  </header>
+
+  <section class="mt-8 grid gap-6 md:grid-cols-3">
+    <div class="card p-6 md:col-span-2">
+      {%- if page.description -%}
+        <p class="text-slate-300">{{ page.description }}</p>
+      {%- endif -%}
+
+      {%- if page.screenshots and page.screenshots.size > 0 -%}
+        <div class="mt-6">
+          <div class="text-sm font-semibold text-slate-100">Screenshots</div>
+          <div class="mt-4 grid gap-3 sm:grid-cols-2">
+            {%- for img in page.screenshots -%}
+              <img
+                src="{{ img | relative_url }}"
+                alt=""
+                loading="lazy"
+                class="w-full rounded-xl border border-slate-800 bg-slate-900/40 object-cover"
+              >
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endif -%}
+
+      <div class="prose prose-invert mt-6 max-w-none">
+        {{ content }}
+      </div>
+    </div>
+
+    <aside class="card p-6">
+      {%- if page.stack and page.stack.size > 0 -%}
+        <div class="text-sm font-semibold text-slate-100">Stack</div>
+        <div class="mt-3 flex flex-wrap gap-2">
+          {%- for item in page.stack -%}
+            <span class="rounded-full border border-slate-800 bg-slate-900/60 px-3 py-1 text-xs text-slate-300">{{ item }}</span>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if page.links -%}
+        <div class="mt-6 text-sm font-semibold text-slate-100">Links</div>
+        <div class="mt-3 flex flex-col gap-2 text-sm">
+          {%- if page.links.website and page.links.website != "" -%}
+            <a class="no-underline text-slate-200 hover:text-emerald-300" href="{{ page.links.website }}" target="_blank" rel="noopener">Website</a>
+          {%- endif -%}
+          {%- if page.links.app_store and page.links.app_store != "" -%}
+            <a class="no-underline text-slate-200 hover:text-emerald-300" href="{{ page.links.app_store }}" target="_blank" rel="noopener">App Store</a>
+          {%- endif -%}
+          {%- if page.links.github and page.links.github != "" -%}
+            <a class="no-underline text-slate-200 hover:text-emerald-300" href="{{ page.links.github }}" target="_blank" rel="noopener">GitHub</a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </aside>
+  </section>
+</article>
+
+

@@ -1,72 +1,37 @@
 <!DOCTYPE html>
-<html lang="{{ site.plainwhite.html_lang }}">
+<html lang="{{ site.plainwhite.html_lang | default: "pt-br" }}">
 
 <head>
   {%- include head.html -%}
 </head>
 
 <body>
-  <main class="container">
-    <section class="about">
-      <a href="{{ "/" | relative_url}}"><img src="{{ "/assets/perfil_site.png" | relative_url }}" alt="{{ site.plainwhite.name }}"></a>
-      <h2 id="title">
-        <a href="{{ "/" | relative_url }}">{{ site.plainwhite.name }}</a>
-      </h2>
-      <p class="tagline">{{ site.plainwhite.tagline }}</p>
-      <ul class="social">
-        {%- if site.plainwhite.social_links.github -%}
-        <a href="https://github.com/{{ site.plainwhite.social_links.github }}" target="_blank">
-          <li>
-            <i class="icon-github-circled"></i>
-          </li>
-        </a>
-        {%- endif -%}
-        {%- if site.plainwhite.social_links.linkedIn -%}
-        <a href="https://www.linkedin.com/{{ site.plainwhite.social_links.linkedIn }}" target="_blank">
-          <li>
-            <i class="icon-linkedin-squared"></i>
-          </li>
-        </a>
-        {%- endif -%}
-        {%- if site.plainwhite.social_links.twitter -%}
-        <a href="https://twitter.com/{{ site.plainwhite.social_links.twitter }}" target="_blank">
-          <li>
-            <i class="icon-twitter-squared"></i>
-          </li>
-        </a>
-        {%- endif -%}
-        
-      </ul>
-      {%- if site.plainwhite.navigation -%}
-      <nav class="navigation">
-        <ul>
-          {% for link in site.plainwhite.navigation %}
-          <li>
-            <a href="{{ link.url }}">{{ link.title }}</a>
-          </li>
-          {% endfor %}
-        </ul>
-      </nav>
-      {%- endif -%}
-      <p>&copy;
-        {{ "now" | date: "%Y" }}</p>
-      {%- if site.plainwhite.dark_mode -%}
-      <div>
-        <p>Dark Mode
-          <i class="icon-moon"></i>
-          <label class="switch">
-            <input type="checkbox" id="dark-mode-toggle">
-            <span class="slider round" onclick="toggleDarkMode()"></span>
-          </label>
-        </p>
-      </div>
-      <script type="text/javascript" src="{{ "/assets/js/darkmode.js" | relative_url }}"></script>
-      {%- endif -%}
-    </section>
-    <section class="content">
-      {{ content }}
-    </section>
+  {%- include nav.html -%}
+
+  <main class="container-page py-10">
+    {{ content }}
   </main>
+
+  {%- include footer.html -%}
+
+  <script>
+    (function () {
+      var toggle = document.getElementById("nav-toggle");
+      var mobileNav = document.getElementById("mobile-nav");
+      if (!toggle || !mobileNav) return;
+
+      toggle.addEventListener("click", function () {
+        var isOpen = mobileNav.classList.contains("hidden") === false;
+        if (isOpen) {
+          mobileNav.classList.add("hidden");
+          toggle.setAttribute("aria-expanded", "false");
+        } else {
+          mobileNav.classList.remove("hidden");
+          toggle.setAttribute("aria-expanded", "true");
+        }
+      });
+    })();
+  </script>
   {%- if site.plainwhite.analytics_id -%}
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.plainwhite.analytics_id }}"></script>
   <script>

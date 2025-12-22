@@ -1,8 +1,8 @@
-title: Swift Mah Blog - Mais um blog sobre iOS
+title: Vinicius Carvalho — iOS Engineer
 author: viniciuscarvalho
 email: viniciuscarvalhom@icloud.com
 description: > # this means to ignore newlines until "show_exerpts:"
-  Mais um blog sobre iOS com algumas pitadas de conhecimento, falando um pouco do que vivo no dia a dia, carreira também e pílulas de conhecimento.
+  iOS Engineer construindo apps e escrevendo sobre arquitetura, produto e carreira.
 show_excerpts: true # set to true to show excerpts on the homepage
 
 # Minima date format
@@ -11,12 +11,12 @@ sass:
   sass_dir: _sass
 plainwhite:
   name: Vinicius Carvalho
-  tagline: iOS Engineer. Developer and more.
+  tagline: iOS Engineer · Apps · Arquitetura · Produto
   date_format: "%b %-d, %Y"
   sitemap: true # set to true to generate sitemap.xml content
   search: true # set to true to enable searchbar
-  dark_mode: true # set to true to add dark mode toggle
-  html_lang: "en" # set the lang attribute of the <html> tag for the pages. See here for a list of codes: https://www.w3schools.com/tags/ref_country_codes.asp
+  dark_mode: false # site is dark-only now (no toggle)
+  html_lang: "pt-br" # set the lang attribute of the <html> tag for the pages.
 
   # generate social links in footer
   social_links:
@@ -37,8 +37,26 @@ plainwhite:
 # - about.md
 
 # Build settings
-remote_theme: samarsault/plainwhite-jekyll
-
 plugins:
   - jekyll-seo-tag
 #  - jekyll-feed
+
+exclude:
+  - node_modules
+  - package.json
+  - postcss.config.js
+  - tailwind.config.js
+  - assets/css/main.css
+
+# Collections
+collections:
+  apps:
+    output: true
+    permalink: /apps/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: apps
+    values:
+      layout: app
