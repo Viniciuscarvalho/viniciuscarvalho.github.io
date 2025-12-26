@@ -73,7 +73,16 @@ layout: default
             <a class="no-underline text-slate-200 hover:text-emerald-300" href="{{ page.links.website }}" target="_blank" rel="noopener">Website</a>
           {%- endif -%}
           {%- if page.links.app_store and page.links.app_store != "" -%}
-            <a class="no-underline text-slate-200 hover:text-emerald-300" href="{{ page.links.app_store }}" target="_blank" rel="noopener">App Store</a>
+            <a
+              class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-slate-100 px-4 py-3 text-sm font-semibold text-slate-950 no-underline hover:bg-white"
+              href="{{ page.links.app_store }}"
+              target="_blank"
+              rel="noopener"
+              aria-label="Baixar na App Store"
+            >
+              <span aria-hidden="true"></span>
+              Baixar na App Store
+            </a>
           {%- endif -%}
           {%- if page.links.github and page.links.github != "" -%}
             <a class="no-underline text-slate-200 hover:text-emerald-300" href="{{ page.links.github }}" target="_blank" rel="noopener">GitHub</a>

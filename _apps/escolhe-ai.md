@@ -1,7 +1,7 @@
 ---
 title: "Escolhe Aí"
 tagline: "Escolha o que está afim de comer, sem perder tempo."
-description: "App para sortear restaurantes com base em categorias/tags, histórico de visitas e rotas — pensado para decisões rápidas no dia a dia."
+description: "App para escolher restaurantes para sair com minha namorada, a partir de uma lista de ~120 lugares de diversos tipos."
 kind: "app"
 status: "Em evolução"
 featured: true
@@ -11,26 +11,21 @@ stack:
   - CoreData
 links:
   website: ""
-  app_store: ""
+  app_store: "https://apps.apple.com/br/app/choosethere/id6756740977"
   github: ""
 cover_image: "/assets/apps/escolhe-ai/screen-1.png"
-screenshots:
-  - "/assets/apps/escolhe-ai/screen-1.png"
-  - "/assets/apps/escolhe-ai/screen-2.png"
-  - "/assets/apps/escolhe-ai/screen-3.png"
-  - "/assets/apps/escolhe-ai/screen-4.png"
+screenshots: []
 highlights:
-  - "Filtros por tags e categorias"
-  - "Histórico de restaurantes visitados"
-  - "Abrir rota direto no mapa"
+  - "Lista curada com ~120 restaurantes"
+  - "Escolha rápida com filtros por tipo"
+  - "Histórico para não repetir sempre"
 ---
 
 ## Visão geral
 
-Estou usando este app como laboratório de UX: filtros rápidos, histórico “útil de verdade” e rotas em um toque.
+O **Escolhe Aí** nasceu como um app simples para resolver um problema real: **decidir rápido onde ir**.
+Ele parte de uma lista curada com ~120 restaurantes (vários estilos) e ajuda a escolher sem fricção.
 
-## Screenshots
-
-As imagens estão em `assets/apps/escolhe-ai/` e são renderizadas automaticamente nesta página.
+O foco aqui é UX: filtros rápidos, histórico útil e decisões em poucos toques.
 
 
