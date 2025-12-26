@@ -8,5 +8,4 @@ vendor
 .jekyll-cache
 tags
 node_modules
-assets/css/site.css
 package-lock.json
