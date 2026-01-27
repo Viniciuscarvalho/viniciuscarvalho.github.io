@@ -5,99 +5,149 @@ layout: default
 {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
 {%- assign featured_apps = site.apps | where: "kind", "app" | where: "featured", true | sort: "title" -%}
 
-<section class="relative overflow-hidden">
+<!-- Hero Section -->
+<section class="relative overflow-hidden pb-16 pt-8 md:pb-24 md:pt-16">
+  <!-- Background Elements -->
   <div class="pointer-events-none absolute inset-0 -z-10">
-    <div class="absolute -top-20 left-1/2 h-72 w-[40rem] -translate-x-1/2 rounded-full bg-emerald-500/10 blur-3xl"></div>
-    <div class="absolute -bottom-28 right-0 h-72 w-72 rounded-full bg-sky-500/10 blur-3xl"></div>
+    <div class="glow-orb -top-32 left-1/4 h-96 w-96 bg-brand-500/20"></div>
+    <div class="glow-orb -bottom-20 right-1/4 h-72 w-72 bg-sky-500/15" style="animation-delay: 1.5s;"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-surface-950"></div>
   </div>
 
-  <div class="mx-auto max-w-3xl text-center">
-    <div class="inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/60 px-4 py-2 text-xs text-slate-300">
-      <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
-      Apps iOS · Produto · Arquitetura · Portfólio
+  <div class="mx-auto max-w-4xl text-center animate-stagger">
+    <!-- Status Badge -->
+    <div class="inline-flex items-center gap-2.5 rounded-full border border-slate-700/50 bg-surface-900/60 px-4 py-2 text-xs backdrop-blur-sm">
+      <span class="relative flex h-2 w-2">
+        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-400 opacity-75"></span>
+        <span class="relative inline-flex h-2 w-2 rounded-full bg-brand-400"></span>
+      </span>
+      <span class="text-slate-400">iOS Engineer</span>
+      <span class="text-slate-600">·</span>
+      <span class="text-slate-400">Produto & Arquitetura</span>
     </div>
 
-    <h1 class="mt-8 text-4xl font-semibold tracking-tight text-slate-100 md:text-6xl">
-      Eu sou {{ site.plainwhite.name | default: "Vinicius Carvalho" }}
-      <span class="text-emerald-300">Bem vindo ao meu site</span>
+    <!-- Main Heading -->
+    <h1 class="mt-8 text-4xl font-semibold tracking-tight text-slate-100 md:text-6xl lg:text-7xl text-balance">
+      Olá, eu sou<br>
+      <span class="text-gradient">{{ site.plainwhite.name | default: "Vinicius Carvalho" }}</span>
     </h1>
 
-    <p class="mt-6 text-lg text-slate-300">
+    <!-- Subtitle -->
+    <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-400 font-serif md:text-xl">
       {{ site.description }}
     </p>
 
-    <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-      <a href="{{ "/apps/" | relative_url }}" class="inline-flex items-center justify-center rounded-xl bg-emerald-500 px-5 py-3 text-sm font-semibold text-slate-950 no-underline hover:bg-emerald-400">
+    <!-- CTA Buttons -->
+    <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <a href="{{ "/apps/" | relative_url }}" class="btn-primary">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+        </svg>
         Ver Apps
       </a>
-      <a href="{{ "/blog/" | relative_url }}" class="inline-flex items-center justify-center rounded-xl border border-slate-800 bg-slate-900/50 px-5 py-3 text-sm font-semibold text-slate-100 no-underline hover:border-slate-700">
+      <a href="{{ "/blog/" | relative_url }}" class="btn-secondary">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+        </svg>
         Ler o Blog
       </a>
     </div>
+  </div>
+</section>
 
-    <div class="mt-10 grid gap-4 sm:grid-cols-3">
-      <div class="card p-5 text-left">
-        <div class="text-sm font-semibold text-slate-100">Produto</div>
-        <p class="mt-2 text-sm text-slate-400">Do escopo ao shipping: funcionalidades, premium, e evolução contínua.</p>
+<!-- Expertise Cards -->
+<section class="mx-auto max-w-5xl">
+  <div class="grid gap-4 sm:grid-cols-3">
+    <div class="card group p-6">
+      <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-500/10 text-brand-400 transition-colors group-hover:bg-brand-500/20">
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+        </svg>
       </div>
-      <div class="card p-5 text-left">
-        <div class="text-sm font-semibold text-slate-100">Arquitetura</div>
-        <p class="mt-2 text-sm text-slate-400">Trade-offs reais, testes e manutenção no mundo iOS.</p>
+      <h3 class="text-base font-semibold text-slate-100">Produto</h3>
+      <p class="mt-2 text-sm text-slate-400 font-serif leading-relaxed">Do escopo ao shipping: funcionalidades, premium, e evolução contínua.</p>
+    </div>
+
+    <div class="card group p-6">
+      <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500/10 text-sky-400 transition-colors group-hover:bg-sky-500/20">
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
+        </svg>
       </div>
-      <div class="card p-5 text-left">
-        <div class="text-sm font-semibold text-slate-100">UX/Detalhe</div>
-        <p class="mt-2 text-sm text-slate-400">Interfaces limpas e consistentes, com atenção a microinterações.</p>
+      <h3 class="text-base font-semibold text-slate-100">Arquitetura</h3>
+      <p class="mt-2 text-sm text-slate-400 font-serif leading-relaxed">Trade-offs reais, testes e manutenção no mundo iOS.</p>
+    </div>
+
+    <div class="card group p-6">
+      <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-violet-500/10 text-violet-400 transition-colors group-hover:bg-violet-500/20">
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
+        </svg>
       </div>
+      <h3 class="text-base font-semibold text-slate-100">UX & Detalhe</h3>
+      <p class="mt-2 text-sm text-slate-400 font-serif leading-relaxed">Interfaces limpas e consistentes, com atenção a microinterações.</p>
     </div>
   </div>
 </section>
 
 {% if content and content != "" %}
-  <section class="mx-auto mt-12 max-w-3xl">
-    <div class="prose prose-invert max-w-none">
-      {{ content }}
-    </div>
-  </section>
+<section class="mx-auto mt-16 max-w-3xl">
+  <div class="prose prose-invert max-w-none">
+    {{ content }}
+  </div>
+</section>
 {% endif %}
 
-<section class="mx-auto mt-16 max-w-6xl">
+<!-- Featured Apps -->
+<section class="mx-auto mt-20 max-w-6xl">
   <div class="flex items-end justify-between gap-4">
     <div>
-      <h2 class="text-2xl font-semibold tracking-tight text-slate-100">Apps em destaque</h2>
-      <p class="mt-2 text-sm text-slate-400">Dois cases para mostrar produto e qualidade visual na prática.</p>
+      <h2 class="section-title">Apps em destaque</h2>
+      <p class="section-subtitle">Cases para mostrar produto e qualidade visual na prática.</p>
     </div>
-    <a class="hidden text-sm text-slate-300 no-underline hover:text-emerald-300 sm:inline" href="{{ "/apps/" | relative_url }}">Ver todos →</a>
+    <a class="link-hover hidden items-center gap-1.5 text-sm sm:inline-flex" href="{{ "/apps/" | relative_url }}">
+      Ver todos
+      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+      </svg>
+    </a>
   </div>
 
-  <div class="mt-6 grid gap-6 md:grid-cols-3">
+  <div class="mt-8 grid gap-6 md:grid-cols-3">
     {%- if featured_apps.size == 0 -%}
-      <div class="card p-6 md:col-span-3">
-        <p class="text-slate-300">Ainda não marquei nenhum app como destaque.</p>
+      <div class="card-static p-6 md:col-span-3">
+        <p class="text-slate-400 font-serif">Ainda não marquei nenhum app como destaque.</p>
       </div>
     {%- else -%}
       {%- for app in featured_apps limit: 3 -%}
-        <a href="{{ app.url | relative_url }}" class="card block overflow-hidden no-underline hover:border-slate-700">
+        <a href="{{ app.url | relative_url }}" class="card group block overflow-hidden">
           {%- if app.cover_image and app.cover_image != "" -%}
-            <img src="{{ app.cover_image | relative_url }}" alt="" class="h-40 w-full object-cover opacity-90">
+            <div class="relative h-44 overflow-hidden">
+              <img src="{{ app.cover_image | relative_url }}" alt="" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <div class="absolute inset-0 bg-gradient-to-t from-surface-900/80 to-transparent"></div>
+            </div>
           {%- endif -%}
           <div class="p-6">
-            <div class="flex items-start justify-between gap-4">
-              <div>
-                <div class="text-lg font-semibold text-slate-100">{{ app.title }}</div>
+            <div class="flex items-start justify-between gap-3">
+              <div class="min-w-0 flex-1">
+                <h3 class="text-lg font-semibold text-slate-100 transition-colors group-hover:text-brand-400">{{ app.title }}</h3>
                 {%- if app.tagline -%}
-                  <div class="mt-2 text-sm text-slate-400">{{ app.tagline }}</div>
+                  <p class="mt-1.5 text-sm text-slate-400 font-serif">{{ app.tagline }}</p>
                 {%- endif -%}
               </div>
               {%- if app.status -%}
-                <span class="shrink-0 rounded-full border border-slate-800 bg-slate-900/60 px-3 py-1 text-xs text-slate-300">
-                  {{ app.status }}
-                </span>
+                <span class="badge shrink-0">{{ app.status }}</span>
               {%- endif -%}
             </div>
             {%- if app.highlights and app.highlights.size > 0 -%}
-              <ul class="mt-4 list-disc pl-5 text-sm text-slate-300">
+              <ul class="mt-4 space-y-1.5 text-sm text-slate-400">
                 {%- for h in app.highlights limit: 2 -%}
-                  <li>{{ h }}</li>
+                  <li class="flex items-start gap-2">
+                    <svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                    <span>{{ h }}</span>
+                  </li>
                 {%- endfor -%}
               </ul>
             {%- endif -%}
@@ -107,54 +157,88 @@ layout: default
     {%- endif -%}
   </div>
 
-  <a class="mt-6 inline-block text-sm text-slate-300 no-underline hover:text-emerald-300 sm:hidden" href="{{ "/apps/" | relative_url }}">Ver todos →</a>
+  <a class="link-hover mt-6 inline-flex items-center gap-1.5 text-sm sm:hidden" href="{{ "/apps/" | relative_url }}">
+    Ver todos
+    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+    </svg>
+  </a>
 </section>
 
-<section class="mx-auto mt-16 max-w-6xl">
+<!-- Latest Posts -->
+<section class="mx-auto mt-20 max-w-6xl">
   <div class="flex items-end justify-between gap-4">
     <div>
-      <h2 class="text-2xl font-semibold tracking-tight text-slate-100">Últimos posts</h2>
-      <p class="mt-2 text-sm text-slate-400">Ideias e aprendizados recentes, direto do meu dia a dia.</p>
+      <h2 class="section-title">Últimos posts</h2>
+      <p class="section-subtitle">Ideias e aprendizados recentes, direto do meu dia a dia.</p>
     </div>
-    <a class="hidden text-sm text-slate-300 no-underline hover:text-emerald-300 sm:inline" href="{{ "/blog/" | relative_url }}">Ver o blog →</a>
+    <a class="link-hover hidden items-center gap-1.5 text-sm sm:inline-flex" href="{{ "/blog/" | relative_url }}">
+      Ver o blog
+      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+      </svg>
+    </a>
   </div>
 
-  <div class="mt-6 grid gap-4 md:grid-cols-3">
+  <div class="mt-8 grid gap-4 md:grid-cols-3">
     {%- for post in site.posts limit: 3 -%}
-      <a href="{{ post.url | relative_url }}" class="card block p-6 no-underline hover:border-slate-700">
-        <div class="text-sm text-slate-400">{{ post.date | date: date_format }}</div>
-        <div class="mt-2 text-lg font-semibold text-slate-100">{{ post.title | escape }}</div>
+      <a href="{{ post.url | relative_url }}" class="card group block p-6">
+        <div class="flex items-center gap-2 text-xs text-slate-500">
+          <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+          </svg>
+          {{ post.date | date: date_format }}
+        </div>
+        <h3 class="mt-3 text-lg font-semibold text-slate-100 transition-colors group-hover:text-brand-400">{{ post.title | escape }}</h3>
         {%- if site.show_excerpts -%}
-          <div class="prose prose-invert mt-3 max-w-none text-sm text-slate-300">
-            {{ post.excerpt }}
-          </div>
+          <p class="mt-3 text-sm text-slate-400 font-serif line-clamp-3">
+            {{ post.excerpt | strip_html | truncate: 120 }}
+          </p>
         {%- endif -%}
       </a>
     {%- endfor -%}
   </div>
 
-  <a class="mt-6 inline-block text-sm text-slate-300 no-underline hover:text-emerald-300 sm:hidden" href="{{ "/blog/" | relative_url }}">Ver o blog →</a>
+  <a class="link-hover mt-6 inline-flex items-center gap-1.5 text-sm sm:hidden" href="{{ "/blog/" | relative_url }}">
+    Ver o blog
+    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+    </svg>
+  </a>
 </section>
 
-<section class="mx-auto mt-16 max-w-6xl">
-  <div class="card p-8 md:p-10">
-    <div class="grid items-center gap-8 md:grid-cols-2">
+<!-- CTA Section -->
+<section class="mx-auto mt-20 max-w-6xl">
+  <div class="card-static relative overflow-hidden p-8 md:p-12">
+    <!-- Background glow -->
+    <div class="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-brand-500/10 blur-3xl"></div>
+    <div class="pointer-events-none absolute -bottom-20 -left-20 h-48 w-48 rounded-full bg-sky-500/10 blur-3xl"></div>
+
+    <div class="relative grid items-center gap-8 md:grid-cols-2">
       <div>
-        <h2 class="text-2xl font-semibold tracking-tight text-slate-100">Vamos construir algo juntos?</h2>
-        <p class="mt-3 text-slate-300">
+        <h2 class="text-2xl font-semibold tracking-tight text-slate-100 md:text-3xl text-balance">
+          Vamos construir algo juntos?
+        </h2>
+        <p class="mt-4 text-slate-400 font-serif">
           Se você quer conversar sobre produto, iOS, arquitetura ou oportunidades, me chama.
         </p>
       </div>
       <div class="flex flex-col gap-3 sm:flex-row md:justify-end">
         {%- if site.plainwhite.social_links.linkedIn -%}
-          <a class="inline-flex items-center justify-center rounded-xl bg-amber-400 px-5 py-3 text-sm font-semibold text-slate-950 no-underline hover:bg-amber-300"
+          <a class="btn-primary"
              href="https://www.linkedin.com/{{ site.plainwhite.social_links.linkedIn }}" target="_blank" rel="noopener">
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
+            </svg>
             Falar no LinkedIn
           </a>
         {%- endif -%}
         {%- if site.plainwhite.social_links.github -%}
-          <a class="inline-flex items-center justify-center rounded-xl border border-slate-800 bg-slate-900/50 px-5 py-3 text-sm font-semibold text-slate-100 no-underline hover:border-slate-700"
+          <a class="btn-secondary"
              href="https://github.com/{{ site.plainwhite.social_links.github }}" target="_blank" rel="noopener">
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
             Ver GitHub
           </a>
         {%- endif -%}

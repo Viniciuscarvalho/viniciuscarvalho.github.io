@@ -7,52 +7,98 @@ layout: default
 {%- assign others = only_apps | where_exp: "a", "a.featured != true" | sort: "title" -%}
 {%- assign apps = featured | concat: others -%}
 
-<header class="mx-auto max-w-3xl">
-  <h1 class="text-3xl font-semibold tracking-tight text-slate-100 md:text-4xl">
-    {{ page.title | escape }}
-  </h1>
-  <p class="mt-3 text-slate-400">
-    Apps que eu construo (ou estou construindo).
-  </p>
-</header>
+<section class="relative">
+  <!-- Background Elements -->
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="glow-orb -top-40 right-1/4 h-80 w-80 bg-brand-500/15"></div>
+  </div>
 
-<section class="mx-auto mt-10 grid max-w-6xl gap-6 md:grid-cols-2">
-  {%- if apps.size == 0 -%}
-    <div class="card p-6">
-      <p class="text-slate-300">Nenhum app cadastrado ainda.</p>
-    </div>
-  {%- else -%}
-    {%- for app in apps -%}
-      <a href="{{ app.url | relative_url }}" class="card block overflow-hidden p-6 no-underline hover:border-slate-700">
-        {%- if app.cover_image and app.cover_image != "" -%}
-          <img src="{{ app.cover_image | relative_url }}" alt="" class="mb-4 h-44 w-full rounded-xl border border-slate-800 bg-slate-900/40 object-cover">
-        {%- endif -%}
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <h2 class="text-lg font-semibold text-slate-100">{{ app.title }}</h2>
-            {%- if app.tagline -%}
-              <p class="mt-2 text-sm text-slate-400">{{ app.tagline }}</p>
-            {%- endif -%}
-              {%- if app.description -%}
-                <p class="mt-3 text-sm text-slate-300">{{ app.description }}</p>
-              {%- endif -%}
-          </div>
-          {%- if app.status -%}
-            <span class="shrink-0 rounded-full border border-slate-800 bg-slate-900/60 px-3 py-1 text-xs text-slate-300">
-              {{ app.status }}
-            </span>
-          {%- endif -%}
-        </div>
-        {%- if app.highlights and app.highlights.size > 0 -%}
-          <ul class="mt-4 list-disc pl-5 text-sm text-slate-300">
-            {%- for h in app.highlights limit: 3 -%}
-              <li>{{ h }}</li>
-            {%- endfor -%}
-          </ul>
-        {%- endif -%}
-      </a>
-    {%- endfor -%}
-  {%- endif -%}
+  <header class="mx-auto max-w-3xl text-center">
+    <div class="badge badge-success mb-4">{{ apps.size }} apps</div>
+    <h1 class="text-3xl font-semibold tracking-tight text-slate-100 md:text-5xl text-balance">
+      {{ page.title | escape }}
+    </h1>
+    <p class="mt-4 text-lg text-slate-400 font-serif">
+      Apps que eu construo (ou estou construindo). Cada um é um laboratório de produto, arquitetura e UX.
+    </p>
+  </header>
 </section>
 
+<section class="mx-auto mt-12 max-w-6xl">
+  {%- if apps.size == 0 -%}
+    <div class="card-static p-8 text-center">
+      <p class="text-slate-400 font-serif">Nenhum app cadastrado ainda.</p>
+    </div>
+  {%- else -%}
+    <div class="grid gap-6 md:grid-cols-2">
+      {%- for app in apps -%}
+        <a href="{{ app.url | relative_url }}" class="card group block overflow-hidden">
+          {%- if app.cover_image and app.cover_image != "" -%}
+            <div class="relative h-48 overflow-hidden">
+              <img src="{{ app.cover_image | relative_url }}" alt="" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <div class="absolute inset-0 bg-gradient-to-t from-surface-900 via-surface-900/50 to-transparent"></div>
+              {%- if app.featured -%}
+                <div class="absolute left-4 top-4">
+                  <span class="badge badge-success">
+                    <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
+                    </svg>
+                    Destaque
+                  </span>
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+          <div class="p-6">
+            <div class="flex items-start justify-between gap-4">
+              <div class="min-w-0 flex-1">
+                <h2 class="text-xl font-semibold text-slate-100 transition-colors group-hover:text-brand-400">{{ app.title }}</h2>
+                {%- if app.tagline -%}
+                  <p class="mt-2 text-sm text-slate-400 font-serif">{{ app.tagline }}</p>
+                {%- endif -%}
+              </div>
+              {%- if app.status -%}
+                <span class="badge shrink-0">{{ app.status }}</span>
+              {%- endif -%}
+            </div>
 
+            {%- if app.description -%}
+              <p class="mt-4 text-sm text-slate-300 font-serif leading-relaxed">{{ app.description }}</p>
+            {%- endif -%}
+
+            {%- if app.stack and app.stack.size > 0 -%}
+              <div class="mt-4 flex flex-wrap gap-2">
+                {%- for tech in app.stack limit: 4 -%}
+                  <span class="rounded-md bg-slate-800/50 px-2 py-1 text-xs text-slate-400">{{ tech }}</span>
+                {%- endfor -%}
+                {%- if app.stack.size > 4 -%}
+                  <span class="rounded-md bg-slate-800/50 px-2 py-1 text-xs text-slate-500">+{{ app.stack.size | minus: 4 }}</span>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+
+            {%- if app.highlights and app.highlights.size > 0 -%}
+              <ul class="mt-4 space-y-2 text-sm text-slate-400">
+                {%- for h in app.highlights limit: 3 -%}
+                  <li class="flex items-start gap-2">
+                    <svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                    <span>{{ h }}</span>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+
+            <div class="mt-5 flex items-center gap-2 text-sm font-medium text-brand-400 transition-colors group-hover:text-brand-300">
+              Ver detalhes
+              <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </div>
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</section>
