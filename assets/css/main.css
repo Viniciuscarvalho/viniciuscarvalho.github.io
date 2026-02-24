@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    color-scheme: light;
+    color-scheme: light only;
   }
 
   *:focus-visible {
@@ -21,6 +21,8 @@
 
   html {
     scroll-behavior: smooth;
+    background-color: #FFFFFF !important;
+    color-scheme: light only !important;
   }
 
   html, body {
@@ -28,29 +30,33 @@
   }
 
   body {
-    @apply bg-surface text-text antialiased font-sans;
+    @apply antialiased font-sans;
+    background-color: #FFFFFF !important;
+    color: #0F172A !important;
     position: relative;
   }
 
   /* Subtle noise texture overlay */
-  body::before {
+  body::after {
     content: "";
     position: fixed;
     inset: 0;
     z-index: 9999;
     pointer-events: none;
-    opacity: 0.015;
+    opacity: 0.012;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     background-repeat: repeat;
     background-size: 256px 256px;
   }
 
   ::selection {
-    @apply bg-accent/20 text-text;
+    background-color: rgba(43, 170, 223, 0.15);
+    color: #0F172A;
   }
 
   a {
-    @apply text-text no-underline transition-colors duration-200;
+    @apply no-underline transition-colors duration-200;
+    color: #0F172A;
   }
 
   code {
@@ -59,39 +65,50 @@
 
   /* Prose overrides for blog posts */
   .prose pre {
-    @apply rounded-sharp border border-border bg-surface-alt;
+    @apply rounded-sharp;
+    border: 1px solid #E2E8F0;
+    background-color: #F8FAFC;
   }
 
   .prose code {
-    @apply text-accent font-medium;
+    color: #2BAADF;
+    @apply font-medium;
   }
 
   .prose a {
-    @apply text-accent underline decoration-accent/30 underline-offset-4 hover:text-accent-hover hover:decoration-accent/50 transition-colors;
+    color: #2BAADF;
+    @apply underline decoration-accent/30 underline-offset-4 transition-colors;
+  }
+  .prose a:hover {
+    color: #1A95C8;
   }
 
   .prose p {
-    @apply font-sans text-text-muted leading-relaxed;
+    @apply font-sans leading-relaxed;
+    color: #475569;
   }
 
   .prose h1, .prose h2, .prose h3, .prose h4 {
-    @apply font-sans font-semibold text-text;
+    @apply font-sans font-semibold;
+    color: #0F172A;
   }
 
   .prose blockquote {
-    @apply border-l-accent/40 text-text-muted;
+    border-left-color: rgba(43, 170, 223, 0.4);
+    color: #475569;
   }
 
   .prose strong {
-    @apply text-text;
+    color: #0F172A;
   }
 
   .prose li {
-    @apply text-text-muted;
+    color: #475569;
   }
 
   .prose img {
-    @apply rounded-sharp border border-border;
+    @apply rounded-sharp;
+    border: 1px solid #E2E8F0;
   }
 }
 
@@ -100,74 +117,120 @@
     @apply mx-auto w-full max-w-5xl px-6 sm:px-8 lg:px-10;
   }
 
-  /* Cards */
+  /* Cards — hardcoded light colors for browser dark-mode resistance */
   .card {
-    @apply rounded-sharp border border-border bg-surface shadow-card;
-    @apply transition-all duration-300 ease-out;
+    @apply rounded-sharp shadow-card transition-all duration-300 ease-out;
+    border: 1px solid #E2E8F0;
+    background-color: #FFFFFF;
   }
 
   .card:hover {
-    @apply border-border shadow-card-hover;
+    @apply shadow-card-hover;
+    border-color: #CBD5E1;
     transform: translateY(-3px);
   }
 
   .card-featured {
-    @apply card border-l-4 border-l-accent;
+    @apply rounded-sharp shadow-card transition-all duration-300 ease-out;
+    border: 1px solid #E2E8F0;
+    border-left: 4px solid #2BAADF;
+    background-color: #FFFFFF;
+  }
+
+  .card-featured:hover {
+    @apply shadow-card-hover;
+    border-color: #CBD5E1;
+    border-left-color: #2BAADF;
+    transform: translateY(-3px);
   }
 
   .card-static {
-    @apply rounded-sharp border border-border bg-surface shadow-card;
+    @apply rounded-sharp shadow-card;
+    border: 1px solid #E2E8F0;
+    background-color: #FFFFFF;
   }
 
   /* Buttons */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-sharp px-5 py-2.5 text-xs font-medium uppercase tracking-widest font-mono;
-    @apply bg-accent text-white no-underline;
-    @apply transition-all duration-200 ease-out;
-    @apply hover:bg-accent-hover active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-sharp px-5 py-2.5 text-xs font-medium uppercase tracking-widest font-mono no-underline transition-all duration-200 ease-out active:scale-[0.98];
+    background-color: #2BAADF;
+    color: #FFFFFF !important;
+  }
+  .btn-primary:hover {
+    background-color: #1A95C8;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-sharp border border-border px-5 py-2.5 text-xs font-medium uppercase tracking-widest font-mono;
-    @apply bg-surface text-text no-underline;
-    @apply transition-all duration-200 ease-out;
-    @apply hover:border-text-subtle hover:bg-surface-alt active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-sharp px-5 py-2.5 text-xs font-medium uppercase tracking-widest font-mono no-underline transition-all duration-200 ease-out active:scale-[0.98];
+    border: 1px solid #E2E8F0;
+    background-color: #FFFFFF;
+    color: #0F172A !important;
+  }
+  .btn-secondary:hover {
+    border-color: #94A3B8;
+    background-color: #F8FAFC;
   }
 
   /* Badges & Pills */
   .badge {
-    @apply inline-flex items-center gap-1.5 rounded-sharp border border-border bg-surface-alt px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest text-text-muted font-mono;
+    @apply inline-flex items-center gap-1.5 rounded-sharp px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest font-mono;
+    border: 1px solid #E2E8F0;
+    background-color: #F8FAFC;
+    color: #475569;
   }
 
   .badge-accent {
-    @apply border-accent/20 bg-accent-light text-accent;
+    border-color: rgba(43, 170, 223, 0.2);
+    background-color: #E8F6FC;
+    color: #2BAADF;
   }
 
   .tech-pill {
-    @apply rounded-sharp bg-surface-alt px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-text-subtle;
+    @apply rounded-sharp px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider;
+    background-color: #F1F5F9;
+    color: #94A3B8;
   }
 
-  /* Labels */
+  /* Labels — Menlo mono, tiny, uppercase, letter-spaced */
   .label {
-    @apply text-[11px] font-mono font-medium uppercase tracking-[0.15em] text-text-subtle;
+    @apply text-[11px] font-mono font-medium uppercase;
+    letter-spacing: 0.15em;
+    color: #94A3B8;
+  }
+
+  /* Section structure:
+     .section-label = small mono uppercase label (e.g. "Open Source", "Portfolio")
+     .section-title = large Inter sans-serif heading (e.g. "Projetos", "Apps em destaque")
+     .section-subtitle = regular-weight muted description
+  */
+  .section-label {
+    @apply text-[11px] font-mono font-medium uppercase;
+    letter-spacing: 0.15em;
+    color: #94A3B8;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    @apply font-sans font-semibold tracking-tight;
+    font-size: clamp(1.5rem, 3vw, 1.875rem);
+    color: #0F172A;
+  }
+
+  .section-subtitle {
+    @apply font-sans;
+    margin-top: 0.5rem;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: #475569;
   }
 
   /* Links */
   .link-hover {
-    @apply text-text-muted no-underline transition-colors duration-200 hover:text-accent font-mono text-xs uppercase tracking-wider;
+    @apply no-underline transition-colors duration-200 font-mono text-xs uppercase tracking-wider;
+    color: #475569;
   }
-
-  /* Section titles */
-  .section-label {
-    @apply text-[11px] font-mono font-medium uppercase tracking-[0.15em] text-text-subtle mb-4;
-  }
-
-  .section-title {
-    @apply text-2xl font-semibold tracking-tight text-text md:text-3xl;
-  }
-
-  .section-subtitle {
-    @apply mt-2 text-text-muted text-sm;
+  .link-hover:hover {
+    color: #2BAADF;
   }
 
   /* Decorative blobs */
@@ -199,7 +262,11 @@
 
   /* Divider */
   .divider {
-    @apply h-px w-full bg-border;
+    height: 1px;
+    width: 100%;
+    background-color: #E2E8F0;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }
 
