@@ -8,7 +8,7 @@
 <body>
   {%- include nav.html -%}
 
-  <main id="main-content" class="container-page py-10">
+  <main id="main-content" class="container-page py-12">
     {{ content }}
   </main>
 
@@ -16,22 +16,52 @@
 
   <script>
     (function () {
+      // Mobile nav toggle
       var toggle = document.getElementById("nav-toggle");
       var mobileNav = document.getElementById("mobile-nav");
-      if (!toggle || !mobileNav) return;
+      if (toggle && mobileNav) {
+        toggle.addEventListener("click", function () {
+          var isOpen = !mobileNav.classList.contains("hidden");
+          if (isOpen) {
+            mobileNav.classList.add("hidden");
+            toggle.setAttribute("aria-expanded", "false");
+          } else {
+            mobileNav.classList.remove("hidden");
+            toggle.setAttribute("aria-expanded", "true");
+          }
+        });
+      }
 
-      toggle.addEventListener("click", function () {
-        var isOpen = mobileNav.classList.contains("hidden") === false;
-        if (isOpen) {
-          mobileNav.classList.add("hidden");
-          toggle.setAttribute("aria-expanded", "false");
-        } else {
-          mobileNav.classList.remove("hidden");
-          toggle.setAttribute("aria-expanded", "true");
-        }
-      });
+      // Nav border on scroll
+      var nav = document.getElementById("site-nav");
+      if (nav) {
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 10) {
+            nav.classList.add("border-border", "shadow-nav");
+            nav.classList.remove("border-transparent");
+          } else {
+            nav.classList.remove("border-border", "shadow-nav");
+            nav.classList.add("border-transparent");
+          }
+        }, { passive: true });
+      }
+
+      // Reveal on scroll
+      var reveals = document.querySelectorAll(".reveal");
+      if (reveals.length > 0) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+        reveals.forEach(function (el) { observer.observe(el); });
+      }
     })();
   </script>
+
   {%- if site.plainwhite.analytics_id -%}
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.plainwhite.analytics_id }}"></script>
   <script>

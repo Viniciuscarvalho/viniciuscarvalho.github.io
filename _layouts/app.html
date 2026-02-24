@@ -4,8 +4,8 @@ layout: default
 
 <article class="mx-auto max-w-5xl">
   <!-- Back Link -->
-  <a class="group inline-flex items-center gap-2 text-sm text-slate-400 no-underline transition-colors hover:text-brand-400" href="{{ "/apps/" | relative_url }}">
-    <svg class="h-4 w-4 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+  <a class="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-text-muted no-underline transition-colors hover:text-accent" href="{{ "/apps/" | relative_url }}">
+    <svg class="h-3 w-3 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
       <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
     </svg>
     Voltar para Apps
@@ -13,16 +13,16 @@ layout: default
 
   <!-- Header -->
   <header class="mt-8">
-    <div class="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
+    <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
       <div class="min-w-0 flex-1">
-        <h1 class="text-3xl font-semibold tracking-tight text-slate-100 md:text-4xl lg:text-5xl">
+        <p class="section-label">App</p>
+        <h1 class="text-3xl font-semibold tracking-tight text-text md:text-4xl">
           {{ page.title | escape }}
         </h1>
         {%- if page.tagline -%}
-          <p class="mt-3 text-lg text-slate-400 font-serif">{{ page.tagline }}</p>
+          <p class="mt-2 text-text-muted">{{ page.tagline }}</p>
         {%- endif -%}
       </div>
-
       {%- if page.status -%}
         <div class="shrink-0">
           <span class="badge">{{ page.status }}</span>
@@ -31,32 +31,29 @@ layout: default
     </div>
   </header>
 
+  <div class="divider mt-8"></div>
+
   <!-- Main Grid -->
-  <section class="mt-10 grid gap-8 lg:grid-cols-3">
+  <section class="mt-8 grid gap-8 lg:grid-cols-3">
     <!-- Main Content -->
-    <div class="lg:col-span-2 space-y-8">
+    <div class="lg:col-span-2 space-y-6">
       {%- if page.description -%}
-        <div class="card-static p-6 md:p-8">
-          <p class="text-slate-300 font-serif leading-relaxed text-lg">{{ page.description }}</p>
+        <div class="card-static p-6">
+          <p class="text-text-muted leading-relaxed">{{ page.description }}</p>
         </div>
       {%- endif -%}
 
       {%- if page.screenshots and page.screenshots.size > 0 -%}
-        <div class="card-static p-6 md:p-8">
-          <h2 class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-slate-400">
-            <svg class="h-4 w-4 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-            </svg>
-            Galeria
-          </h2>
-          <div class="mt-5 grid gap-4 sm:grid-cols-2">
+        <div class="card-static p-6">
+          <h2 class="label mb-4">Galeria</h2>
+          <div class="grid gap-3 sm:grid-cols-2">
             {%- for img in page.screenshots -%}
-              <div class="group relative overflow-hidden rounded-xl border border-slate-800/50 bg-surface-900/30">
+              <div class="overflow-hidden rounded-sharp border border-border">
                 <img
                   src="{{ img | relative_url }}"
                   alt=""
                   loading="lazy"
-                  class="w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  class="w-full object-cover transition-transform duration-500 hover:scale-105"
                 >
               </div>
             {%- endfor -%}
@@ -65,8 +62,8 @@ layout: default
       {%- endif -%}
 
       {%- if content and content != "" -%}
-        <div class="card-static p-6 md:p-8">
-          <div class="prose prose-invert max-w-none prose-headings:font-sans prose-p:font-serif prose-p:text-slate-300 prose-a:text-brand-300 prose-strong:text-slate-100">
+        <div class="card-static p-6">
+          <div class="prose max-w-none">
             {{ content }}
           </div>
         </div>
@@ -74,35 +71,25 @@ layout: default
     </div>
 
     <!-- Sidebar -->
-    <aside class="space-y-6">
+    <aside class="space-y-4">
       {%- if page.stack and page.stack.size > 0 -%}
-        <div class="card-static p-6">
-          <h2 class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-slate-400">
-            <svg class="h-4 w-4 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
-            </svg>
-            Stack
-          </h2>
-          <div class="mt-4 flex flex-wrap gap-2">
+        <div class="card-static p-5">
+          <h2 class="label mb-3">Stack</h2>
+          <div class="flex flex-wrap gap-1.5">
             {%- for item in page.stack -%}
-              <span class="rounded-lg bg-slate-800/50 px-3 py-1.5 text-xs font-medium text-slate-300">{{ item }}</span>
+              <span class="tech-pill">{{ item }}</span>
             {%- endfor -%}
           </div>
         </div>
       {%- endif -%}
 
       {%- if page.highlights and page.highlights.size > 0 -%}
-        <div class="card-static p-6">
-          <h2 class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-slate-400">
-            <svg class="h-4 w-4 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
-            </svg>
-            Destaques
-          </h2>
-          <ul class="mt-4 space-y-3">
+        <div class="card-static p-5">
+          <h2 class="label mb-3">Destaques</h2>
+          <ul class="space-y-2">
             {%- for h in page.highlights -%}
-              <li class="flex items-start gap-2.5 text-sm text-slate-300">
-                <svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <li class="flex items-start gap-2 text-sm text-text-muted">
+                <svg class="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
                 <span>{{ h }}</span>
@@ -113,38 +100,17 @@ layout: default
       {%- endif -%}
 
       {%- if page.links -%}
-        <div class="card-static p-6">
-          <h2 class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-slate-400">
-            <svg class="h-4 w-4 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
-            </svg>
-            Links
-          </h2>
-          <div class="mt-4 flex flex-col gap-3">
+        <div class="card-static p-5">
+          <h2 class="label mb-3">Links</h2>
+          <div class="flex flex-col gap-2">
             {%- if page.links.app_store and page.links.app_store != "" -%}
-              <a
-                class="btn-primary justify-center"
-                href="{{ page.links.app_store }}"
-                target="_blank"
-                rel="noopener"
-              >
-                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                </svg>
+              <a class="btn-primary justify-center text-center" href="{{ page.links.app_store }}" target="_blank" rel="noopener">
                 Baixar na App Store
               </a>
             {%- endif -%}
 
             {%- if page.links.website and page.links.website != "" -%}
-              <a
-                class="group flex items-center gap-2 text-sm text-slate-300 no-underline transition-colors hover:text-brand-400"
-                href="{{ page.links.website }}"
-                target="_blank"
-                rel="noopener"
-              >
-                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-                </svg>
+              <a class="group flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-text-muted no-underline transition-colors hover:text-accent" href="{{ page.links.website }}" target="_blank" rel="noopener">
                 Website
                 <svg class="h-3 w-3 opacity-50 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
@@ -153,15 +119,7 @@ layout: default
             {%- endif -%}
 
             {%- if page.links.github and page.links.github != "" -%}
-              <a
-                class="group flex items-center gap-2 text-sm text-slate-300 no-underline transition-colors hover:text-brand-400"
-                href="{{ page.links.github }}"
-                target="_blank"
-                rel="noopener"
-              >
-                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
+              <a class="group flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-text-muted no-underline transition-colors hover:text-accent" href="{{ page.links.github }}" target="_blank" rel="noopener">
                 GitHub
                 <svg class="h-3 w-3 opacity-50 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />

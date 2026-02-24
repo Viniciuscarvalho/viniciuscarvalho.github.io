@@ -1,51 +1,46 @@
-<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-20 focus:z-[60] focus:rounded-xl focus:bg-brand-500 focus:px-4 focus:py-2 focus:text-surface-950 focus:font-semibold">
-  Pular para o conteúdo
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-20 focus:z-[60] focus:rounded-sharp focus:bg-accent focus:px-4 focus:py-2 focus:text-white focus:font-semibold">
+  Pular para o conteudo
 </a>
 
-<header class="sticky top-0 z-50 border-b border-slate-800/40 bg-surface-950/80 backdrop-blur-xl">
+<header id="site-nav" class="sticky top-0 z-50 border-b border-transparent bg-white/80 backdrop-blur-md transition-all duration-300">
   <div class="container-page flex items-center justify-between py-4">
-    <a href="{{ "/" | relative_url }}" class="group flex items-center gap-3.5 no-underline">
-      <div class="relative">
-        <div class="absolute -inset-1 rounded-xl bg-gradient-to-br from-brand-500/20 to-transparent opacity-0 blur transition-opacity duration-300 group-hover:opacity-100"></div>
-        <img
-          src="{{ "/assets/perfil_site.png" | relative_url }}"
-          alt="{{ site.plainwhite.name | default: site.title }}"
-          class="relative h-10 w-10 rounded-xl ring-1 ring-slate-700/50 transition-transform duration-300 group-hover:scale-105"
-        >
-      </div>
-      <div class="leading-tight">
-        <div class="text-sm font-semibold tracking-tight text-slate-100">{{ site.plainwhite.name | default: site.title }}</div>
-        <div class="text-xs text-slate-500">{{ site.plainwhite.tagline }}</div>
-      </div>
+    <!-- Logo / Brand -->
+    <a href="{{ "/" | relative_url }}" class="group flex items-center gap-2 no-underline">
+      <span class="font-mono text-sm font-semibold tracking-tight text-text">VC</span>
+      <span class="hidden text-border sm:inline">|</span>
+      <span class="hidden font-mono text-[11px] uppercase tracking-[0.12em] text-text-subtle sm:inline">{{ site.plainwhite.name | default: site.title }}</span>
     </a>
 
-    <nav class="hidden items-center gap-1 md:flex" aria-label="Navegação principal">
-      <a class="rounded-lg px-4 py-2 text-sm text-slate-300 transition-colors duration-200 hover:bg-slate-800/50 hover:text-slate-100" href="{{ "/" | relative_url }}">Home</a>
-      <a class="rounded-lg px-4 py-2 text-sm text-slate-300 transition-colors duration-200 hover:bg-slate-800/50 hover:text-slate-100" href="{{ "/apps/" | relative_url }}">Apps</a>
-      <a class="rounded-lg px-4 py-2 text-sm text-slate-300 transition-colors duration-200 hover:bg-slate-800/50 hover:text-slate-100" href="{{ "/blog/" | relative_url }}">Blog</a>
-      <a class="rounded-lg px-4 py-2 text-sm text-slate-300 transition-colors duration-200 hover:bg-slate-800/50 hover:text-slate-100" href="{{ "/sobre/" | relative_url }}">Sobre</a>
+    <!-- Desktop Nav -->
+    <nav class="hidden items-center gap-8 md:flex" aria-label="Navegacao principal">
+      <a class="font-mono text-[11px] uppercase tracking-[0.12em] text-text-muted transition-colors duration-200 hover:text-accent" href="{{ "/" | relative_url }}">Home</a>
+      <a class="font-mono text-[11px] uppercase tracking-[0.12em] text-text-muted transition-colors duration-200 hover:text-accent" href="{{ "/apps/" | relative_url }}">Apps</a>
+      <a class="font-mono text-[11px] uppercase tracking-[0.12em] text-text-muted transition-colors duration-200 hover:text-accent" href="{{ "/blog/" | relative_url }}">Blog</a>
+      <a class="font-mono text-[11px] uppercase tracking-[0.12em] text-text-muted transition-colors duration-200 hover:text-accent" href="{{ "/sobre/" | relative_url }}">Sobre</a>
     </nav>
 
+    <!-- Mobile Toggle -->
     <button
       id="nav-toggle"
-      class="group inline-flex items-center justify-center rounded-xl border border-slate-700/50 bg-surface-900/50 p-2.5 text-slate-300 backdrop-blur-sm transition-all duration-200 hover:border-slate-600 hover:text-slate-100 md:hidden"
+      class="inline-flex items-center justify-center rounded-sharp border border-border p-2 text-text-muted transition-colors hover:border-text-subtle hover:text-text md:hidden"
       type="button"
       aria-label="Abrir menu"
       aria-controls="mobile-nav"
       aria-expanded="false"
     >
-      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
       </svg>
     </button>
   </div>
 
-  <div id="mobile-nav" class="hidden border-t border-slate-800/40 bg-surface-950/95 backdrop-blur-xl md:hidden">
+  <!-- Mobile Nav -->
+  <div id="mobile-nav" class="hidden border-t border-border bg-white md:hidden">
     <div class="container-page flex flex-col gap-1 py-4">
-      <a class="rounded-lg px-4 py-3 text-sm text-slate-300 transition-colors hover:bg-slate-800/50 hover:text-slate-100" href="{{ "/" | relative_url }}">Home</a>
-      <a class="rounded-lg px-4 py-3 text-sm text-slate-300 transition-colors hover:bg-slate-800/50 hover:text-slate-100" href="{{ "/apps/" | relative_url }}">Apps</a>
-      <a class="rounded-lg px-4 py-3 text-sm text-slate-300 transition-colors hover:bg-slate-800/50 hover:text-slate-100" href="{{ "/blog/" | relative_url }}">Blog</a>
-      <a class="rounded-lg px-4 py-3 text-sm text-slate-300 transition-colors hover:bg-slate-800/50 hover:text-slate-100" href="{{ "/sobre/" | relative_url }}">Sobre</a>
+      <a class="rounded-sharp px-3 py-2.5 font-mono text-[11px] uppercase tracking-[0.12em] text-text-muted transition-colors hover:bg-surface-alt hover:text-accent" href="{{ "/" | relative_url }}">Home</a>
+      <a class="rounded-sharp px-3 py-2.5 font-mono text-[11px] uppercase tracking-[0.12em] text-text-muted transition-colors hover:bg-surface-alt hover:text-accent" href="{{ "/apps/" | relative_url }}">Apps</a>
+      <a class="rounded-sharp px-3 py-2.5 font-mono text-[11px] uppercase tracking-[0.12em] text-text-muted transition-colors hover:bg-surface-alt hover:text-accent" href="{{ "/blog/" | relative_url }}">Blog</a>
+      <a class="rounded-sharp px-3 py-2.5 font-mono text-[11px] uppercase tracking-[0.12em] text-text-muted transition-colors hover:bg-surface-alt hover:text-accent" href="{{ "/sobre/" | relative_url }}">Sobre</a>
     </div>
   </div>
 </header>

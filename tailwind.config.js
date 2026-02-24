@@ -12,58 +12,63 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          300: "#86EFAC",
-          400: "#6EE7B7",
-          500: "#34D399",
-          600: "#10B981"
+        accent: {
+          DEFAULT: "#2BAADF",
+          hover: "#1A95C8",
+          light: "#E8F6FC",
+          muted: "#55C5F0"
         },
         surface: {
-          50: "#f8fafc",
-          100: "#f1f5f9",
-          200: "#e2e8f0",
-          800: "#1e293b",
-          850: "#172033",
-          900: "#0f172a",
-          950: "#020617"
+          DEFAULT: "#FFFFFF",
+          alt: "#F8FAFC",
+          raised: "#FFFFFF"
+        },
+        border: {
+          DEFAULT: "#E2E8F0",
+          muted: "#F1F5F9"
+        },
+        text: {
+          DEFAULT: "#0F172A",
+          muted: "#475569",
+          subtle: "#94A3B8"
         }
       },
       fontFamily: {
-        sans: ["Sora", "ui-sans-serif", "system-ui", "sans-serif"],
-        serif: ["Source Serif 4", "ui-serif", "Georgia", "serif"]
+        mono: ["Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
+        sans: ["Inter", "system-ui", "-apple-system", "sans-serif"]
+      },
+      borderRadius: {
+        sharp: "2px"
       },
       animation: {
-        "fade-up": "fadeUp 0.6s ease-out forwards",
-        "fade-in": "fadeIn 0.4s ease-out forwards",
-        "glow-pulse": "glowPulse 3s ease-in-out infinite",
-        "float": "float 6s ease-in-out infinite"
+        "fade-up": "fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "fade-in": "fadeIn 0.5s ease-out forwards",
+        "float": "float 8s ease-in-out infinite",
+        "pulse-dot": "pulseDot 2s ease-in-out infinite"
       },
       keyframes: {
         fadeUp: {
-          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "0%": { opacity: "0", transform: "translateY(16px)" },
           "100%": { opacity: "1", transform: "translateY(0)" }
         },
         fadeIn: {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" }
         },
-        glowPulse: {
-          "0%, 100%": { opacity: "0.4" },
-          "50%": { opacity: "0.8" }
-        },
         float: {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-10px)" }
+          "0%, 100%": { transform: "translate(0, 0) scale(1)" },
+          "33%": { transform: "translate(10px, -10px) scale(1.02)" },
+          "66%": { transform: "translate(-5px, 5px) scale(0.98)" }
+        },
+        pulseDot: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.4" }
         }
       },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))"
-      },
       boxShadow: {
-        "glow": "0 0 40px -10px rgba(52, 211, 153, 0.3)",
-        "glow-lg": "0 0 60px -15px rgba(52, 211, 153, 0.4)",
-        "inner-glow": "inset 0 1px 0 0 rgba(255, 255, 255, 0.05)"
+        "card": "0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04)",
+        "card-hover": "0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04)",
+        "nav": "0 1px 2px 0 rgba(0, 0, 0, 0.03)"
       }
     }
   },

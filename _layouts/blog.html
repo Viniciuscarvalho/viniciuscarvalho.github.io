@@ -4,28 +4,26 @@ layout: default
 
 {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
 
-<section class="relative">
-  <!-- Background Elements -->
-  <div class="pointer-events-none absolute inset-0 -z-10">
-    <div class="glow-orb -top-40 left-1/4 h-80 w-80 bg-sky-500/10"></div>
-  </div>
-
-  <header class="mx-auto max-w-3xl text-center">
-    <div class="badge mb-4">{{ site.posts.size }} artigos</div>
-    <h1 class="text-3xl font-semibold tracking-tight text-slate-100 md:text-5xl text-balance">
+<section>
+  <header class="mx-auto max-w-3xl">
+    <p class="section-label">Artigos</p>
+    <h1 class="text-3xl font-semibold tracking-tight text-text md:text-4xl">
       {{ page.title | escape }}
     </h1>
-    <p class="mt-4 text-lg text-slate-400 font-serif">
-      Artigos sobre iOS, arquitetura, carreira e aprendizado contínuo.
+    <p class="mt-3 text-text-muted">
+      Artigos sobre iOS, arquitetura, carreira e aprendizado continuo.
     </p>
+    <div class="mt-3">
+      <span class="badge">{{ site.posts.size }} artigos</span>
+    </div>
   </header>
 </section>
 
 {%- if site.plainwhite.search -%}
-<section class="mx-auto mt-10 max-w-3xl">
-  <div class="card-static p-5">
+<section class="mx-auto mt-8 max-w-3xl">
+  <div class="card-static p-4">
     <div class="relative">
-      <svg class="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+      <svg class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-text-subtle" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
         <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
       </svg>
       <input
@@ -33,46 +31,43 @@ layout: default
         type="text"
         autocomplete="off"
         placeholder="Buscar posts..."
-        class="w-full rounded-xl border border-slate-700/50 bg-surface-950 py-3.5 pl-12 pr-4 text-sm text-slate-100 placeholder:text-slate-500 transition-all duration-200 focus:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-400/20"
+        class="w-full rounded-sharp border border-border bg-surface py-2.5 pl-10 pr-4 font-mono text-xs text-text placeholder:text-text-subtle transition-all duration-200 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/20"
       >
     </div>
-    <div id="search-results" class="mt-4 hidden space-y-2"></div>
+    <div id="search-results" class="mt-3 hidden space-y-2"></div>
   </div>
 </section>
 {%- endif -%}
 
-<section class="mx-auto mt-10 max-w-3xl">
+<section class="mx-auto mt-8 max-w-3xl">
   {%- if site.posts.size == 0 -%}
     <div class="card-static p-8 text-center">
-      <p class="text-slate-400 font-serif">Sem posts ainda.</p>
+      <p class="text-text-muted text-sm">Sem posts ainda.</p>
     </div>
   {%- else -%}
-    <div class="space-y-4">
+    <div class="space-y-3">
       {%- for post in site.posts -%}
-        <a href="{{ post.url | relative_url }}" class="card group block p-6">
+        <a href="{{ post.url | relative_url }}" class="card group block p-5">
           <div class="flex items-start justify-between gap-4">
             <div class="min-w-0 flex-1">
-              <div class="flex flex-wrap items-center gap-3 text-xs">
-                <span class="flex items-center gap-1.5 text-slate-500">
-                  <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                  </svg>
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="font-mono text-[10px] uppercase tracking-[0.15em] text-text-subtle">
                   {{ post.date | date: date_format }}
                 </span>
                 {%- if post.categories and post.categories.size > 0 -%}
                   {%- for cat in post.categories limit: 2 -%}
-                    <span class="rounded-md bg-slate-800/50 px-2 py-0.5 text-slate-400">{{ cat }}</span>
+                    <span class="tech-pill">{{ cat }}</span>
                   {%- endfor -%}
                 {%- endif -%}
               </div>
-              <h2 class="mt-3 text-lg font-semibold text-slate-100 transition-colors group-hover:text-brand-400">{{ post.title | escape }}</h2>
+              <h2 class="mt-2 text-sm font-semibold text-text transition-colors group-hover:text-accent">{{ post.title | escape }}</h2>
               {%- if site.show_excerpts -%}
-                <p class="mt-2 text-sm text-slate-400 font-serif line-clamp-2">
+                <p class="mt-1.5 text-sm text-text-muted line-clamp-2">
                   {{ post.excerpt | strip_html | truncate: 160 }}
                 </p>
               {%- endif -%}
             </div>
-            <svg class="mt-6 h-5 w-5 shrink-0 text-slate-600 transition-all group-hover:translate-x-1 group-hover:text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <svg class="mt-4 h-4 w-4 shrink-0 text-text-subtle transition-all group-hover:translate-x-1 group-hover:text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
           </div>

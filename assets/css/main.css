@@ -4,17 +4,13 @@
 
 @layer base {
   :root {
-    color-scheme: dark;
-    --color-brand: #34D399;
-    --color-brand-glow: rgba(52, 211, 153, 0.15);
+    color-scheme: light;
   }
 
-  /* Accessibility: Focus styles */
   *:focus-visible {
-    @apply outline-2 outline-offset-2 outline-brand-500;
+    @apply outline-2 outline-offset-2 outline-accent;
   }
 
-  /* Accessibility: Reduced motion */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
@@ -23,129 +19,192 @@
     }
   }
 
-  html,
-  body {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html, body {
     height: 100%;
   }
 
   body {
-    @apply bg-surface-950 text-slate-100 antialiased;
-    background-image:
-      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(52, 211, 153, 0.08), transparent),
-      radial-gradient(ellipse 60% 40% at 100% 100%, rgba(56, 189, 248, 0.05), transparent);
-    background-attachment: fixed;
+    @apply bg-surface text-text antialiased font-sans;
+    position: relative;
+  }
+
+  /* Subtle noise texture overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.015;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
   }
 
   ::selection {
-    @apply bg-brand-500/30 text-white;
+    @apply bg-accent/20 text-text;
   }
 
   a {
-    @apply text-slate-100 no-underline transition-colors duration-200;
+    @apply text-text no-underline transition-colors duration-200;
   }
 
   code {
     @apply font-mono text-[0.9em];
   }
 
+  /* Prose overrides for blog posts */
   .prose pre {
-    @apply rounded-2xl border border-slate-800/60 bg-surface-900/80 backdrop-blur-sm;
+    @apply rounded-sharp border border-border bg-surface-alt;
   }
 
   .prose code {
-    @apply text-brand-300 font-medium;
+    @apply text-accent font-medium;
   }
 
   .prose a {
-    @apply text-brand-300 underline decoration-brand-500/30 underline-offset-4 hover:text-brand-400 hover:decoration-brand-400/50 transition-colors;
+    @apply text-accent underline decoration-accent/30 underline-offset-4 hover:text-accent-hover hover:decoration-accent/50 transition-colors;
   }
 
   .prose p {
-    @apply font-serif text-slate-300 leading-relaxed;
+    @apply font-sans text-text-muted leading-relaxed;
   }
 
   .prose h1, .prose h2, .prose h3, .prose h4 {
-    @apply font-sans font-semibold text-slate-100;
+    @apply font-sans font-semibold text-text;
+  }
+
+  .prose blockquote {
+    @apply border-l-accent/40 text-text-muted;
+  }
+
+  .prose strong {
+    @apply text-text;
+  }
+
+  .prose li {
+    @apply text-text-muted;
+  }
+
+  .prose img {
+    @apply rounded-sharp border border-border;
   }
 }
 
 @layer components {
   .container-page {
-    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-5xl px-6 sm:px-8 lg:px-10;
   }
 
+  /* Cards */
   .card {
-    @apply rounded-2xl border border-slate-800/50 bg-surface-900/40 backdrop-blur-md shadow-inner-glow;
+    @apply rounded-sharp border border-border bg-surface shadow-card;
     @apply transition-all duration-300 ease-out;
   }
 
   .card:hover {
-    @apply border-slate-700/60 bg-surface-900/60 shadow-glow;
-    transform: translateY(-2px);
+    @apply border-border shadow-card-hover;
+    transform: translateY(-3px);
+  }
+
+  .card-featured {
+    @apply card border-l-4 border-l-accent;
   }
 
   .card-static {
-    @apply rounded-2xl border border-slate-800/50 bg-surface-900/40 backdrop-blur-md shadow-inner-glow;
+    @apply rounded-sharp border border-border bg-surface shadow-card;
   }
 
+  /* Buttons */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-6 py-3.5 text-sm font-semibold text-surface-950 no-underline;
+    @apply inline-flex items-center justify-center gap-2 rounded-sharp px-5 py-2.5 text-xs font-medium uppercase tracking-widest font-mono;
+    @apply bg-accent text-white no-underline;
     @apply transition-all duration-200 ease-out;
-    @apply hover:bg-brand-400 hover:shadow-glow active:scale-[0.98];
+    @apply hover:bg-accent-hover active:scale-[0.98];
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700/50 bg-surface-900/50 px-6 py-3.5 text-sm font-semibold text-slate-100 no-underline backdrop-blur-sm;
+    @apply inline-flex items-center justify-center gap-2 rounded-sharp border border-border px-5 py-2.5 text-xs font-medium uppercase tracking-widest font-mono;
+    @apply bg-surface text-text no-underline;
     @apply transition-all duration-200 ease-out;
-    @apply hover:border-slate-600 hover:bg-surface-800/60 active:scale-[0.98];
+    @apply hover:border-text-subtle hover:bg-surface-alt active:scale-[0.98];
   }
 
+  /* Badges & Pills */
   .badge {
-    @apply inline-flex items-center gap-1.5 rounded-full border border-slate-700/50 bg-surface-900/60 px-3 py-1.5 text-xs font-medium text-slate-300 backdrop-blur-sm;
+    @apply inline-flex items-center gap-1.5 rounded-sharp border border-border bg-surface-alt px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest text-text-muted font-mono;
   }
 
-  .badge-success {
-    @apply border-brand-500/30 bg-brand-500/10 text-brand-300;
+  .badge-accent {
+    @apply border-accent/20 bg-accent-light text-accent;
   }
 
+  .tech-pill {
+    @apply rounded-sharp bg-surface-alt px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-text-subtle;
+  }
+
+  /* Labels */
+  .label {
+    @apply text-[11px] font-mono font-medium uppercase tracking-[0.15em] text-text-subtle;
+  }
+
+  /* Links */
   .link-hover {
-    @apply text-slate-300 no-underline transition-colors duration-200 hover:text-brand-400;
+    @apply text-text-muted no-underline transition-colors duration-200 hover:text-accent font-mono text-xs uppercase tracking-wider;
+  }
+
+  /* Section titles */
+  .section-label {
+    @apply text-[11px] font-mono font-medium uppercase tracking-[0.15em] text-text-subtle mb-4;
   }
 
   .section-title {
-    @apply text-2xl font-semibold tracking-tight text-slate-100 md:text-3xl;
+    @apply text-2xl font-semibold tracking-tight text-text md:text-3xl;
   }
 
   .section-subtitle {
-    @apply mt-3 text-slate-400 font-serif;
+    @apply mt-2 text-text-muted text-sm;
   }
 
-  .glow-orb {
-    @apply absolute rounded-full blur-3xl opacity-40 animate-glow-pulse pointer-events-none;
+  /* Decorative blobs */
+  .blob {
+    @apply absolute rounded-full blur-3xl opacity-30 pointer-events-none animate-float;
   }
 
-  .text-gradient {
-    @apply bg-gradient-to-r from-brand-300 via-brand-400 to-emerald-300 bg-clip-text text-transparent;
-  }
-
+  /* Stagger animation */
   .animate-stagger > * {
     @apply opacity-0 animate-fade-up;
   }
+  .animate-stagger > *:nth-child(1) { animation-delay: 0.05s; }
+  .animate-stagger > *:nth-child(2) { animation-delay: 0.12s; }
+  .animate-stagger > *:nth-child(3) { animation-delay: 0.19s; }
+  .animate-stagger > *:nth-child(4) { animation-delay: 0.26s; }
+  .animate-stagger > *:nth-child(5) { animation-delay: 0.33s; }
+  .animate-stagger > *:nth-child(6) { animation-delay: 0.40s; }
 
-  .animate-stagger > *:nth-child(1) { animation-delay: 0.1s; }
-  .animate-stagger > *:nth-child(2) { animation-delay: 0.2s; }
-  .animate-stagger > *:nth-child(3) { animation-delay: 0.3s; }
-  .animate-stagger > *:nth-child(4) { animation-delay: 0.4s; }
-  .animate-stagger > *:nth-child(5) { animation-delay: 0.5s; }
-  .animate-stagger > *:nth-child(6) { animation-delay: 0.6s; }
+  /* Reveal on scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Divider */
+  .divider {
+    @apply h-px w-full bg-border;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
-  }
-
-  .mask-gradient-b {
-    mask-image: linear-gradient(to bottom, black 60%, transparent);
   }
 }
