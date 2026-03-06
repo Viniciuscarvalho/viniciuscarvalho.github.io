@@ -11,33 +11,51 @@ layout: default
   <div class="blob bg-accent/5" style="width: 400px; height: 400px; left: -100px; bottom: 0;"></div>
   
   <div class="container-page relative">
-    <div class="max-w-4xl animate-stagger">
+    <div class="max-w-5xl animate-stagger">
       <!-- Chapter 01 Label -->
-      <div class="reveal mb-8 flex items-center gap-4">
+      <div class="reveal mb-12 flex items-center gap-4">
         <span class="font-mono text-xs font-bold tracking-[0.2em] text-accent">01 / INTRODUCTION</span>
-        <div class="h-px grow bg-border"></div>
+        <div class="h-px grow bg-border/50"></div>
       </div>
 
-      <h1 class="reveal text-5xl font-bold tracking-tighter text-text md:text-[96px] md:leading-[0.9]">
-        VINICIUS<br/>
-        CARVALHO
-      </h1>
-      
-      <div class="reveal mt-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
-        <p class="text-xl leading-relaxed text-text-muted md:text-2xl">
-          iOS Engineer building high-performance mobile architectures and crafting seamless product experiences.
-        </p>
-        <div class="flex flex-wrap gap-4 md:justify-end">
-          {%- if site.plainwhite.social_links.github -%}
-          <a class="btn-primary"
-             href="https://github.com/{{ site.plainwhite.social_links.github }}" target="_blank" rel="noopener">
-            Github
-            <span class="opacity-50 font-mono">↗</span>
-          </a>
-          {%- endif -%}
-          <a class="btn-secondary" href="#blog">
-            Explore Blog
-          </a>
+      <div class="flex flex-col md:flex-row md:items-center gap-12 md:gap-20">
+        <!-- Text Content -->
+        <div class="flex-1">
+          <h1 class="reveal text-5xl font-bold tracking-tighter text-text md:text-[96px] md:leading-[0.85] uppercase">
+            VINICIUS<br/>
+            CARVALHO
+          </h1>
+          
+          <p class="reveal mt-10 text-xl leading-relaxed text-text-muted md:text-2xl max-w-xl">
+            iOS Engineer building high-performance mobile architectures and crafting seamless product experiences.
+          </p>
+
+          <div class="reveal mt-12 flex flex-wrap gap-4">
+            {%- if site.plainwhite.social_links.github -%}
+            <a class="btn-primary"
+               href="https://github.com/{{ site.plainwhite.social_links.github }}" target="_blank" rel="noopener">
+              Github
+              <span class="opacity-50 font-mono">↗</span>
+            </a>
+            {%- endif -%}
+            <a class="btn-secondary" href="#blog">
+              Explore Blog
+            </a>
+          </div>
+        </div>
+
+        <!-- Photo Integration -->
+        <div class="reveal relative shrink-0">
+          <div class="absolute -inset-4 bg-accent/10 blur-3xl rounded-full opacity-50"></div>
+          <div class="relative h-64 w-64 md:h-80 md:w-80 overflow-hidden rounded-card border-2 border-border/50 bg-surface-alt grayscale hover:grayscale-0 transition-all duration-700">
+            <img 
+              src="{{ "/assets/perfil_site.png" | relative_url }}" 
+              alt="Vinicius Carvalho" 
+              class="h-full w-full object-cover"
+            >
+          </div>
+          <!-- Decorative element -->
+          <div class="absolute -bottom-4 -right-4 h-24 w-24 border-b-2 border-r-2 border-accent/30 rounded-br-card"></div>
         </div>
       </div>
     </div>
@@ -47,7 +65,7 @@ layout: default
 <!-- Impact / Stats Section -->
 <section class="py-12 border-y border-border bg-surface-alt/50">
   <div class="container-page">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
       <div class="reveal">
         <span class="block text-3xl font-bold text-text">8+</span>
         <span class="label mt-1">Anos de XP</span>
@@ -74,8 +92,8 @@ layout: default
   <div class="container-page">
     <div class="reveal mb-16 flex items-center gap-4">
       <span class="font-mono text-xs font-bold tracking-[0.2em] text-accent">02 / OPEN SOURCE</span>
-      <h2 class="section-title text-3xl md:text-4xl">Top Repositories</h2>
-      <div class="h-px grow bg-border"></div>
+      <h2 class="section-title text-3xl md:text-4xl uppercase">Top Repositories</h2>
+      <div class="h-px grow bg-border/50"></div>
     </div>
     
     <div id="gh-repos-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-stagger">
@@ -100,10 +118,10 @@ layout: default
         <a href="${repo.html_url}" target="_blank" rel="noopener" class="card group flex flex-col justify-between p-8">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="font-mono text-[10px] text-text-subtle">REPO / ${repo.language || 'Code'}</span>
+              <span class="font-mono text-[10px] text-text-subtle uppercase">REPO / ${repo.language || 'Code'}</span>
               <span class="text-[11px] font-bold text-accent">★ ${repo.stargazers_count}</span>
             </div>
-            <h4 class="text-xl font-bold text-text group-hover:text-accent transition-colors tracking-tight">${repo.name}</h4>
+            <h4 class="text-xl font-bold text-text group-hover:text-accent transition-colors tracking-tight uppercase">${repo.name}</h4>
             <p class="mt-4 text-sm text-text-muted leading-relaxed line-clamp-3">${repo.description || 'No description available.'}</p>
           </div>
           <div class="mt-8 flex items-center gap-2 text-xs font-mono font-bold text-text-subtle group-hover:text-text transition-colors">
@@ -124,8 +142,8 @@ layout: default
   <div class="container-page">
     <div class="reveal mb-16 flex items-center gap-4">
       <span class="font-mono text-xs font-bold tracking-[0.2em] text-accent">03 / PORTFOLIO</span>
-      <h2 class="section-title text-3xl md:text-4xl">Featured Apps</h2>
-      <div class="h-px grow bg-border"></div>
+      <h2 class="section-title text-3xl md:text-4xl uppercase">Featured Apps</h2>
+      <div class="h-px grow bg-border/50"></div>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -142,7 +160,7 @@ layout: default
                 <span class="tech-pill">{{ tech }}</span>
               {%- endfor -%}
           </div>
-          <h4 class="text-3xl font-bold text-text tracking-tight">{{ app.title }}</h4>
+          <h4 class="text-3xl font-bold text-text tracking-tight uppercase">{{ app.title }}</h4>
           <p class="mt-4 text-lg text-text-muted leading-relaxed">{{ app.description }}</p>
           
           <div class="mt-10">
@@ -162,8 +180,8 @@ layout: default
   <div class="container-page">
     <div class="reveal mb-16 flex items-center gap-4">
       <span class="font-mono text-xs font-bold tracking-[0.2em] text-accent">04 / KNOWLEDGE</span>
-      <h2 class="section-title text-3xl md:text-4xl">Latest Writings</h2>
-      <div class="h-px grow bg-border"></div>
+      <h2 class="section-title text-3xl md:text-4xl uppercase">Latest Writings</h2>
+      <div class="h-px grow bg-border/50"></div>
     </div>
 
     <div class="divide-y divide-border border-t border-border">
