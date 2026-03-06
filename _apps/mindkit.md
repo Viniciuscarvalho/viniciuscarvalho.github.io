@@ -1,77 +1,29 @@
 ---
-title: "MindKit"
-tagline: "Sincronize configs de IA entre Claude, Cursor e mais."
-description: "CLI tool para sincronizar configurações de desenvolvimento com IA através de múltiplas plataformas, com templates e backup automático."
-kind: "app"
-status: "Open Source"
+layout: app
+title: MindKit
+kind: app
 featured: true
-stack:
-  - TypeScript
-  - Node.js
-  - CLI
-links:
-  website: ""
-  app_store: ""
-  github: "https://github.com/Viniciuscarvalho/mindkit"
-cover_image: "/assets/apps/mindkit/og-image.png"
-screenshots: []
-highlights:
-  - "Sincronização entre Claude Code, Cursor e OpenAI Codex"
-  - "TUI interativa para seleção de ferramentas"
-  - "Templates customizáveis de comandos e agentes"
-  - "Backup automático e watch mode com sync em tempo real"
+image: /assets/apps/mindkit/og-image.png
+tech: ["AI", "productivity", "development", "configuration"]
+stack: ["TypeScript", "Claude Code", "AI SDK", "Node.js"]
+highlights: [
+  "Forge your AI development mind by syncing configurations",
+  "Seamless integration with Claude Code environment",
+  "Orchestrate specialized AI agent teams",
+  "High-performance strategic analysis tools"
+]
+description: Forge your AI development mind — MindKit allows you to sync and manage your AI development configurations seamlessly across projects.
+url: https://github.com/Viniciuscarvalho/MindKit
 ---
 
-## Visão geral
+MindKit is designed for developers who want to push the boundaries of AI-assisted development. By providing a structured way to manage AI context and specialized agent personas, it ensures that your technical feasibility reports and strategic analysis are consistent and high-quality.
 
-O **MindKit** é uma ferramenta CLI para **sincronizar configurações de desenvolvimento com IA** entre múltiplas plataformas. A ideia é manter consistência de comandos, agentes e documentação em ferramentas como Claude Code, Cursor e OpenAI Codex.
+### Key Features
 
-## Funcionalidades principais
+- **Configuration Sync**: Keep your AI instructions and project context in sync.
+- **Agent Orchestration**: Deploy specialized agents for specific tasks like Code Review, Architecture Design, or Security Audit.
+- **Claude Code Native**: Built from the ground up to support modern AI-CLI workflows.
 
-- **Suporte multi-plataforma**: sincroniza configs entre Claude Code, Cursor e OpenAI Codex de forma transparente.
-- **Interface interativa**: TUI (Terminal User Interface) bonita para selecionar ferramentas e componentes.
-- **Sistema de templates**: comandos, agentes e documentação customizáveis e reutilizáveis.
-- **Proteção automática**: backup automático para proteger contra perda de configurações.
-- **Watch mode**: sincronização em tempo real quando arquivos são modificados.
-- **Path placeholders**: caminhos agnósticos de ferramenta que resolvem corretamente para cada plataforma.
+### How it works
 
-## Templates Built-in
-
-O MindKit já vem com templates prontos para uso:
-
-**Comandos**:
-- `create-prd`: criar Product Requirements Documents
-- `generate-spec`: gerar especificações de features
-- `generate-tasks`: quebrar specs em tarefas implementáveis
-
-**Agentes**:
-- `swift-expert`: especialista em iOS/macOS com Swift
-- `backend-developer`: engenheiro backend sênior
-- `ui-designer`: designer visual especializado
-- `typescript-pro`: expert em TypeScript
-
-## Instalação
-
-```bash
-# Uso direto (sem instalação)
-npx mindkit install
-
-# Instalação global via npm
-npm install -g mindkit
-
-# Via Homebrew
-brew tap Viniciuscarvalho/mindkit
-brew install mindkit
-```
-
-## Comandos principais
-
-- `mindkit install` – instalar configurações nas ferramentas de IA
-- `mindkit init` – inicializar em um projeto
-- `mindkit sync` – sincronizar entre ferramentas
-- `mindkit backup` – gerenciar backups
-- `mindkit list` – exibir componentes disponíveis
-
-## Links
-
-- GitHub: [github.com/Viniciuscarvalho/mindkit](https://github.com/Viniciuscarvalho/mindkit)
+The core of MindKit is a plug-and-play framework that hooks into your existing development environment. It interprets your project's structure and provides the LLM with the exact context it needs to be effective, reducing hallucinations and increasing precision.

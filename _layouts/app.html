@@ -2,96 +2,97 @@
 layout: default
 ---
 
-<article class="mx-auto max-w-5xl">
-  <!-- Back Link -->
-  <a class="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-text-muted no-underline transition-colors hover:text-accent" href="{{ "/apps/" | relative_url }}">
-    <svg class="h-3 w-3 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-    </svg>
-    Voltar para Apps
-  </a>
+<article class="mx-auto max-w-5xl px-6 py-12 md:py-20">
+  <!-- Navigation Header -->
+  <nav class="reveal mb-12 flex items-center justify-between">
+    <a class="group inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-accent no-underline transition-all hover:translate-x-[-4px]" href="{{ "/apps/" | relative_url }}">
+      <span class="text-xs">←</span> BACK TO APPS
+    </a>
+    <div class="h-px grow mx-6 bg-border/50"></div>
+    {%- if page.status -%}
+      <span class="badge badge-accent">{{ page.status }}</span>
+    {%- endif -%}
+  </nav>
 
-  <!-- Header -->
-  <header class="mt-8">
-    <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-      <div class="min-w-0 flex-1">
-        <p class="section-label">App</p>
-        <h1 class="text-3xl font-semibold tracking-tight text-text md:text-4xl">
+  <!-- Hero Section -->
+  <header class="reveal animate-stagger">
+    <div class="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+      <div class="max-w-3xl">
+        <span class="font-mono text-[10px] font-bold tracking-[0.2em] text-text-subtle mb-4 block uppercase">03 / CASE STUDY</span>
+        <h1 class="text-4xl font-bold tracking-tighter text-text md:text-6xl">
           {{ page.title | escape }}
         </h1>
-        {%- if page.tagline -%}
-          <p class="mt-2 text-text-muted">{{ page.tagline }}</p>
+        {%- if page.description -%}
+          <p class="mt-6 text-xl leading-relaxed text-text-muted md:text-2xl">
+            {{ page.description }}
+          </p>
         {%- endif -%}
       </div>
-      {%- if page.status -%}
-        <div class="shrink-0">
-          <span class="badge">{{ page.status }}</span>
-        </div>
+      
+      {%- if page.url and page.url contains "github.com" -%}
+      <div class="shrink-0">
+        <a href="{{ page.url }}" target="_blank" rel="noopener" class="btn-primary">
+          View Source <span class="opacity-50 ml-1 font-mono">↗</span>
+        </a>
+      </div>
+      {%- endif -%}
+    </div>
+
+    <!-- Tech Stack Row -->
+    <div class="mt-10 flex flex-wrap gap-2 border-y border-border/50 py-6">
+      {%- if page.tech -%}
+        {%- for item in page.tech -%}
+          <span class="tech-pill">{{ item }}</span>
+        {%- endfor -%}
+      {%- elsif page.stack -%}
+        {%- for item in page.stack -%}
+          <span class="tech-pill">{{ item }}</span>
+        {%- endfor -%}
       {%- endif -%}
     </div>
   </header>
 
-  <div class="divider mt-8"></div>
-
-  <!-- Main Grid -->
-  <section class="mt-8 grid gap-8 lg:grid-cols-3">
-    <!-- Main Content -->
-    <div class="lg:col-span-2 space-y-6">
-      {%- if page.description -%}
-        <div class="card-static p-6">
-          <p class="text-text-muted leading-relaxed">{{ page.description }}</p>
-        </div>
-      {%- endif -%}
-
-      {%- if page.screenshots and page.screenshots.size > 0 -%}
-        <div class="card-static p-6">
-          <h2 class="label mb-4">Galeria</h2>
-          <div class="grid gap-3 sm:grid-cols-2">
-            {%- for img in page.screenshots -%}
-              <div class="overflow-hidden rounded-sharp border border-border">
-                <img
-                  src="{{ img | relative_url }}"
-                  alt=""
-                  loading="lazy"
-                  class="w-full object-cover transition-transform duration-500 hover:scale-105"
-                >
-              </div>
-            {%- endfor -%}
-          </div>
-        </div>
-      {%- endif -%}
-
+  <!-- Main Content Grid -->
+  <div class="mt-16 grid gap-16 lg:grid-cols-12">
+    <!-- Body Content -->
+    <div class="reveal lg:col-span-8">
       {%- if content and content != "" -%}
-        <div class="card-static p-6">
-          <div class="prose max-w-none">
-            {{ content }}
-          </div>
+        <div class="prose prose-invert max-w-none prose-p:text-lg prose-p:leading-relaxed prose-headings:tracking-tight">
+          {{ content }}
+        </div>
+      {%- else -%}
+        <div class="rounded-card border border-border bg-surface-alt/30 p-12 text-center">
+          <p class="text-text-muted italic">Case study content coming soon.</p>
+        </div>
+      {%- endif -%}
+      
+      <!-- Gallery if exists -->
+      {%- if page.screenshots and page.screenshots.size > 0 -%}
+        <div class="mt-16 grid gap-6 sm:grid-cols-2">
+          {%- for img in page.screenshots -%}
+            <div class="overflow-hidden rounded-card border border-border bg-surface-alt">
+              <img
+                src="{{ img | relative_url }}"
+                alt="App Screenshot"
+                loading="lazy"
+                class="w-full object-cover transition-all duration-700 hover:scale-105 opacity-90 hover:opacity-100"
+              >
+            </div>
+          {%- endfor -%}
         </div>
       {%- endif -%}
     </div>
 
-    <!-- Sidebar -->
-    <aside class="space-y-4">
-      {%- if page.stack and page.stack.size > 0 -%}
-        <div class="card-static p-5">
-          <h2 class="label mb-3">Stack</h2>
-          <div class="flex flex-wrap gap-1.5">
-            {%- for item in page.stack -%}
-              <span class="tech-pill">{{ item }}</span>
-            {%- endfor -%}
-          </div>
-        </div>
-      {%- endif -%}
-
+    <!-- Sidebar Info -->
+    <aside class="reveal lg:col-span-4 space-y-12">
+      <!-- Highlights -->
       {%- if page.highlights and page.highlights.size > 0 -%}
-        <div class="card-static p-5">
-          <h2 class="label mb-3">Destaques</h2>
-          <ul class="space-y-2">
+        <div>
+          <h2 class="font-mono text-xs font-bold tracking-[0.2em] text-accent mb-6 uppercase">Highlights</h2>
+          <ul class="space-y-4">
             {%- for h in page.highlights -%}
-              <li class="flex items-start gap-2 text-sm text-text-muted">
-                <svg class="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
+              <li class="flex items-start gap-3 text-sm leading-relaxed text-text-muted">
+                <span class="text-accent mt-0.5">▹</span>
                 <span>{{ h }}</span>
               </li>
             {%- endfor -%}
@@ -99,36 +100,42 @@ layout: default
         </div>
       {%- endif -%}
 
-      {%- if page.links -%}
-        <div class="card-static p-5">
-          <h2 class="label mb-3">Links</h2>
-          <div class="flex flex-col gap-2">
-            {%- if page.links.app_store and page.links.app_store != "" -%}
-              <a class="btn-primary justify-center text-center" href="{{ page.links.app_store }}" target="_blank" rel="noopener">
-                Baixar na App Store
-              </a>
-            {%- endif -%}
+      <!-- Links & Resources -->
+      <div>
+        <h2 class="font-mono text-xs font-bold tracking-[0.2em] text-accent mb-6 uppercase">Resources</h2>
+        <div class="flex flex-col gap-4">
+          {%- if page.links.app_store -%}
+            <a class="btn-secondary w-full justify-center" href="{{ page.links.app_store }}" target="_blank" rel="noopener">
+              App Store <span class="opacity-50 ml-1">↗</span>
+            </a>
+          {%- endif -%}
+          
+          {%- if page.links.github or page.url -%}
+            <a class="link-hover flex items-center gap-2 py-2" href="{{ page.links.github | default: page.url }}" target="_blank" rel="noopener">
+              <span class="text-accent">#</span> Repository
+            </a>
+          {%- endif -%}
 
-            {%- if page.links.website and page.links.website != "" -%}
-              <a class="group flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-text-muted no-underline transition-colors hover:text-accent" href="{{ page.links.website }}" target="_blank" rel="noopener">
-                Website
-                <svg class="h-3 w-3 opacity-50 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                </svg>
-              </a>
-            {%- endif -%}
-
-            {%- if page.links.github and page.links.github != "" -%}
-              <a class="group flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-text-muted no-underline transition-colors hover:text-accent" href="{{ page.links.github }}" target="_blank" rel="noopener">
-                GitHub
-                <svg class="h-3 w-3 opacity-50 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                </svg>
-              </a>
-            {%- endif -%}
-          </div>
+          {%- if page.links.website -%}
+            <a class="link-hover flex items-center gap-2 py-2" href="{{ page.links.website }}" target="_blank" rel="noopener">
+              <span class="text-accent">#</span> Project Website
+            </a>
+          {%- endif -%}
         </div>
-      {%- endif -%}
+      </div>
     </aside>
-  </section>
+  </div>
 </article>
+
+<style>
+  /* Local reveal adjustments */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.visible, .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
