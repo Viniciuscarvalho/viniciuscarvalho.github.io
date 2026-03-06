@@ -38,7 +38,9 @@ module.exports = {
         sans: ["Inter", "system-ui", "-apple-system", "sans-serif"]
       },
       borderRadius: {
-        sharp: "2px"
+        sharp: "2px",
+        soft: "8px",
+        card: "24px",
       },
       animation: {
         "fade-up": "fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards",
@@ -66,8 +68,8 @@ module.exports = {
         }
       },
       boxShadow: {
-        "card": "0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04)",
-        "card-hover": "0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04)",
+        "card": "0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 0 3px rgba(0,0,0,0.02)",
+        "card-hover": "0 10px 30px -5px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04)",
         "nav": "0 1px 2px 0 rgba(0, 0, 0, 0.03)"
       }
     }

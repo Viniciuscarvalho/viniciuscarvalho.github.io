@@ -119,7 +119,7 @@
 
   /* Cards — hardcoded light colors for browser dark-mode resistance */
   .card {
-    @apply rounded-sharp shadow-card transition-all duration-300 ease-out;
+    @apply rounded-card shadow-card transition-all duration-300 ease-out;
     border: 1px solid #E2E8F0;
     background-color: #FFFFFF;
   }
@@ -131,7 +131,7 @@
   }
 
   .card-featured {
-    @apply rounded-sharp shadow-card transition-all duration-300 ease-out;
+    @apply rounded-card shadow-card transition-all duration-300 ease-out;
     border: 1px solid #E2E8F0;
     border-left: 4px solid #2BAADF;
     background-color: #FFFFFF;
@@ -152,7 +152,7 @@
 
   /* Buttons */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-sharp px-5 py-2.5 text-xs font-medium uppercase tracking-widest font-mono no-underline transition-all duration-200 ease-out active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-soft px-5 py-2.5 text-xs font-medium uppercase tracking-widest font-mono no-underline transition-all duration-200 ease-out active:scale-[0.98];
     background-color: #2BAADF;
     color: #FFFFFF !important;
   }
@@ -161,7 +161,7 @@
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-sharp px-5 py-2.5 text-xs font-medium uppercase tracking-widest font-mono no-underline transition-all duration-200 ease-out active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-soft px-5 py-2.5 text-xs font-medium uppercase tracking-widest font-mono no-underline transition-all duration-200 ease-out active:scale-[0.98];
     border: 1px solid #E2E8F0;
     background-color: #FFFFFF;
     color: #0F172A !important;
