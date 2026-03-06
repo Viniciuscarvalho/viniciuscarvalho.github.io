@@ -15,27 +15,27 @@ module.exports = {
         accent: {
           DEFAULT: "#2BAADF",
           hover: "#1A95C8",
-          light: "#E8F6FC",
-          muted: "#55C5F0"
+          light: "rgba(43, 170, 223, 0.1)",
+          muted: "rgba(43, 170, 223, 0.4)"
         },
         surface: {
-          DEFAULT: "#FFFFFF",
-          alt: "#F8FAFC",
-          raised: "#FFFFFF"
+          DEFAULT: "#09090b", // zinc-950
+          alt: "#121214", // zinc-900ish
+          raised: "#18181b" // zinc-900
         },
         border: {
-          DEFAULT: "#E2E8F0",
-          muted: "#F1F5F9"
+          DEFAULT: "#27272a", // zinc-800
+          muted: "#18181b" // zinc-900
         },
         text: {
-          DEFAULT: "#0F172A",
-          muted: "#475569",
-          subtle: "#94A3B8"
+          DEFAULT: "#fafafa", // zinc-50
+          muted: "#a1a1aa", // zinc-400
+          subtle: "#71717a" // zinc-500
         }
       },
       fontFamily: {
-        mono: ["Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
-        sans: ["Inter", "system-ui", "-apple-system", "sans-serif"]
+        mono: ["Geist Mono", "Menlo", "Monaco", "monospace"],
+        sans: ["Geist", "Inter", "sans-serif"]
       },
       borderRadius: {
         sharp: "2px",

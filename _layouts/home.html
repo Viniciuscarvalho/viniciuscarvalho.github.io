@@ -6,69 +6,83 @@ layout: default
 {%- assign featured_apps = site.apps | where: "kind", "app" | where: "featured", true | sort: "title" -%}
 
 <!-- Hero Section -->
-<section class="relative overflow-hidden pt-16 pb-24 md:pt-24 md:pb-32">
-  <div class="blob bg-accent/5" style="width: 400px; height: 400px; right: 0; top: -100px;"></div>
+<section class="relative overflow-hidden pt-24 pb-32 md:pt-32 md:pb-48">
+  <div class="blob bg-accent/10" style="width: 600px; height: 600px; right: -200px; top: -200px;"></div>
+  <div class="blob bg-accent/5" style="width: 400px; height: 400px; left: -100px; bottom: 0;"></div>
   
   <div class="container-page relative">
-    <div class="max-w-3xl">
-      <!-- Status Badge -->
-      <div class="reveal mb-6 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5">
-        <span class="h-1.5 w-1.5 rounded-full bg-accent animate-pulse-dot"></span>
-        <span class="text-[10px] font-bold uppercase tracking-widest text-slate-500">
-          Construindo o futuro do iOS
-        </span>
+    <div class="max-w-4xl animate-stagger">
+      <!-- Chapter 01 Label -->
+      <div class="reveal mb-8 flex items-center gap-4">
+        <span class="font-mono text-xs font-bold tracking-[0.2em] text-accent">01 / INTRODUCTION</span>
+        <div class="h-px grow bg-border"></div>
       </div>
 
-      <h1 class="reveal text-4xl font-bold tracking-tight text-slate-900 md:text-[72px] md:leading-[1] md:tracking-[-0.04em]">
-        <span class="block text-2xl font-medium tracking-normal text-slate-600 mb-4">Olá, eu sou</span>
-        Vinicius Carvalho
+      <h1 class="reveal text-5xl font-bold tracking-tighter text-text md:text-[96px] md:leading-[0.9]">
+        VINICIUS<br/>
+        CARVALHO
       </h1>
-      <p class="reveal mt-6 text-lg leading-relaxed text-slate-600 md:text-xl md:leading-[1.6] max-w-2xl">
-        iOS Engineer construindo apps e escrevendo sobre arquitetura, produto e carreira.
-      </p>
-
-      <div class="reveal mt-10 flex flex-wrap items-center gap-4">
-        {%- if site.plainwhite.social_links.github -%}
-        <a class="btn-primary"
-           href="https://github.com/{{ site.plainwhite.social_links.github }}" target="_blank" rel="noopener">
-          Ver GitHub
-          <i class="icon-github text-sm"></i>
-        </a>
-        {%- endif -%}
-        <a class="btn-secondary" href="#blog">
-          Ler o Blog
-        </a>
+      
+      <div class="reveal mt-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
+        <p class="text-xl leading-relaxed text-text-muted md:text-2xl">
+          iOS Engineer building high-performance mobile architectures and crafting seamless product experiences.
+        </p>
+        <div class="flex flex-wrap gap-4 md:justify-end">
+          {%- if site.plainwhite.social_links.github -%}
+          <a class="btn-primary"
+             href="https://github.com/{{ site.plainwhite.social_links.github }}" target="_blank" rel="noopener">
+            Github
+            <span class="opacity-50 font-mono">↗</span>
+          </a>
+          {%- endif -%}
+          <a class="btn-secondary" href="#blog">
+            Explore Blog
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Repositories Section (Dynamic Bento Grid) -->
-{%- if site.plainwhite.social_links.github -%}
-<section id="opensource" class="py-12 md:py-24 bg-slate-50 border-y border-slate-200">
+<!-- Impact / Stats Section -->
+<section class="py-12 border-y border-border bg-surface-alt/50">
   <div class="container-page">
-    <div class="mb-12">
-      <h2 class="section-label text-accent">Open Source</h2>
-      <h3 class="section-title text-[40px] tracking-tight">Top Repositories</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="reveal">
+        <span class="block text-3xl font-bold text-text">8+</span>
+        <span class="label mt-1">Anos de XP</span>
+      </div>
+      <div class="reveal">
+        <span class="block text-3xl font-bold text-text">20+</span>
+        <span class="label mt-1">Apps Publicados</span>
+      </div>
+      <div class="reveal">
+        <span class="block text-3xl font-bold text-text">100%</span>
+        <span class="label mt-1">Swift & SwiftUI</span>
+      </div>
+      <div class="reveal">
+        <span class="block text-3xl font-bold text-text">Clean</span>
+        <span class="label mt-1">Architecture</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Repositories Section (Engineering Authority Style) -->
+{%- if site.plainwhite.social_links.github -%}
+<section id="opensource" class="py-24 md:py-32">
+  <div class="container-page">
+    <div class="reveal mb-16 flex items-center gap-4">
+      <span class="font-mono text-xs font-bold tracking-[0.2em] text-accent">02 / OPEN SOURCE</span>
+      <h2 class="section-title text-3xl md:text-4xl">Top Repositories</h2>
+      <div class="h-px grow bg-border"></div>
     </div>
     
-    <div id="gh-repos-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Loading Skeleton -->
-      <div class="card p-8 min-h-[200px] animate-pulse">
-        <div class="h-6 w-3/4 bg-slate-200 rounded mb-4"></div>
-        <div class="h-4 w-full bg-slate-200 rounded mb-2"></div>
-        <div class="h-4 w-5/6 bg-slate-200 rounded"></div>
-      </div>
-      <div class="card p-8 min-h-[200px] animate-pulse">
-        <div class="h-6 w-3/4 bg-slate-200 rounded mb-4"></div>
-        <div class="h-4 w-full bg-slate-200 rounded mb-2"></div>
-        <div class="h-4 w-5/6 bg-slate-200 rounded"></div>
-      </div>
-      <div class="card p-8 min-h-[200px] animate-pulse">
-        <div class="h-6 w-3/4 bg-slate-200 rounded mb-4"></div>
-        <div class="h-4 w-full bg-slate-200 rounded mb-2"></div>
-        <div class="h-4 w-5/6 bg-slate-200 rounded"></div>
-      </div>
+    <div id="gh-repos-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-stagger">
+      <!-- Loading Skeletons -->
+      <div class="card p-8 min-h-[220px] animate-pulse"></div>
+      <div class="card p-8 min-h-[220px] animate-pulse"></div>
+      <div class="card p-8 min-h-[220px] animate-pulse"></div>
     </div>
   </div>
 </section>
@@ -83,55 +97,57 @@ layout: default
       const repos = await response.json();
       
       container.innerHTML = repos.map(repo => `
-        <a href="${repo.html_url}" target="_blank" rel="noopener" class="card group flex flex-col justify-between p-8 bg-white border border-slate-200 rounded-[24px]">
+        <a href="${repo.html_url}" target="_blank" rel="noopener" class="card group flex flex-col justify-between p-8">
           <div>
-            <h4 class="text-lg font-semibold text-slate-900 group-hover:text-accent transition-colors">${repo.name}</h4>
-            <p class="mt-4 text-sm text-slate-600 line-clamp-2">${repo.description || 'No description available.'}</p>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-mono text-[10px] text-text-subtle">REPO / ${repo.language || 'Code'}</span>
+              <span class="text-[11px] font-bold text-accent">★ ${repo.stargazers_count}</span>
+            </div>
+            <h4 class="text-xl font-bold text-text group-hover:text-accent transition-colors tracking-tight">${repo.name}</h4>
+            <p class="mt-4 text-sm text-text-muted leading-relaxed line-clamp-3">${repo.description || 'No description available.'}</p>
           </div>
-          <div class="mt-6 flex items-center justify-between">
-            <span class="tech-pill">${repo.language || 'Code'}</span>
-            <span class="text-[11px] font-semibold text-accent">★ ${repo.stargazers_count}</span>
+          <div class="mt-8 flex items-center gap-2 text-xs font-mono font-bold text-text-subtle group-hover:text-text transition-colors">
+            VIEW SOURCE <span class="group-hover:translate-x-1 transition-transform">↗</span>
           </div>
         </a>
       `).join('');
     } catch (error) {
-      console.error("Failed to fetch repos:", error);
-      container.innerHTML = '<p class="text-slate-500">Failed to load repositories.</p>';
+      container.innerHTML = '<p class="text-text-muted">Failed to load repositories.</p>';
     }
   }
   document.addEventListener('DOMContentLoaded', fetchTopRepos);
 </script>
 {%- endif -%}
 
-<!-- Apps Section -->
-<section id="apps" class="py-12 md:py-24">
+<!-- Portfolio / Apps Section -->
+<section id="apps" class="py-24 md:py-32 bg-surface-alt">
   <div class="container-page">
-    <div class="mb-12">
-      <h2 class="section-label text-accent">Portfolio</h2>
-      <h3 class="section-title text-[40px] tracking-tight">Featured Apps</h3>
+    <div class="reveal mb-16 flex items-center gap-4">
+      <span class="font-mono text-xs font-bold tracking-[0.2em] text-accent">03 / PORTFOLIO</span>
+      <h2 class="section-title text-3xl md:text-4xl">Featured Apps</h2>
+      <div class="h-px grow bg-border"></div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
       {%- for app in featured_apps -%}
-      <div class="card group flex flex-col overflow-hidden bg-slate-50 rounded-[24px]">
+      <div class="card group flex flex-col overflow-hidden">
         {%- if app.image -%}
-        <div class="h-[240px] w-full overflow-hidden border-b border-slate-200">
-          <img src="{{ app.image | relative_url }}" alt="Screenshot de {{ app.title }}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="h-[320px] w-full overflow-hidden bg-surface border-b border-border">
+          <img src="{{ app.image | relative_url }}" alt="{{ app.title }}" class="h-full w-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
         </div>
         {%- endif -%}
-        <div class="flex flex-1 flex-col justify-between p-8 bg-white">
-          <div>
-            <h4 class="text-xl font-bold text-slate-900">{{ app.title }}</h4>
-            <p class="mt-3 text-sm text-slate-600 line-clamp-2">{{ app.description }}</p>
-          </div>
-          <div class="mt-6 flex items-center justify-between">
-            <div class="flex gap-2">
-              {%- for tech in app.tech -%}
+        <div class="p-10">
+          <div class="flex items-center gap-3 mb-4">
+             {%- for tech in app.tech -%}
                 <span class="tech-pill">{{ tech }}</span>
               {%- endfor -%}
-            </div>
-            <a href="{{ app.url | relative_url }}" class="text-sm font-semibold text-accent flex items-center gap-1 group-hover:text-accent-hover">
-              Ver Projeto <span class="group-hover:translate-x-1 transition-transform">→</span>
+          </div>
+          <h4 class="text-3xl font-bold text-text tracking-tight">{{ app.title }}</h4>
+          <p class="mt-4 text-lg text-text-muted leading-relaxed">{{ app.description }}</p>
+          
+          <div class="mt-10">
+            <a href="{{ app.url | relative_url }}" class="btn-secondary w-full sm:w-auto">
+              Case Study <span class="opacity-50 ml-2">→</span>
             </a>
           </div>
         </div>
@@ -141,38 +157,69 @@ layout: default
   </div>
 </section>
 
-<!-- Latest Posts Section -->
-<section id="blog" class="py-12 md:py-24 bg-slate-50 border-t border-slate-200">
+<!-- Blog Section -->
+<section id="blog" class="py-24 md:py-32">
   <div class="container-page">
-    <div class="mb-12">
-      <h2 class="section-label text-accent">Blog</h2>
-      <h3 class="section-title text-[40px] tracking-tight">Latest Posts</h3>
+    <div class="reveal mb-16 flex items-center gap-4">
+      <span class="font-mono text-xs font-bold tracking-[0.2em] text-accent">04 / KNOWLEDGE</span>
+      <h2 class="section-title text-3xl md:text-4xl">Latest Writings</h2>
+      <div class="h-px grow bg-border"></div>
     </div>
 
-    <div class="flex flex-col gap-6">
+    <div class="divide-y divide-border border-t border-border">
       {%- if site.posts.size > 0 -%}
-        {%- for post in site.posts limit: 3 -%}
-        <a href="{{ post.url | relative_url }}" class="card group flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 bg-white border border-slate-200 rounded-[24px]">
-          <div>
-            <h4 class="text-lg font-semibold text-slate-900 group-hover:text-accent transition-colors">{{ post.title | escape }}</h4>
-            <div class="mt-2 text-[11px] font-mono font-medium text-slate-400">
-              <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
-                {{ post.date | date: date_format }}
-              </time>
+        {%- for post in site.posts limit: 5 -%}
+        <a href="{{ post.url | relative_url }}" class="reveal group block py-8 hover:px-4 transition-all duration-300">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="flex-1">
+              <span class="font-mono text-[10px] text-text-subtle uppercase tracking-widest">{{ post.date | date: "%B %d, %Y" }}</span>
+              <h4 class="mt-2 text-2xl font-bold text-text group-hover:text-accent transition-colors tracking-tight">{{ post.title | escape }}</h4>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="hidden md:block text-text-subtle group-hover:text-accent font-mono text-sm tracking-tighter">READ POST</span>
+              <span class="text-text-subtle group-hover:text-accent group-hover:translate-x-2 transition-all">→</span>
             </div>
           </div>
-          <span class="hidden sm:block text-slate-400 group-hover:text-accent group-hover:translate-x-1 transition-all">→</span>
         </a>
         {%- endfor -%}
       {%- else -%}
-        <p class="text-slate-500">Nenhum post encontrado.</p>
+        <p class="py-8 text-text-muted">Nenhum post encontrado.</p>
       {%- endif -%}
     </div>
     
-    <div class="mt-10">
+    <div class="mt-16 text-center">
       <a href="{{ '/blog/' | relative_url }}" class="btn-secondary">
-        Ver Todos os Posts
+        Ver Arquivo Completo
       </a>
     </div>
   </div>
 </section>
+
+<style>
+  /* Reveal implementation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      var elementVisible = 100;
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add("active");
+      }
+    }
+  }
+  window.addEventListener("scroll", reveal);
+  document.addEventListener("DOMContentLoaded", reveal);
+</script>

@@ -2,35 +2,34 @@
   Pular para o conteudo
 </a>
 
-<header id="site-nav" class="sticky top-0 z-50 border-b border-transparent transition-all duration-300" style="background-color: rgba(255,255,255,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
-  <div class="container-page flex items-center justify-between py-3.5">
+<header id="site-nav" class="sticky top-0 z-50 border-b border-border/50 transition-all duration-300 bg-surface/80 backdrop-blur-md">
+  <div class="container-page flex items-center justify-between py-4">
     <!-- Logo / Brand with photo -->
     <a href="{{ "/" | relative_url }}" class="group flex items-center gap-3 no-underline">
       <img
         src="{{ "/assets/perfil_site.png" | relative_url }}"
         alt="{{ site.plainwhite.name | default: site.title }}"
-        class="h-8 w-8 rounded-full object-cover"
-        style="border: 1.5px solid #E2E8F0;"
+        class="h-9 w-9 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+        style="border: 1.5px solid #27272a;"
       >
       <div class="leading-tight">
-        <span class="block text-sm font-semibold" style="color: #0F172A; letter-spacing: -0.01em;">{{ site.plainwhite.name | default: site.title }}</span>
-        <span class="block font-mono text-[10px] uppercase" style="letter-spacing: 0.1em; color: #94A3B8;">{{ site.plainwhite.tagline }}</span>
+        <span class="block text-sm font-bold tracking-tight text-text">{{ site.plainwhite.name | default: site.title }}</span>
+        <span class="block font-mono text-[9px] uppercase tracking-[0.1em] text-text-subtle">{{ site.plainwhite.tagline }}</span>
       </div>
     </a>
 
     <!-- Desktop Nav -->
-    <nav class="hidden items-center gap-7 md:flex" aria-label="Navegacao principal">
-      <a class="font-mono text-[11px] uppercase transition-colors duration-200" style="letter-spacing: 0.08em; color: #475569;" onmouseover="this.style.color='#2BAADF'" onmouseout="this.style.color='#475569'" href="{{ "/" | relative_url }}">Home</a>
-      <a class="font-mono text-[11px] uppercase transition-colors duration-200" style="letter-spacing: 0.08em; color: #475569;" onmouseover="this.style.color='#2BAADF'" onmouseout="this.style.color='#475569'" href="{{ "/apps/" | relative_url }}">Apps</a>
-      <a class="font-mono text-[11px] uppercase transition-colors duration-200" style="letter-spacing: 0.08em; color: #475569;" onmouseover="this.style.color='#2BAADF'" onmouseout="this.style.color='#475569'" href="{{ "/blog/" | relative_url }}">Blog</a>
-      <a class="font-mono text-[11px] uppercase transition-colors duration-200" style="letter-spacing: 0.08em; color: #475569;" onmouseover="this.style.color='#2BAADF'" onmouseout="this.style.color='#475569'" href="{{ "/sobre/" | relative_url }}">Sobre</a>
+    <nav class="hidden items-center gap-8 md:flex" aria-label="Navegacao principal">
+      <a class="link-hover" href="{{ "/" | relative_url }}">Home</a>
+      <a class="link-hover" href="{{ "/apps/" | relative_url }}">Apps</a>
+      <a class="link-hover" href="{{ "/blog/" | relative_url }}">Blog</a>
+      <a class="link-hover" href="{{ "/sobre/" | relative_url }}">Sobre</a>
     </nav>
 
     <!-- Mobile Toggle -->
     <button
       id="nav-toggle"
-      class="inline-flex items-center justify-center rounded-sharp p-2 transition-colors md:hidden"
-      style="border: 1px solid #E2E8F0; color: #475569;"
+      class="inline-flex items-center justify-center rounded-soft p-2 transition-colors md:hidden border border-border text-text-muted hover:text-text"
       type="button"
       aria-label="Abrir menu"
       aria-controls="mobile-nav"
@@ -43,12 +42,24 @@
   </div>
 
   <!-- Mobile Nav -->
-  <div id="mobile-nav" class="hidden md:hidden" style="border-top: 1px solid #E2E8F0; background-color: #FFFFFF;">
-    <div class="container-page flex flex-col gap-1 py-4">
-      <a class="rounded-sharp px-3 py-2.5 font-mono text-[11px] uppercase transition-colors" style="letter-spacing: 0.08em; color: #475569;" href="{{ "/" | relative_url }}">Home</a>
-      <a class="rounded-sharp px-3 py-2.5 font-mono text-[11px] uppercase transition-colors" style="letter-spacing: 0.08em; color: #475569;" href="{{ "/apps/" | relative_url }}">Apps</a>
-      <a class="rounded-sharp px-3 py-2.5 font-mono text-[11px] uppercase transition-colors" style="letter-spacing: 0.08em; color: #475569;" href="{{ "/blog/" | relative_url }}">Blog</a>
-      <a class="rounded-sharp px-3 py-2.5 font-mono text-[11px] uppercase transition-colors" style="letter-spacing: 0.08em; color: #475569;" href="{{ "/sobre/" | relative_url }}">Sobre</a>
+  <div id="mobile-nav" class="hidden md:hidden border-t border-border bg-surface">
+    <div class="container-page flex flex-col gap-1 py-6">
+      <a class="px-3 py-3 font-mono text-xs uppercase tracking-widest text-text-muted hover:text-accent" href="{{ "/" | relative_url }}">Home</a>
+      <a class="px-3 py-3 font-mono text-xs uppercase tracking-widest text-text-muted hover:text-accent" href="{{ "/apps/" | relative_url }}">Apps</a>
+      <a class="px-3 py-3 font-mono text-xs uppercase tracking-widest text-text-muted hover:text-accent" href="{{ "/blog/" | relative_url }}">Blog</a>
+      <a class="px-3 py-3 font-mono text-xs uppercase tracking-widest text-text-muted hover:text-accent" href="{{ "/sobre/" | relative_url }}">Sobre</a>
     </div>
   </div>
 </header>
+
+<script>
+  const navToggle = document.getElementById('nav-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  if (navToggle && mobileNav) {
+    navToggle.addEventListener('click', () => {
+      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', !isExpanded);
+      mobileNav.classList.toggle('hidden');
+    });
+  }
+</script>
