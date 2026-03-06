@@ -16,14 +16,14 @@ layout: default
   <!-- Header Section -->
   <header class="reveal animate-stagger">
     <div class="max-w-3xl">
-      <h1 class="text-4xl font-bold tracking-tighter text-text md:text-6xl text-balance leading-[1.1]">
+      <h1 class="text-4xl font-bold tracking-tighter text-text md:text-6xl text-balance leading-[1.1] !text-white">
         {{ page.title | escape }}
       </h1>
       
       <div class="mt-8 flex flex-wrap items-center gap-6 border-y border-border/50 py-6">
         <div class="flex flex-col gap-1">
           <span class="label !text-[9px]">Published on</span>
-          <time class="font-mono text-xs font-bold text-text" datetime="{{ page.date | date_to_xmlschema }}">
+          <time class="font-mono text-xs font-bold !text-white" datetime="{{ page.date | date_to_xmlschema }}">
             {{ page.date | date: date_format }}
           </time>
         </div>
@@ -43,8 +43,8 @@ layout: default
     </div>
   </header>
 
-  <!-- Content Section -->
-  <div class="reveal prose prose-invert mt-16 max-w-none prose-p:text-lg prose-p:leading-relaxed prose-headings:tracking-tight prose-pre:bg-surface-alt prose-pre:border-border prose-img:rounded-card">
+  <!-- Content Section - Removed prose-invert to use custom high-contrast rules -->
+  <div class="reveal prose mt-16 max-w-none prose-pre:bg-surface-alt prose-pre:border-border prose-img:rounded-card">
     {{ content }}
   </div>
 
@@ -71,7 +71,6 @@ layout: default
 </article>
 
 <style>
-  /* Local reveal animations for blog */
   .reveal {
     opacity: 0;
     transform: translateY(20px);
