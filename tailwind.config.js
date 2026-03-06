@@ -34,8 +34,8 @@ module.exports = {
         }
       },
       fontFamily: {
-        mono: ["Geist Mono", "Menlo", "Monaco", "monospace"],
-        sans: ["Geist", "Inter", "sans-serif"]
+        mono: ["JetBrains Mono", "Menlo", "Monaco", "monospace"],
+        sans: ["Inter", "sans-serif"]
       },
       borderRadius: {
         sharp: "2px",

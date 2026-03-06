@@ -5,10 +5,10 @@
   {%- include head.html -%}
 </head>
 
-<body>
+<body class="bg-surface text-text antialiased">
   {%- include nav.html -%}
 
-  <main id="main-content" class="container-page py-12">
+  <main id="main-content" {% if page.layout != 'home' %}class="container-page py-12"{% endif %}>
     {{ content }}
   </main>
 
@@ -16,23 +16,7 @@
 
   <script>
     (function () {
-      // Mobile nav toggle
-      var toggle = document.getElementById("nav-toggle");
-      var mobileNav = document.getElementById("mobile-nav");
-      if (toggle && mobileNav) {
-        toggle.addEventListener("click", function () {
-          var isOpen = !mobileNav.classList.contains("hidden");
-          if (isOpen) {
-            mobileNav.classList.add("hidden");
-            toggle.setAttribute("aria-expanded", "false");
-          } else {
-            mobileNav.classList.remove("hidden");
-            toggle.setAttribute("aria-expanded", "true");
-          }
-        });
-      }
-
-      // Nav border on scroll
+      // Nav appearance on scroll
       var nav = document.getElementById("site-nav");
       if (nav) {
         window.addEventListener("scroll", function () {
@@ -46,19 +30,24 @@
         }, { passive: true });
       }
 
-      // Reveal on scroll
-      var reveals = document.querySelectorAll(".reveal");
-      if (reveals.length > 0) {
-        var observer = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
-        reveals.forEach(function (el) { observer.observe(el); });
+      // Reveal on scroll implementation
+      function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        var windowHeight = window.innerHeight;
+        var elementVisible = 100;
+        
+        for (var i = 0; i < reveals.length; i++) {
+          var elementTop = reveals[i].getBoundingClientRect().top;
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active", "visible");
+          }
+        }
       }
+      
+      window.addEventListener("scroll", reveal);
+      document.addEventListener("DOMContentLoaded", reveal);
+      // Initial call for elements already in view
+      setTimeout(reveal, 100);
     })();
   </script>
 
