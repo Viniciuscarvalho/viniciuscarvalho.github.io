@@ -6,8 +6,6 @@ categories: [productivity, automation, openclaw, discord, linear]
 tags: [second-brain, mission-control, openclaw, linear, github, discord, notion, automation]
 ---
 
-# Building my Second Brain — How I designed a Mission Control system for real
-
 I've been running an OpenClaw instance as my Mission Control for a while now. It connects to my Google Workspace, reads my Notion notes, pulls data from Paperclip for my company, and even runs a Tech Journal that curates relevant news for me every day. But I felt like something was missing. Everything was reactive — I was the one asking, always pulling information. I wanted the system to push things to me, challenge my priorities, and actually help me ship products faster.
 
 So I decided to go deeper and build what people call a "Second Brain" — not just a note-taking system, but a full operational layer on top of my tools. This article is about how I designed and connected everything, the technical decisions, the problems I hit, and what I learned.
