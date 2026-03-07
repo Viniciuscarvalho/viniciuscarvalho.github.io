@@ -13,7 +13,7 @@ highlights: [
   "High-performance strategic analysis tools"
 ]
 description: Forge your AI development mind — MindKit allows you to sync and manage your AI development configurations seamlessly across projects.
-url: https://github.com/Viniciuscarvalho/MindKit
+github_url: https://github.com/Viniciuscarvalho/MindKit
 ---
 
 MindKit is designed for developers who want to push the boundaries of AI-assisted development. By providing a structured way to manage AI context and specialized agent personas, it ensures that your technical feasibility reports and strategic analysis are consistent and high-quality.

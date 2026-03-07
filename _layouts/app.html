@@ -29,9 +29,9 @@ layout: default
         {%- endif -%}
       </div>
       
-      {%- if page.url and page.url contains "github.com" -%}
+      {%- if page.github_url and page.github_url contains "github.com" -%}
       <div class="shrink-0">
-        <a href="{{ page.url }}" target="_blank" rel="noopener" class="btn-primary">
+        <a href="{{ page.github_url }}" target="_blank" rel="noopener" class="btn-primary">
           View Source <span class="opacity-50 ml-1 font-mono">↗</span>
         </a>
       </div>
@@ -110,8 +110,8 @@ layout: default
             </a>
           {%- endif -%}
           
-          {%- if page.links.github or page.url -%}
-            <a class="link-hover flex items-center gap-2 py-2" href="{{ page.links.github | default: page.url }}" target="_blank" rel="noopener">
+          {%- if page.links.github or page.github_url -%}
+            <a class="link-hover flex items-center gap-2 py-2" href="{{ page.links.github | default: page.github_url }}" target="_blank" rel="noopener">
               <span class="text-accent">#</span> Repository
             </a>
           {%- endif -%}
