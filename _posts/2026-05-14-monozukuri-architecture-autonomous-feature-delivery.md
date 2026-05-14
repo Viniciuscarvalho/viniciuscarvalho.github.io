@@ -245,5 +245,3 @@ If you run it on any project and want to compare notes on pause rate, token spen
 ---
 
 _ものづくり — the art of making things, with rigor._
-
-See ya, até mais!
