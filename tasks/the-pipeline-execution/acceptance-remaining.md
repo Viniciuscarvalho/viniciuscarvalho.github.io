@@ -4,7 +4,7 @@ O critério, e não o número de PRs, determina conclusão. Nenhum teste físico
 
 | Issue | Evidência entregue | Falta para concluir |
 | --- | --- | --- |
-| #5 | Configuração única consumida por QR/vCard/canonical; overlay .dev | DNS/Pages/CNAME/HTTPS do endereço final, não comprovados. |
+| #5 | Configuração única para viniciuscarvalho.dev, CNAME e QR/vCard/canonical alinhados | DNS/Pages/CNAME/HTTPS do endereço final, não comprovados. |
 | #6 | Monograma, ausência de números/cargo atual não confirmados; fontes dos marcos | Data/horário dispensados pelo proprietário; foto, cargo e experiência confirmados em 28/10/2026. |
 | #7 | Jekyll, 16 rotas, pares PT/EN, metadata e fontes OFL locais; testes de rotas e axe | Critérios técnicos atendidos na master. |
 | #8 | Card PT/EN, três destaques, contato sem JS e scripts próprios; testes de viewport/texto ampliado | Critérios técnicos atendidos na master. |
@@ -42,7 +42,7 @@ Registrar aparelho, sistema/browser, data, resultado e evidência para cada exec
 
 ## Confirmações do proprietário — 28/10/2026
 
-Data/horário da Xconf dispensados como critério. Foto assets/perfil_site.png aprovada; cargo Senior Software Engineer e mais de 12 anos de experiência confirmados, com publicação permitida em PT/EN. A compra e configuração de viniciuscarvalho.dev continuam pendentes de verificação do proprietário. Esses dados não comprovam QA físico nem métricas de produção dos projetos.
+Data/horário da Xconf dispensados como critério. Foto assets/perfil_site.png aprovada; cargo Senior Software Engineer e mais de 12 anos de experiência confirmados, com publicação permitida em PT/EN. A compra de viniciuscarvalho.dev foi confirmada pelo proprietário em 28/10/2026. DNS, Settings Pages e HTTPS ainda precisam de validação pública. Esses dados não comprovam QA físico nem métricas de produção dos projetos.
 
 ## Rollback
 

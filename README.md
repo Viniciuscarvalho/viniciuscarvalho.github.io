@@ -104,29 +104,53 @@ Assets de networking, fontes OFL locais e bundles são gerados por
 `npm run build:assets`. Os termos das fontes acompanham os arquivos publicados.
 As imagens de projetos são composições próprias, não cópias das referências.
 
-### Ativação de viniciuscarvalho.dev
+### Domínio público: viniciuscarvalho.dev
 
-A compra e o DNS ainda precisam ser concluídos. `_config.domain.yml` prepara a
-URL futura; não altera a hospedagem por si só. No lançamento:
+Compra confirmada pelo proprietário em 28/10/2026. A configuração canônica é
+`url` em `_config.yml`, com `baseurl` vazio; `CNAME` registra o mesmo hostname.
+QR, vCard, canonical, sitemap e URLs das imagens OG usam esse endereço no build.
+Não é mais necessário overlay ou `SITE_URL` para usar o domínio definitivo.
 
-1. Configurar o domínio no registrador e em Settings → Pages conforme a
-   [documentação oficial](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
-2. Atualizar `url` em `_config.yml` e `CNAME` juntos. Usar `SITE_URL` no build
-   de assets com o mesmo endereço. Não gerar QR com configurações divergentes.
-3. Gerar assets novamente, verificar HTTPS, canonical, OG e o QR em aparelhos.
-4. Somente então divulgar o endereço e imprimir materiais.
+O deploy usa GitHub Actions. Nesse modo, o arquivo CNAME não configura o domínio
+no serviço: é necessário salvar o hostname em Settings → Pages.
 
-Para ensaiar localmente a configuração futura:
+1. Em [Settings → Pages](https://github.com/Viniciuscarvalho/viniciuscarvalho.github.io/settings/pages),
+   selecionar Source **GitHub Actions**, informar **viniciuscarvalho.dev** em
+   Custom domain e salvar.
+2. No DNS do registrador, conferir os registros abaixo. Substituir apenas registros
+   de estacionamento/redirecionamento que conflitem nesses hosts; preservar MX/TXT
+   e outros registros usados por e-mail e verificações.
 
-```bash
-SITE_URL=https://viniciuscarvalho.dev npm run build
-bundle exec jekyll build --config _config.yml,_config.domain.yml
-```
+| Tipo | Nome | Valor |
+| --- | --- | --- |
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+| CNAME | www | viniciuscarvalho.github.io |
+
+O CNAME DNS de `www` é diferente do arquivo CNAME do repositório. Para IPv6,
+usar os quatro AAAA documentados pelo GitHub, além dos A acima; não manter AAAA
+apontando para hospedagem antiga.
+
+3. Aguardar o DNS check e a emissão do certificado; ativar **Enforce HTTPS**
+   quando disponível. A propagação DNS e a disponibilidade do HTTPS podem levar
+   até 24 horas, segundo a documentação oficial.
+4. Integrar a alteração de domínio na master e confirmar o workflow de deploy.
+5. Validar `https://viniciuscarvalho.dev/`, `/en/`, `/card/`, `/card/?stage=1`,
+   sitemap, canonical e preview OG. O QR e a vCard devem apontar para
+   `https://viniciuscarvalho.dev/card/`. Conferir redirecionamento de `www` e
+   de HTTP para HTTPS, além de importar contato e escanear QR em aparelhos.
+
+[Documentação oficial de domínio/DNS](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
+Os testes automatizados verificam consistência do build; não comprovam DNS,
+certificado ou Settings → Pages. Essas verificações públicas continuam pendentes.
+O conector GitHub disponível nesta execução não permite administrar Pages.
 
 O workflow verifica PRs sem publicar e faz deploy apenas de `master`.
-Rollback: reverter o commit de lançamento e executar novamente o workflow.
-Testes em navegador automatizado não substituem importação de contato e leitura
-do QR em iOS/Android reais; registrar essas etapas antes do lançamento.
+Rollback: reverter o commit de domínio e executar o workflow; DNS e Custom domain
+são configurações separadas e precisam ser revertidos coerentemente, se alterados.
+Não voltar a divulgar o domínio antigo vencido.
 
 ### Testes de navegador
 

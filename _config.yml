@@ -54,7 +54,6 @@ exclude:
   - templates
   - assets/src
   - package-lock.json
-  - _config.domain.yml
   - node_modules
   - package.json
   - postcss.config.js
@@ -76,5 +75,5 @@ defaults:
     values:
       layout: app
 
-url: "https://viniciuscarvalho.github.io"
+url: "https://viniciuscarvalho.dev"
 baseurl: ""
