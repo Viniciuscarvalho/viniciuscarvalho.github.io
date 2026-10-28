@@ -1,25 +1,10 @@
 ---
 layout: null
 ---
-{%-if site.plainwhite.sitemap -%}
-    <?xml version="1.0" encoding="UTF-8"?>
-    <urlset
-        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-                http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-        <url>
-            <loc>{{ site.url }}</loc>
-	    <lastmod>{{ 'now' | date_to_xmlschema }}</lastmod>
-            <priority>1.00</priority>
-        </url>
-        {%- for post in site.posts -%}
-            <url>
-                <loc>{{ site.url }}{{ post.url }}</loc>
-                <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
-                <changefreq>weekly</changefreq>
-                <priority>0.80</priority>
-            </url>
-        {%- endfor -%}
-    </urlset>    
-{%- endif -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for page in site.pages %}{% if page.layout and page.sitemap != false %}<url><loc>{{ page.url | absolute_url | xml_escape }}</loc></url>{% endif %}{% endfor %}
+{% for post in site.posts %}<url><loc>{{ post.url | absolute_url | xml_escape }}</loc></url>{% endfor %}
+{% for app in site.apps %}<url><loc>{{ app.url | absolute_url | xml_escape }}</loc></url>{% endfor %}
+{% for project in site.projects %}<url><loc>{{ project.url | absolute_url | xml_escape }}</loc></url>{% endfor %}
+</urlset>

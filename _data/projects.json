@@ -1,0 +1,228 @@
+[
+  {
+    "slug": "monozukuri",
+    "repository": "monozukuri",
+    "category": "IA/Agentes",
+    "stack": [
+      "Shell",
+      "TypeScript",
+      "Python"
+    ],
+    "number": "01",
+    "featured": true,
+    "pt": {
+      "summary": "Backlog em PRs pequenos e revisáveis.",
+      "description": "Orquestra agentes em worktrees isoladas, com memória, checkpoints e limites de custo.",
+      "decision": "Separar a orquestração do agente de código permite reaproveitar contexto e validação.",
+      "tradeoff": "Mais controles exigem um backlog com critérios de aceite e um caminho de validação.",
+      "flow": [
+        "Backlog",
+        "Worktree",
+        "Agente",
+        "Testes",
+        "PR"
+      ]
+    },
+    "en": {
+      "summary": "Turn a backlog into small, reviewable PRs.",
+      "description": "Coordinates agents in isolated worktrees, with memory, checkpoints and cost controls.",
+      "decision": "Separating orchestration from the coding agent makes context and validation reusable.",
+      "tradeoff": "More controls require a backlog with acceptance criteria and a validation path.",
+      "flow": [
+        "Backlog",
+        "Worktree",
+        "Agent",
+        "Tests",
+        "PR"
+      ]
+    }
+  },
+  {
+    "slug": "saveplace",
+    "repository": "SavePlace",
+    "category": "Backend",
+    "stack": [
+      "TypeScript",
+      "API",
+      "Cache"
+    ],
+    "number": "02",
+    "featured": false,
+    "pt": {
+      "summary": "Uma URL social. Um lugar verificável.",
+      "description": "Pipeline para transformar URLs sociais públicas em lugares verificados por provedores.",
+      "decision": "Cache e idempotência evitam repetir processamento e consultas externas.",
+      "tradeoff": "Dependência de provedores exige observar falhas, custo e latência.",
+      "flow": [
+        "URL pública",
+        "Extração",
+        "Provedores",
+        "Verificação",
+        "Lugar"
+      ]
+    },
+    "en": {
+      "summary": "A social URL. A verifiable place.",
+      "description": "A pipeline that turns public social URLs into places verified by providers.",
+      "decision": "Caching and idempotency avoid repeated processing and external calls.",
+      "tradeoff": "Provider dependencies require monitoring failures, cost and latency.",
+      "flow": [
+        "Public URL",
+        "Extraction",
+        "Providers",
+        "Verification",
+        "Place"
+      ]
+    }
+  },
+  {
+    "slug": "ci-guard",
+    "repository": "ci-guard",
+    "category": "DevOps",
+    "stack": [
+      "Python",
+      "CI",
+      "Diagnostics"
+    ],
+    "number": "03",
+    "featured": false,
+    "pt": {
+      "summary": "Diagnosticar antes de repetir.",
+      "description": "Classifica falhas de CI para tornar a decisão de rerun mais informada.",
+      "decision": "Separar falhas transitórias de problemas de código reduz decisões cegas.",
+      "tradeoff": "Classificação exige regras observáveis e cuidado com falsos positivos.",
+      "flow": [
+        "Falha",
+        "Classificação",
+        "Diagnóstico",
+        "Decisão"
+      ]
+    },
+    "en": {
+      "summary": "Diagnose before retrying.",
+      "description": "Classifies CI failures to make rerun decisions more informed.",
+      "decision": "Separating transient failures from code problems reduces blind decisions.",
+      "tradeoff": "Classification needs observable rules and care with false positives.",
+      "flow": [
+        "Failure",
+        "Classification",
+        "Diagnosis",
+        "Decision"
+      ]
+    }
+  },
+  {
+    "slug": "swift-code-reviewer-skill",
+    "repository": "swift-code-reviewer-skill",
+    "category": "iOS",
+    "stack": [
+      "Swift",
+      "SwiftUI",
+      "Agent skills"
+    ],
+    "number": "04",
+    "featured": true,
+    "pt": {
+      "summary": "Review em camadas. Contexto em primeiro lugar.",
+      "description": "Review Swift/SwiftUI com aderência à spec e padrões do projeto em Claude Code, Codex, Gemini e Kiro.",
+      "decision": "Um núcleo de revisão compartilhado é distribuído em wrappers por agente.",
+      "tradeoff": "Cada runtime tem convenções diferentes de comandos e descoberta de contexto.",
+      "flow": [
+        "Spec",
+        "Swift",
+        "SwiftUI",
+        "Arquitetura",
+        "Review"
+      ]
+    },
+    "en": {
+      "summary": "Layered review. Context first.",
+      "description": "Swift/SwiftUI review with spec adherence and project standards across Claude Code, Codex, Gemini and Kiro.",
+      "decision": "A shared review core is distributed through agent-specific wrappers.",
+      "tradeoff": "Each runtime has different command and context-discovery conventions.",
+      "flow": [
+        "Spec",
+        "Swift",
+        "SwiftUI",
+        "Architecture",
+        "Review"
+      ]
+    }
+  },
+  {
+    "slug": "feature-marker",
+    "repository": "Feature-marker",
+    "category": "Devtools",
+    "stack": [
+      "TypeScript",
+      "Skills",
+      "Templates"
+    ],
+    "number": "05",
+    "featured": true,
+    "pt": {
+      "summary": "Da intenção a um plano executável.",
+      "description": "Skill-first: artefatos de PRD, Tech Spec e Tasks com instalador para runtimes de agentes.",
+      "decision": "O instalador distribui assets; o fluxo da feature acontece dentro do agente.",
+      "tradeoff": "A execução depende do runtime, e os artefatos precisam continuar legíveis fora dele.",
+      "flow": [
+        "PRD",
+        "Tech Spec",
+        "Tasks",
+        "Implementação",
+        "Validação"
+      ]
+    },
+    "en": {
+      "summary": "From intent to an executable plan.",
+      "description": "Skill-first: PRD, Tech Spec and Tasks artifacts with an installer for agent runtimes.",
+      "decision": "The installer distributes assets; the feature workflow runs inside the agent.",
+      "tradeoff": "Execution depends on the runtime, while artifacts must remain readable outside it.",
+      "flow": [
+        "PRD",
+        "Tech Spec",
+        "Tasks",
+        "Implementation",
+        "Validation"
+      ]
+    }
+  },
+  {
+    "slug": "gastandoya-api",
+    "repository": "gastandoya-api",
+    "category": "Backend",
+    "stack": [
+      "TypeScript",
+      "Notion",
+      "OAuth"
+    ],
+    "number": "06",
+    "featured": false,
+    "pt": {
+      "summary": "Integrações que respeitam fronteiras.",
+      "description": "Backend do GastandoYa com OAuth Notion, descoberta de databases e leitura normalizada de despesas.",
+      "decision": "Conexões por usuário ficam no backend; o cliente recebe dados normalizados.",
+      "tradeoff": "Discovery e paginação exigem lidar com páginas sem database ou com múltiplas opções.",
+      "flow": [
+        "App iOS",
+        "Backend",
+        "OAuth Notion",
+        "Database",
+        "Despesas"
+      ]
+    },
+    "en": {
+      "summary": "Integrations that respect boundaries.",
+      "description": "GastandoYa backend with Notion OAuth, database discovery and normalized expense reads.",
+      "decision": "User connections stay in the backend; the client receives normalized data.",
+      "tradeoff": "Discovery and pagination must handle pages with no database or multiple choices.",
+      "flow": [
+        "iOS app",
+        "Backend",
+        "Notion OAuth",
+        "Database",
+        "Expenses"
+      ]
+    }
+  }
+]

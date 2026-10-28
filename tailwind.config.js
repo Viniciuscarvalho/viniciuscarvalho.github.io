@@ -6,6 +6,10 @@ module.exports = {
     "./_posts/**/*.{markdown,md,html}",
     "./_apps/**/*.{markdown,md,html}",
     "./assets/js/**/*.js",
+    "./assets/src/**/*.js",
+    "./_projects/**/*.md",
+    "./en/**/*.{html,md}",
+    "./card/**/*.html",
     "./*.{html,md,markdown}",
     "./{apps,blog,sobre}/**/*.{html,md,markdown}"
   ],

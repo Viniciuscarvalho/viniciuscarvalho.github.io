@@ -1,0 +1,5 @@
+{% assign d = p[page.lang] %}<article class="project-card" data-category="{{ p.category }}"><div class="project-art" aria-hidden="true"><span>{{ p.number }}</span><pre>{{ p.repository }}
+░▒▓ ▓▒░ ░▒▓
+┌─────┐ ┌─────┐
+│ &lt;/&gt; │→│ PR+ │
+└─────┘ └─────┘</pre><span class="category">{{ p.category }}</span></div><div class="project-body"><p class="eyebrow">{{ p.stack | join: ' / ' }}</p><h3>{{ p.repository }}</h3><p>{{ d.summary }}</p>{% assign snapshot = site.data.github[p.repository] %}{% if snapshot %}<small>★ {{ snapshot.stars }} · {{ snapshot.fetchedAt | date: '%d/%m/%Y' }}</small>{% endif %}<a class="project-link" href="{% if page.lang == 'en' %}{{ '/en/projects/' | append: p.slug | relative_url }}{% else %}{{ '/projetos/' | append: p.slug | relative_url }}{% endif %}/">{{ t.case }} <span>↗</span></a></div></article>

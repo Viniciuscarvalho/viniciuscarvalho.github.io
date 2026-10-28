@@ -1,0 +1,19 @@
+import assert from 'node:assert/strict';
+import {readFile,readdir,stat} from 'node:fs/promises';
+import {gzipSync} from 'node:zlib';
+import {parse} from 'yaml';
+const c=JSON.parse(await readFile('_data/content.json','utf8'));const projects=JSON.parse(await readFile('_data/projects.json','utf8'));const config=parse(await readFile('_config.yml','utf8'));
+assert.equal(projects.length,6);assert.deepEqual(Object.keys(c.pt).sort(),Object.keys(c.en).sort());
+assert.equal(new Set(projects.map(p=>p.slug)).size,6);
+for(const p of projects)for(const lang of ['pt','en']){assert(p[lang].description);assert(p[lang].flow.length>2);}
+const vcf=await readFile('assets/generated/vinicius-carvalho.vcf','utf8');assert(vcf.startsWith('BEGIN:VCARD\r\n'));assert(!vcf.replaceAll('\r\n','').includes('\n'));assert(vcf.includes(c.email));
+let bytes=0;for(const file of await readdir('assets/dist')){if(file.endsWith('.js'))bytes+=gzipSync(await readFile(`assets/dist/${file}`)).length;}
+assert(bytes<200*1024,`JS budget exceeded: ${bytes}`);
+if(process.argv.includes('--site')){
+ for(const path of ['index.html','en/index.html','card/index.html','en/card/index.html',...projects.flatMap(p=>[`projetos/${p.slug}/index.html`,`en/projects/${p.slug}/index.html`])]){
+ const html=await readFile(`_site/${path}`,'utf8');assert(!html.includes('{{'));assert(!html.includes('{%'));assert(html.includes('rel="canonical"'));assert(html.includes('<html lang='));
+ for(const match of html.matchAll(/(?:href|src)="(\/[^"#?]*)/g)){const target=decodeURIComponent(match[1]);await stat('_site'+target+(target.endsWith('/')?'index.html':''));}
+ }
+ for(const path of ['blog/index.html','apps/index.html','sobre/index.html','thais/index.html'])await stat('_site/'+path);
+}
+console.log(`Content, vCard and JS budget passed (${bytes} bytes gzip across all chunks).`);
