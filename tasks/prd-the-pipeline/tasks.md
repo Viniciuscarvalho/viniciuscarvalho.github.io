@@ -3,9 +3,9 @@ Data exata do evento deve ser fixada no início. Plano de três dias é estimati
 
 ## Dia 1 — identidade e networking
 - [ ] Auditar README e estado dos seis projetos e confirmar claims.
-- [ ] Definir URL de lançamento e Pages estático ou Vercel runtime.
+- [ ] Definir URL de lançamento e Jekyll no GitHub Pages.
 - [ ] Inventariar URLs antigas e definir preservação.
-- [ ] Criar app isolado, tokens e conteúdo PT/EN.
+- [ ] Criar layouts/includes Liquid, tokens, _data/content.yml PT/EN e coleção _projects.
 - [ ] Implementar /card e /en/card com monograma ou retrato aprovado.
 - [ ] QR, modo palco, share/cópia, vCard e preview social.
 - [ ] Preview acessível em celular e testes de importação do contato.
@@ -15,7 +15,7 @@ Data exata do evento deve ser fixada no início. Plano de três dias é estimati
 - [ ] Seis projetos na ordem aprovada, detalhes e diagramas reais.
 - [ ] Snapshot GitHub com fallback e horário; nenhuma dependência no cliente.
 - [ ] Hero estático completo antes de adicionar lente/ASCII.
-- [ ] Adicionar motion progressivo se o orçamento permitir.
+- [ ] Implementar motion JS progressivo com checklist de cobertura de todos os efeitos do briefing.
 - [ ] Preservar destinos antigos de apps/blog.
 
 ## Dia 3 — acabamento e lançamento
@@ -42,3 +42,17 @@ Preservar conteúdo, contato, idioma, QR, acessibilidade e funcionamento do card
 
 ## Definition of done
 Checklist de aceite do PRD atendido, build reproduzível, QA documentado, links/QR/vCard verificados e nenhuma promessa de validação em aparelho sem teste efetivo.
+
+## Cobertura completa em Jekyll
+- [ ] Empacotar Motion JS sem React, GSAP/ScrollTrigger e módulos canvas; manter build Tailwind/Jekyll.
+- [ ] Hero: fit-text, revelação, lente, ASCII/braille e desintegração.
+- [ ] Projetos: pan/pin, parallax, pêndulo/arraste, corte sincronizado e íris.
+- [ ] Filtros, arquivo, badges reais e snapshot GitHub com fallback.
+- [ ] Expertise: cinco competências, foco/teclado, claims e poses por progresso.
+- [ ] Sobre: terminal e acesso ao retrato original por toque e teclado.
+- [ ] Contato: lente leve, redes e build info real.
+- [ ] Card: pixel 5×7, dither, flip, tilt/brilho, giroscópio opcional, palco e share.
+- [ ] Gerar OG PNG, QR SVG/PNG e vCard no build a partir da URL canônica.
+- [ ] Validar pares PT/EN, build Jekyll, leitor de tela e reduced-motion.
+- [ ] Registrar efeitos concluídos e adiados; ordem de corte não exclui automaticamente o briefing.
+Modo claro e NFC permanecem opcionais. Três dias são estimativa; card funcional tem prioridade.
