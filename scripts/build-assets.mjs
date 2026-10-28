@@ -1,4 +1,4 @@
-import {readFile,writeFile,mkdir,copyFile,cp} from 'node:fs/promises';
+import {readFile,writeFile,mkdir,copyFile,cp,rm} from 'node:fs/promises';
 import {execFileSync} from 'node:child_process';
 import {build} from 'esbuild';
 import QRCode from 'qrcode';
@@ -19,6 +19,7 @@ const c=JSON.parse(await readFile('_data/content.json','utf8'));
 const escapeVcf=value=>value.replaceAll('\\','\\\\').replaceAll('\n','\\n').replaceAll(';','\\;').replaceAll(',','\\,');
 const vcard=['BEGIN:VCARD','VERSION:3.0','N:Marques;Vinicius;Carvalho;;',`FN:${escapeVcf(c.full_name)}`,`TITLE:${c.role}`,`EMAIL;TYPE=INTERNET:${c.email}`,`URL:${cardUrl}`,'END:VCARD',''].join('\r\n');
 await writeFile('assets/generated/vinicius-carvalho.vcf',vcard);
+await writeFile('assets/generated/site.json',JSON.stringify({baseUrl:base.href,cardUrl}));
 await writeFile('assets/generated/card-qr.svg',await QRCode.toString(cardUrl,{type:'svg',margin:4,errorCorrectionLevel:'M'}));
 await QRCode.toFile('assets/generated/card-qr.png',cardUrl,{width:900,margin:4,errorCorrectionLevel:'M'});
 await writeFile('assets/generated/favicon.svg','<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#0a0a0c"/><text x="8" y="42" font-size="30" font-family="monospace" fill="#ff5a1f">VC</text></svg>');
@@ -28,5 +29,6 @@ for(const lang of ['pt','en']){
 }
 let sha='local';try{sha=execFileSync('git',['rev-parse','--short','HEAD'],{encoding:'utf8'}).trim();}catch{}
 await writeFile('_data/build.json',JSON.stringify({sha:process.env.GITHUB_SHA?.slice(0,7)||sha,date:new Date().toISOString().slice(0,10)}));
+await rm('assets/dist',{recursive:true,force:true});
 await build({entryPoints:['assets/src/card.js','assets/src/home.js'],bundle:true,splitting:true,format:'esm',outdir:'assets/dist',minify:true,target:['safari16','chrome110'],metafile:true}).then(async result=>writeFile('assets/generated/bundle-meta.json',JSON.stringify(result.metafile)));
 console.log('Built static networking assets and JS. QR target:',cardUrl);
