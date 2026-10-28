@@ -1,28 +1,36 @@
-export async function mount(){
-const reduced=matchMedia('(prefers-reduced-motion: reduce)');if(reduced.matches)return;
-const {gsap}=await import('gsap');const {ScrollTrigger}=await import('gsap/ScrollTrigger');gsap.registerPlugin(ScrollTrigger);
-const hero=document.querySelector('.hero'),title=hero?.querySelector('h1');if(!hero||!title)return;
-const lens=document.createElement('div');lens.className='lens';lens.setAttribute('aria-hidden','true');hero.append(lens);
-const context=gsap.context(()=>{
- gsap.from(title,{y:24,opacity:.4,duration:.8,ease:'power3.out'});
- const mm=gsap.matchMedia();mm.add('(min-width: 1100px) and (prefers-reduced-motion: no-preference)',()=>{
- const grid=document.querySelector('.project-grid'),section=document.querySelector('.projects-section');grid.classList.add('is-pinned');
- const distance=()=>Math.max(0,grid.scrollWidth-section.clientWidth+section.clientWidth*.12);
- const animation=gsap.to(grid,{x:()=>-distance(),ease:'none',scrollTrigger:{trigger:grid,start:'top 100px',end:()=>'+='+distance(),scrub:1,pin:true,invalidateOnRefresh:true}});
- const filter=()=>{animation.scrollTrigger.refresh();};window.addEventListener('pipeline:filter',filter);
- return()=>{window.removeEventListener('pipeline:filter',filter);grid.classList.remove('is-pinned');};
- });
-},hero.parentElement);
-let visible=true,phase=0,last=0,slow=0;
-const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;});observer.observe(hero);
-function tick(time,delta){if(document.hidden||!visible||reduced.matches){last=0;return;}if(last){const dt=delta;if(dt>25)slow++;else slow=Math.max(0,slow-1);if(slow>120){stop();return;}}last=time;phase+=.012;lens.style.transform=`translate(${Math.sin(phase)*70}px,${Math.cos(phase*.7)*45}px) rotate(${Math.sin(phase)*10}deg)`;}
-gsap.ticker.add(tick);
-function visibility(){last=0;}document.addEventListener('visibilitychange',visibility);
-function stop(){gsap.ticker.remove(tick);context.revert();observer.disconnect();lens.remove();document.removeEventListener('visibilitychange',visibility);reduced.removeEventListener('change',change);}
-function change(){if(reduced.matches)stop();}reduced.addEventListener('change',change);
-window.addEventListener('pagehide',stop,{once:true});
-// Progressive navigation: native links remain authoritative. No fetch/modal dependency.
-for(const link of document.querySelectorAll('.project-link'))link.addEventListener('click',e=>{if(reduced.matches||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||e.button!==0)return;e.preventDefault();const iris=document.createElement('div');iris.className='iris';iris.style.setProperty('--x',`${e.clientX}px`);iris.style.setProperty('--y',`${e.clientY}px`);document.body.append(iris);requestAnimationFrame(()=>iris.classList.add('open'));setTimeout(()=>location.assign(link.href),500);});
-}
+import {createQualityMonitor} from './motion/model.js';
+import {mountHero,mountAscii} from './motion/hero.js';
+import {mountExpertise} from './motion/expertise.js';
+import {mountProjects} from './motion/projects.js';
 
-window.addEventListener("pageshow",()=>document.querySelectorAll(".iris").forEach(el=>el.remove()));
+export async function mount(){
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)');if(reduced.matches)return()=>{};
+  const {gsap}=await import('gsap');const {ScrollTrigger}=await import('gsap/ScrollTrigger');gsap.registerPlugin(ScrollTrigger);if(reduced.matches)return()=>{};
+  const controller=new AbortController(),{signal}=controller;
+  const entries=new Map(),quality=createQualityMonitor();let disposed=false;
+  const observer=new IntersectionObserver(records=>{for(const record of records){const entriesForElement=entries.get(record.target);if(entriesForElement)entriesForElement.visible=record.isIntersecting;}},{rootMargin:'40px'});
+  function register(element,tick){const entry={tick,visible:false};entries.set(element,entry);observer.observe(element);return()=>{entries.delete(element);observer.unobserve(element);};}
+  const context=gsap.context(()=>{});
+  const options={gsap,ScrollTrigger,register,signal};
+  const cleanups=[];
+  context.add(()=>{cleanups.push(mountHero(options),mountAscii(options),mountProjects(options),mountExpertise(options));});
+  let mode=navigator.deviceMemory&&navigator.deviceMemory<4?'static':'full';
+  document.documentElement.dataset.motionQuality=mode;
+  function tick(_time,delta){
+    if(document.hidden)return;
+    if(quality.sample(delta)){mode='static';document.documentElement.dataset.motionQuality=mode;}
+    const dt=Math.min(delta/1000,.05);
+    for(const entry of entries.values())if(entry.visible)entry.tick(dt,mode);
+  }
+  gsap.ticker.add(tick);
+  document.addEventListener('visibilitychange',()=>quality.reset(),{signal});
+  function stop(){if(disposed)return;disposed=true;controller.abort();gsap.ticker.remove(tick);for(const cleanup of cleanups.reverse())cleanup();context.revert();observer.disconnect();delete document.documentElement.dataset.motionQuality;}
+  reduced.addEventListener('change',()=>{if(reduced.matches)stop();},{signal});
+  window.addEventListener('pagehide',stop,{once:true,signal});
+  // Native navigation remains authoritative, including modified-click/new-tab.
+  document.querySelectorAll('.project-link').forEach(link=>link.addEventListener('click',event=>{
+    if(reduced.matches||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||event.button!==0)return;
+    event.preventDefault();const box=link.getBoundingClientRect();const iris=document.createElement('div');iris.className='iris';iris.setAttribute('aria-hidden','true');iris.style.setProperty('--x',`${event.detail?event.clientX:box.left+box.width/2}px`);iris.style.setProperty('--y',`${event.detail?event.clientY:box.top+box.height/2}px`);document.body.append(iris);requestAnimationFrame(()=>iris.classList.add('open'));setTimeout(()=>location.assign(link.href),500);
+  },{signal}));
+  return stop;
+}

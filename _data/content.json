@@ -56,7 +56,9 @@
       "AGENTES",
       "PR",
       "PRODUÇÃO"
-    ]
+    ],
+    "grid": "Usar grade",
+    "ascii_label": "Monograma VC em caracteres ASCII"
   },
   "en": {
     "lang": "en",
@@ -108,7 +110,30 @@
       "AGENTS",
       "PR",
       "PRODUCTION"
-    ]
+    ],
+    "grid": "Use grid",
+    "ascii_label": "VC monogram in ASCII characters"
   },
-  "claims": []
+  "claims": [],
+  "portrait": {
+    "approved": false,
+    "url": "/assets/perfil_site.png"
+  },
+  "career": [
+    {
+      "name": "Mercado Livre",
+      "source": "Briefing do proprietário",
+      "confirmed": true
+    },
+    {
+      "name": "Grupo OLX",
+      "source": "Briefing do proprietário",
+      "confirmed": true
+    },
+    {
+      "name": "TELUS Digital",
+      "source": "Briefing do proprietário",
+      "confirmed": true
+    }
+  ]
 }
