@@ -31,7 +31,7 @@ export function mountProjects({gsap,ScrollTrigger,register,signal}){
     animation=gsap.to(grid,{x:()=>-distance(),ease:'none',scrollTrigger:{trigger:stage,start:'top 100px',end:()=>'+='+distance(),scrub:.7,pin:true,invalidateOnRefresh:true,onUpdate:self=>caption(self.progress)}});
     caption(0);ScrollTrigger.refresh();
   }
-  const focus=event=>{const link=event.target.closest('a');if(animation&&link?.matches(':focus-visible')){gridMode=true;setup();event.target.scrollIntoView({block:'nearest'});}};
+  const focus=event=>{const link=event.target.closest('a');if(animation&&link?.matches(':focus-visible')){gridMode=true;setup();link.focus({preventScroll:true});link.scrollIntoView({block:'nearest'});}};
   grid.addEventListener('focusin',focus,{signal});
   toggle.addEventListener('click',()=>{gridMode=!gridMode;setup();},{signal});
   media.addEventListener('change',setup);window.addEventListener('pipeline:filter',setup,{signal});setup();
