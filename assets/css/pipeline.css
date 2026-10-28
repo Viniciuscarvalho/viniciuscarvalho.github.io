@@ -18,3 +18,7 @@
 .project-stage{display:flow-root}
 
 .project-archive ul{list-style:none;padding:0}.project-archive li{display:grid;grid-template-columns:1fr 2fr;gap:24px;padding:20px 0;border-top:1px solid var(--line)}.project-archive li span{color:var(--muted)}.portrait-compare img{max-width:100%;height:auto;object-fit:cover}.email{position:relative;overflow:hidden}.contact-glass{position:absolute;inset:0 auto auto 0;width:80px;height:80px;border:1px solid #ff5a1f88;border-radius:48% 52% 40% 60%;pointer-events:none;background:#ffffff0a}.contact-glass[hidden]{display:none}.email:focus-visible{background:#ff5a1f15}@media(max-width:600px){.project-archive li{grid-template-columns:1fr;gap:8px}}@media(prefers-reduced-motion:reduce){.contact-glass{display:none}}
+
+.card-portrait{width:64px;height:64px;object-fit:cover;float:right;border:1px solid var(--line)}.portrait-compare{margin:0;min-width:0}.portrait-compare img{display:block;aspect-ratio:1;object-fit:cover}.portrait-compare button{margin-top:12px}
+
+.about:has(.portrait-compare) .career-terminal{grid-column:1/-1}

@@ -5,7 +5,7 @@ O critério, e não o número de PRs, determina conclusão. Nenhum teste físico
 | Issue | Evidência entregue | Falta para concluir |
 | --- | --- | --- |
 | #5 | Configuração única consumida por QR/vCard/canonical; overlay .dev | DNS/Pages/CNAME/HTTPS do endereço final, não comprovados. |
-| #6 | Monograma, ausência de números/cargo atual não confirmados; fontes dos marcos | Data/horário da Xconf e confirmação editorial do proprietário. |
+| #6 | Monograma, ausência de números/cargo atual não confirmados; fontes dos marcos | Data/horário dispensados pelo proprietário; foto, cargo e experiência confirmados em 28/10/2026. |
 | #7 | Jekyll, 16 rotas, pares PT/EN, metadata e fontes OFL locais; testes de rotas e axe | Critérios técnicos atendidos na master. |
 | #8 | Card PT/EN, três destaques, contato sem JS e scripts próprios; testes de viewport/texto ampliado | Critérios técnicos atendidos na master. |
 | #9 | vCard CRLF, QR decodificado, share, palco e OG gerados/testados | Importar contato em iOS/Android, scan em dois aparelhos, projeção e preview real em mensageiro. |
@@ -13,9 +13,9 @@ O critério, e não o número de PRs, determina conclusão. Nenhum teste físico
 | #11 | Lockfiles, checks de PR, deploy master, orçamento JS e permissões mínimas | Critérios técnicos atendidos na master. |
 | #12 | Inventário documentado: 34 URLs HTML antigas presentes; CI repete comparação | Revisão/merge do inventário e validação dos links no endereço final. |
 | #13 | Teclado, axe, redução de movimento, FPS, DPR e JS ~55 KB verificados | LCP mobile 4G e uso real de VoiceOver/TalkBack. |
-| #14 | Hero sem JS, import dinâmico, refração e ASCII/monograma | Retrato aprovado e QA da foto final. |
+| #14 | Hero sem JS, import dinâmico, refração e ASCII/monograma | Retrato existente aprovado e ativado; QA da foto final. |
 | #15 | Pan com grade alternativa, filtros, links estáticos, íris cancelável por Escape | Merge do cancelamento e teste de regressão novo. |
-| #16 | Cinco competências, terminal, contato, SHA/data reais e comparação de foto por botão quando aprovada | Aprovação da foto e revisão final PT/EN. |
+| #16 | Cinco competências, terminal, contato, SHA/data reais e comparação de foto por botão quando aprovada | Foto aprovada; confirmar revisão visual final PT/EN. |
 | #17 | Spring da arte, partículas ASCII e giroscópio opcionais não bloqueiam contato; clique durante pan testado | Registro dos itens adiados abaixo e revisão/merge. |
 | #18 | CI, testes, inventário, rollback descrito e relatório por efeito | Domínio/QR definitivo e execução física dos testes abaixo. |
 
@@ -40,9 +40,9 @@ Registrar aparelho, sistema/browser, data, resultado e evidência para cada exec
 5. Medir LCP com rede 4G documentando aparelho, configuração, build e resultado.
 6. Conferir URLs históricas no domínio final e ensaiar rollback.
 
-## Dados necessários do proprietário
+## Confirmações do proprietário — 28/10/2026
 
-Data/horário da Xconf; aprovação do retrato assets/perfil_site.png ou outra foto; confirmação de cargo atual e tempo de experiência se quiser publicá-los; situação da compra e DNS de viniciuscarvalho.dev. Sem confirmação, números e cargo atual permanecem omitidos.
+Data/horário da Xconf dispensados como critério. Foto assets/perfil_site.png aprovada; cargo Senior Software Engineer e mais de 12 anos de experiência confirmados, com publicação permitida em PT/EN. A compra e configuração de viniciuscarvalho.dev continuam pendentes de verificação do proprietário. Esses dados não comprovam QA físico nem métricas de produção dos projetos.
 
 ## Rollback
 
