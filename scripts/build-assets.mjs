@@ -31,5 +31,5 @@ for(const lang of ['pt','en']){
 let sha='local';try{sha=execFileSync('git',['rev-parse','--short','HEAD'],{encoding:'utf8'}).trim();}catch{}
 await writeFile('_data/build.json',JSON.stringify({sha:process.env.GITHUB_SHA?.slice(0,7)||sha,date:new Date().toISOString().slice(0,10)}));
 await rm('assets/dist',{recursive:true,force:true});
-await build({entryPoints:['assets/src/card.js','assets/src/home.js'],bundle:true,splitting:true,format:'esm',outdir:'assets/dist',minify:true,target:['safari16','chrome110'],metafile:true}).then(async result=>writeFile('assets/generated/bundle-meta.json',JSON.stringify(result.metafile)));
+await build({entryPoints:['assets/src/card.js','assets/src/home.js','assets/src/architecture.js'],bundle:true,splitting:true,format:'esm',outdir:'assets/dist',minify:true,target:['safari16','chrome110'],metafile:true}).then(async result=>writeFile('assets/generated/bundle-meta.json',JSON.stringify(result.metafile)));
 console.log('Built static networking assets and JS. QR target:',cardUrl);
