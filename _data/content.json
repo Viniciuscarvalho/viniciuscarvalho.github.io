@@ -58,7 +58,8 @@
       "PRODUÇÃO"
     ],
     "grid": "Usar grade",
-    "ascii_label": "Monograma VC em caracteres ASCII"
+    "ascii_label": "Monograma VC em caracteres ASCII",
+    "gyro": "Ativar movimento"
   },
   "en": {
     "lang": "en",
@@ -112,7 +113,8 @@
       "PRODUCTION"
     ],
     "grid": "Use grid",
-    "ascii_label": "VC monogram in ASCII characters"
+    "ascii_label": "VC monogram in ASCII characters",
+    "gyro": "Enable motion"
   },
   "claims": [],
   "portrait": {

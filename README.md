@@ -127,3 +127,21 @@ O workflow verifica PRs sem publicar e faz deploy apenas de `master`.
 Rollback: reverter o commit de lançamento e executar novamente o workflow.
 Testes em navegador automatizado não substituem importação de contato e leitura
 do QR em iOS/Android reais; registrar essas etapas antes do lançamento.
+
+### Testes de navegador
+
+Depois de gerar `_site`, execute:
+
+```bash
+npx playwright install chromium
+npm run test:browser
+```
+
+O CI executa a mesma suíte em Chromium. Ela cobre conteúdo sem JavaScript,
+idiomas, filtros/grade, teclado, mudança de reduced-motion, QR/palco, saída
+imediata do flip, falhas/cancelamento de compartilhamento e permissão de sensor.
+Isso não substitui a validação física de giroscópio, importação do vCard e
+leitura do QR. O giroscópio só é solicitado após tocar em “Ativar movimento”.
+
+Os PRs de continuação são empilhados: base #19 → motion → acabamento do card.
+Mesclar na ordem e revisar a base dos PRs seguintes quando cada um entrar.

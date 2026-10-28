@@ -13,3 +13,6 @@ assets/generated/
 _data/build.json
 
 assets/css/site.css
+
+test-results/
+playwright-report/
