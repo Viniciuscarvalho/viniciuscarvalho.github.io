@@ -16,6 +16,7 @@ for(const name of ['space-grotesk','geist','jetbrains-mono']){
  await cp(`node_modules/@fontsource/${name}/LICENSE`,`assets/generated/fonts/${name}-LICENSE`);
 }
 const c=JSON.parse(await readFile('_data/content.json','utf8'));
+if(c.portrait?.approved){await sharp(c.portrait.source.replace(/^\//,'')).resize({width:640,withoutEnlargement:true}).webp({quality:82}).toFile('assets/generated/portrait.webp');}
 const escapeVcf=value=>value.replaceAll('\\','\\\\').replaceAll('\n','\\n').replaceAll(';','\\;').replaceAll(',','\\,');
 const vcard=['BEGIN:VCARD','VERSION:3.0','N:Marques;Vinicius;Carvalho;;',`FN:${escapeVcf(c.full_name)}`,`TITLE:${c.role}`,`EMAIL;TYPE=INTERNET:${c.email}`,`URL:${cardUrl}`,'END:VCARD',''].join('\r\n');
 await writeFile('assets/generated/vinicius-carvalho.vcf',vcard);

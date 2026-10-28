@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -34,6 +36,12 @@ jobs:
         run: bundle exec jekyll build --destination ./_site
       - name: Check content, links and bundle budget
         run: node scripts/check.mjs --site
+      - name: Historical URL inventory
+        run: npm run check:legacy
+      - uses: actions/upload-artifact@v4
+        with:
+          name: acceptance-evidence
+          path: reports/
       - name: Install browser
         run: npx playwright install --with-deps chromium
       - name: Browser acceptance tests

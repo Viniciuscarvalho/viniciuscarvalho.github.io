@@ -22,5 +22,9 @@ export function mountExpertise({ScrollTrigger,register,signal}) {
     let offset=0;complete=true;
     for(const [line,text] of originals){const length=Math.max(0,Math.floor(elapsed*35)-offset);line.lastElementChild.textContent=text.slice(0,length);if(length<text.length)complete=false;offset+=text.length+12;}
   });
-  return()=>{scene.kill();unregister();for(const [line,text] of originals)line.textContent=text;};
+  const contact=document.querySelector('.contact'), email=contact.querySelector('.email');
+  const glass=document.createElement('span');glass.className='contact-glass';glass.setAttribute('aria-hidden','true');email.append(glass);
+  let point=null;email.addEventListener('pointermove',event=>{const box=email.getBoundingClientRect();point={x:event.clientX-box.left,y:event.clientY-box.top};},{signal,passive:true});email.addEventListener('pointerleave',()=>point=null,{signal});
+  const stopGlass=register(contact,(_dt,quality)=>{glass.hidden=!point||quality==='static';if(point)glass.style.transform=`translate(${point.x-40}px,${point.y-40}px)`;});
+  return()=>{stopGlass();glass.remove();scene.kill();unregister();for(const [line,text] of originals)line.textContent=text;};
 }

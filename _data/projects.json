@@ -21,7 +21,10 @@
         "Agente",
         "Testes",
         "PR"
-      ]
+      ],
+      "problem": "Entregar trabalho com agentes sem perder contexto, limites e revisão humana.",
+      "role": "Desenvolvimento e manutenção do projeto pessoal.",
+      "outcome": "O README registra um canário v2 com dois PRs aprovados no CI de sandbox. A evidência e os limites da versão alpha estão na documentação."
     },
     "en": {
       "summary": "Turn a backlog into small, reviewable PRs.",
@@ -34,8 +37,12 @@
         "Agent",
         "Tests",
         "PR"
-      ]
-    }
+      ],
+      "problem": "Deliver agent-assisted work without losing context, boundaries and human review.",
+      "role": "Development and maintenance of this personal project.",
+      "outcome": "The README records a v2 canary with two PRs passing sandbox CI; alpha evidence and limitations are documented."
+    },
+    "evidence_url": "https://github.com/Viniciuscarvalho/monozukuri#readme"
   },
   {
     "slug": "saveplace",
@@ -59,7 +66,10 @@
         "Provedores",
         "Verificação",
         "Lugar"
-      ]
+      ],
+      "problem": "Recomendações sociais não trazem necessariamente um lugar geograficamente verificado.",
+      "role": "Desenvolvimento e manutenção do projeto pessoal.",
+      "outcome": "O README documenta o M2 validado no Railway: análise, cache, idempotência, confirmação e biblioteca privada. Não são apresentados números de custo sem baseline publicado."
     },
     "en": {
       "summary": "A social URL. A verifiable place.",
@@ -72,8 +82,12 @@
         "Providers",
         "Verification",
         "Place"
-      ]
-    }
+      ],
+      "problem": "Social recommendations do not necessarily identify a geographically verified place.",
+      "role": "Development and maintenance of this personal project.",
+      "outcome": "The README documents M2 validated on Railway: analysis, cache, idempotency, confirmation and a private library. No cost figures are claimed without a published baseline."
+    },
+    "evidence_url": "https://github.com/Viniciuscarvalho/SavePlace#readme"
   },
   {
     "slug": "ci-guard",
@@ -96,7 +110,10 @@
         "Classificação",
         "Diagnóstico",
         "Decisão"
-      ]
+      ],
+      "problem": "Retries cegos podem esconder falhas e consumir minutos de CI.",
+      "role": "Desenvolvimento e manutenção do projeto pessoal.",
+      "outcome": "Scripts Python classificam falhas e aplicam limites de retry sem chamar LLM ou exigir API key, conforme o contrato público do projeto."
     },
     "en": {
       "summary": "Diagnose before retrying.",
@@ -108,8 +125,12 @@
         "Classification",
         "Diagnosis",
         "Decision"
-      ]
-    }
+      ],
+      "problem": "Blind retries can hide failures and consume CI minutes.",
+      "role": "Development and maintenance of this personal project.",
+      "outcome": "Python scripts classify failures and apply retry budgets without LLM calls or API keys, according to the public project contract."
+    },
+    "evidence_url": "https://github.com/Viniciuscarvalho/ci-guard#readme"
   },
   {
     "slug": "swift-code-reviewer-skill",
@@ -133,7 +154,10 @@
         "SwiftUI",
         "Arquitetura",
         "Review"
-      ]
+      ],
+      "problem": "Review de Swift precisa considerar a spec e os padrões do projeto, além do código.",
+      "role": "Desenvolvimento e manutenção do projeto pessoal.",
+      "outcome": "Um núcleo de revisão em sete camadas é distribuído para Claude Code, Codex, Gemini e Kiro, com comandos de instalação documentados."
     },
     "en": {
       "summary": "Layered review. Context first.",
@@ -146,8 +170,12 @@
         "SwiftUI",
         "Architecture",
         "Review"
-      ]
-    }
+      ],
+      "problem": "Swift reviews need the specification and project standards as well as the code.",
+      "role": "Development and maintenance of this personal project.",
+      "outcome": "A seven-layer review core is distributed to Claude Code, Codex, Gemini and Kiro, with documented installation commands."
+    },
+    "evidence_url": "https://github.com/Viniciuscarvalho/swift-code-reviewer-skill#readme"
   },
   {
     "slug": "feature-marker",
@@ -171,7 +199,10 @@
         "Tasks",
         "Implementação",
         "Validação"
-      ]
+      ],
+      "problem": "Pedidos de features precisam virar artefatos claros antes de implementar.",
+      "role": "Desenvolvimento e manutenção do projeto pessoal.",
+      "outcome": "O pacote instala a skill e os templates; o fluxo produz PRD, Tech Spec e Tasks no repositório e termina em commit local e handoff de branch."
     },
     "en": {
       "summary": "From intent to an executable plan.",
@@ -184,8 +215,12 @@
         "Tasks",
         "Implementation",
         "Validation"
-      ]
-    }
+      ],
+      "problem": "Feature requests need clear artifacts before implementation.",
+      "role": "Development and maintenance of this personal project.",
+      "outcome": "The package installs the skill and templates; the workflow produces PRD, Tech Spec and Tasks in the repository and ends with a local commit and branch handoff."
+    },
+    "evidence_url": "https://github.com/Viniciuscarvalho/Feature-marker#readme"
   },
   {
     "slug": "gastandoya-api",
@@ -209,7 +244,10 @@
         "OAuth Notion",
         "Database",
         "Despesas"
-      ]
+      ],
+      "problem": "Conectar contas Notion distintas e normalizar despesas para um app iOS.",
+      "role": "Desenvolvimento e manutenção do projeto pessoal.",
+      "outcome": "O backend oferece conexão OAuth por usuário, descoberta de databases e retorno normalizado de despesas; o README documenta o fluxo de integração com iOS."
     },
     "en": {
       "summary": "Integrations that respect boundaries.",
@@ -222,7 +260,11 @@
         "Notion OAuth",
         "Database",
         "Expenses"
-      ]
-    }
+      ],
+      "problem": "Connect separate Notion accounts and normalize expenses for an iOS app.",
+      "role": "Development and maintenance of this personal project.",
+      "outcome": "The backend provides per-user OAuth connections, database discovery and normalized expenses; its README documents the iOS integration flow."
+    },
+    "evidence_url": "https://github.com/Viniciuscarvalho/gastandoya-api#readme"
   }
 ]

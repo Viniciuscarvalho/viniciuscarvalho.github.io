@@ -16,3 +16,5 @@ assets/css/site.css
 
 test-results/
 playwright-report/
+
+reports/

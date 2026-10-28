@@ -9,7 +9,7 @@
   "pt": {
     "lang": "pt-BR",
     "title": "Engenharia de software que escala — e que se automatiza.",
-    "intro": "Arquitetura, plataforma e IA aplicada. Construo apps, backends e ferramentas para times entregarem melhor.",
+    "intro": "Senior Software Engineer com mais de 12 anos de experiência em arquitetura, plataforma e IA aplicada. Construo apps, backends e ferramentas para times entregarem melhor.",
     "projects": "Projetos selecionados",
     "expertise": "Da interface à infraestrutura.",
     "about": "Software é construção contínua.",
@@ -58,13 +58,17 @@
       "PRODUÇÃO"
     ],
     "grid": "Usar grade",
-    "ascii_label": "Monograma VC em caracteres ASCII",
-    "gyro": "Ativar movimento"
+    "ascii_label": "Retrato de Vinicius Carvalho em caracteres ASCII",
+    "gyro": "Ativar movimento",
+    "problem": "Problema",
+    "role_label": "Minha contribuição",
+    "compare_photo": "Mostrar/ocultar foto original",
+    "experience_label": "Mais de 12 anos de experiência"
   },
   "en": {
     "lang": "en",
     "title": "Software engineering that scales, and automates itself.",
-    "intro": "Architecture, platform and applied AI. I build apps, backends and tooling that help teams ship better.",
+    "intro": "Senior Software Engineer with over 12 years of experience across architecture, platform and applied AI. I build apps, backends and tooling that help teams ship better.",
     "projects": "Selected work",
     "expertise": "From interface to infrastructure.",
     "about": "Software is continuous craftsmanship.",
@@ -113,29 +117,68 @@
       "PRODUCTION"
     ],
     "grid": "Use grid",
-    "ascii_label": "VC monogram in ASCII characters",
-    "gyro": "Enable motion"
+    "ascii_label": "Vinicius Carvalho portrait rendered as ASCII",
+    "gyro": "Enable motion",
+    "problem": "Problem",
+    "role_label": "My contribution",
+    "compare_photo": "Show/hide original photo",
+    "experience_label": "Over 12 years of experience"
   },
-  "claims": [],
+  "claims": [
+    {
+      "id": "role",
+      "text": {
+        "pt": "Senior Software Engineer",
+        "en": "Senior Software Engineer"
+      },
+      "confirmed": true,
+      "attribution": "Cargo informado pelo proprietário",
+      "source": "Confirmação de Vinicius nesta conversa em 28/10/2026",
+      "publicationAllowed": true
+    },
+    {
+      "id": "experience",
+      "text": {
+        "pt": "Mais de 12 anos de experiência",
+        "en": "Over 12 years of experience"
+      },
+      "confirmed": true,
+      "attribution": "Experiência profissional de Vinicius",
+      "source": "Confirmação de Vinicius nesta conversa em 28/10/2026",
+      "publicationAllowed": true
+    }
+  ],
   "portrait": {
-    "approved": false,
-    "url": "/assets/perfil_site.png"
+    "approved": true,
+    "url": "/assets/generated/portrait.webp",
+    "source": "/assets/perfil_site.png"
   },
   "career": [
     {
       "name": "Mercado Livre",
       "source": "Briefing do proprietário",
-      "confirmed": true
+      "confirmed": true,
+      "attribution": "Experiência profissional",
+      "publicationAllowed": true
     },
     {
       "name": "Grupo OLX",
       "source": "Briefing do proprietário",
-      "confirmed": true
+      "confirmed": true,
+      "attribution": "Experiência profissional",
+      "publicationAllowed": true
     },
     {
       "name": "TELUS Digital",
       "source": "Briefing do proprietário",
-      "confirmed": true
+      "confirmed": true,
+      "attribution": "Experiência profissional",
+      "publicationAllowed": true
     }
-  ]
+  ],
+  "publication": {
+    "event_schedule_required": false,
+    "portrait_approved": true
+  },
+  "experience_years_minimum": 12
 }

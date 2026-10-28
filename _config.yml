@@ -42,6 +42,7 @@ plugins:
 #  - jekyll-feed
 
 exclude:
+  - reports
   - test-results
   - playwright-report
   - playwright.config.cjs
