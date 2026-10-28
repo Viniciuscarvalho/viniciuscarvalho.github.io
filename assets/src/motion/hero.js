@@ -40,7 +40,7 @@ export function mountHero({ gsap, register, signal }) {
   const text = document.createElement('div'); text.className = 'lens-text'; text.textContent = original;
   copy.append(text); lens.append(copy); hero.append(lens);
   // SVG is decorative. Coarse-pointer and low-quality paths use highlight only.
-  const canRefract = typeof SVGFEdisplacementMapElement !== 'undefined' && matchMedia('(pointer:fine)').matches;
+  const canRefract = typeof SVGFEDisplacementMapElement !== 'undefined' && matchMedia('(pointer:fine)').matches;
   if (canRefract) {
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('aria-hidden','true'); svg.classList.add('filter-defs');
