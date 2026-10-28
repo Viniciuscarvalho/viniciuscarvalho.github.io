@@ -34,3 +34,6 @@ schedule();
 reduced.addEventListener('change',()=>{if(reduced.matches){generation++;cleanup?.();cleanup=null;}else schedule();});
 window.addEventListener('pagehide',()=>{generation++;cleanup?.();cleanup=null;});
 window.addEventListener('pageshow',event=>{document.querySelectorAll('.iris').forEach(el=>el.remove());if(event.persisted)schedule();});
+
+const compare=document.querySelector('[data-compare-photo]');
+compare?.addEventListener('click',()=>{const photo=document.querySelector('[data-original-photo]');photo.hidden=!photo.hidden;compare.setAttribute('aria-pressed',String(!photo.hidden));});

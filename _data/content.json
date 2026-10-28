@@ -59,7 +59,10 @@
     ],
     "grid": "Usar grade",
     "ascii_label": "Monograma VC em caracteres ASCII",
-    "gyro": "Ativar movimento"
+    "gyro": "Ativar movimento",
+    "problem": "Problema",
+    "role_label": "Minha contribuição",
+    "compare_photo": "Mostrar/ocultar foto original"
   },
   "en": {
     "lang": "en",
@@ -114,7 +117,10 @@
     ],
     "grid": "Use grid",
     "ascii_label": "VC monogram in ASCII characters",
-    "gyro": "Enable motion"
+    "gyro": "Enable motion",
+    "problem": "Problem",
+    "role_label": "My contribution",
+    "compare_photo": "Show/hide original photo"
   },
   "claims": [],
   "portrait": {
@@ -125,17 +131,28 @@
     {
       "name": "Mercado Livre",
       "source": "Briefing do proprietário",
-      "confirmed": true
+      "confirmed": true,
+      "attribution": "Experiência profissional",
+      "publicationAllowed": true
     },
     {
       "name": "Grupo OLX",
       "source": "Briefing do proprietário",
-      "confirmed": true
+      "confirmed": true,
+      "attribution": "Experiência profissional",
+      "publicationAllowed": true
     },
     {
       "name": "TELUS Digital",
       "source": "Briefing do proprietário",
-      "confirmed": true
+      "confirmed": true,
+      "attribution": "Experiência profissional",
+      "publicationAllowed": true
     }
-  ]
+  ],
+  "publication": {
+    "event_date": null,
+    "event_time": null,
+    "portrait_approved": false
+  }
 }

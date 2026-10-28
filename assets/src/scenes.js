@@ -30,7 +30,7 @@ export async function mount(){
   // Native navigation remains authoritative, including modified-click/new-tab.
   document.querySelectorAll('.project-link').forEach(link=>link.addEventListener('click',event=>{
     if(reduced.matches||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||event.button!==0)return;
-    event.preventDefault();const box=link.getBoundingClientRect();const iris=document.createElement('div');iris.className='iris';iris.setAttribute('aria-hidden','true');iris.style.setProperty('--x',`${event.detail?event.clientX:box.left+box.width/2}px`);iris.style.setProperty('--y',`${event.detail?event.clientY:box.top+box.height/2}px`);document.body.append(iris);requestAnimationFrame(()=>iris.classList.add('open'));setTimeout(()=>location.assign(link.href),500);
+    event.preventDefault();const box=link.getBoundingClientRect();const iris=document.createElement('div');iris.className='iris';iris.setAttribute('aria-hidden','true');iris.style.setProperty('--x',`${event.detail?event.clientX:box.left+box.width/2}px`);iris.style.setProperty('--y',`${event.detail?event.clientY:box.top+box.height/2}px`);document.body.append(iris);requestAnimationFrame(()=>iris.classList.add('open'));const timer=setTimeout(()=>{document.removeEventListener('keydown',cancel);location.assign(link.href);},500);function cancel(e){if(e.key==='Escape'){clearTimeout(timer);iris.remove();document.removeEventListener('keydown',cancel);link.focus();}}document.addEventListener('keydown',cancel,{signal});
   },{signal}));
   return stop;
 }
