@@ -50,3 +50,15 @@ test('Escape cancels a flip before the midpoint without a stale face update',asy
  await page.evaluate(()=>{document.querySelector('[data-flip]').click();document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape'}));});
  await expect(page.locator('[data-flip]')).toBeEnabled();await expect(page.locator('[data-flip]')).toHaveAttribute('aria-expanded','false');await expect(page.locator('#card-front')).toBeVisible();await expect(page.locator('#card-back')).toBeHidden();
 });
+
+test('the flip trigger keeps keyboard focus after both complete turns',async({page})=>{
+ await page.goto('/card/');const trigger=page.locator('[data-flip]');
+ await trigger.focus();await page.keyboard.press('Enter');
+ await expect(trigger).toHaveAttribute('aria-expanded','true');
+ await expect(trigger).toHaveAttribute('aria-disabled','false');
+ await expect(trigger).toBeFocused();
+ await page.keyboard.press('Enter');
+ await expect(trigger).toHaveAttribute('aria-expanded','false');
+ await expect(trigger).toHaveAttribute('aria-disabled','false');
+ await expect(trigger).toBeFocused();
+});

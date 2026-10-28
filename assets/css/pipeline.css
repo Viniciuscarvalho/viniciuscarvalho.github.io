@@ -14,3 +14,5 @@
 .card-page main{overflow-x:clip}
 .pixel{image-rendering:pixelated}.card-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.card-controls button{padding:10px;border:1px solid var(--line);font-size:11px;text-align:center}.card-controls button:hover{border-color:var(--accent)}
 @media(max-width:600px){.card-page .topbar{padding:12px 5%}.card-shell{margin:16px auto}.contact-card{padding:20px}.identity{margin-top:16px}.monogram{width:48px;height:48px;margin-bottom:12px}.identity h1.pixel-title-ready{margin:12px 0}.card-role{font-size:14px;margin-bottom:6px}.specialties{font-size:10px;line-height:1.6}.card-front>.eyebrow{margin-top:20px}.card-front,.card-back{min-height:150px}.card-page .socials{margin:16px 0}.card-page .footer{display:none}}
+/* Keep the caption and the horizontal track in the same pinned scene. */
+.project-stage{display:flow-root}

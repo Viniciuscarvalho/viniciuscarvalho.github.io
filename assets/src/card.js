@@ -15,14 +15,15 @@ let flipped=false,turn=null,flipVersion=0;
 function showFace(value){front.hidden=value;front.inert=value;back.hidden=!value;back.inert=!value;flipped=value;flip.setAttribute('aria-expanded',String(value));flip.textContent=value?labels.back:labels.qr;}
 showFace(false);
 async function setFlipped(value,immediate=false){
+ if(turn&&!immediate)return;
  const version=++flipVersion;turn?.cancel();turn=null;
- if(reduced.matches||immediate){showFace(value);flip.disabled=false;return;}
- flip.disabled=true;
+ if(reduced.matches||immediate){showFace(value);flip.setAttribute('aria-disabled','false');return;}
+ flip.setAttribute('aria-disabled','true');
  try{
  turn=deck.animate([{transform:'rotateY(0)'},{transform:'rotateY(90deg)'}],{duration:140,easing:'ease-in',fill:'forwards'});
  await turn.finished;if(version!==flipVersion)return;turn.cancel();showFace(value);
  turn=deck.animate([{transform:'rotateY(-90deg)'},{transform:'rotateY(0)'}],{duration:180,easing:'ease-out'});await turn.finished;
- }catch{if(version===flipVersion)showFace(value);}finally{if(version===flipVersion){turn?.cancel();turn=null;flip.disabled=false;}}
+ }catch{if(version===flipVersion)showFace(value);}finally{if(version===flipVersion){turn?.cancel();turn=null;flip.setAttribute('aria-disabled','false');}}
 }
 flip.addEventListener('click',()=>setFlipped(!flipped));
 function setStage(value,update=true){

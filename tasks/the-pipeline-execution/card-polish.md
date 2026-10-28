@@ -20,3 +20,11 @@ Base: PR #20, que depende do #19. Não publica site, não altera CNAME/DNS e nã
 
 ## Pendências que exigem ambiente/insumo real
 Compra e ativação de viniciuscarvalho.dev, DNS/HTTPS e QR definitivo; aprovação do retrato; número de anos/cargo atual/métricas; VoiceOver/TalkBack e teste de sensores/contato em iPhone/Android; LCP sob 4G em dispositivo; ensaio de palco. NFC e modo claro seguem opcionais.
+
+## Correções da revisão
+
+O botão de flip permanece focável durante a animação. `aria-disabled` sinaliza ocupação e o handler ignora ativações concorrentes, preservando o foco para usar Enter novamente; Escape/reduced-motion continuam cancelando imediatamente.
+
+A branch incorpora as correções do #20 por merge. Novos testes de regressão cobrem clique real de mouse durante o pan, fallback de teclado, legenda visível no meio/fim da cena, ativação efetiva da refração SVG e foco após ida/volta completa do flip.
+
+Validação final das correções: 19 testes Playwright passaram, incluindo os cinco cenários novos (clique durante pan, foco de teclado na grade, legenda visível, refração ativa e foco após flip completo); build Jekyll, checagem de rotas/assets e os 10 testes Node também passaram. O merge mantém a dependência do #20 atualizada.

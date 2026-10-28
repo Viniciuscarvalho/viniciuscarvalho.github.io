@@ -1,8 +1,8 @@
 import { clamp, spring, projectPose } from './model.js';
 
 export function mountProjects({gsap,ScrollTrigger,register,signal}){
-  const grid=document.querySelector('.project-grid'),section=document.querySelector('.projects-section');
-  if(!grid||!section)return()=>{};
+  const grid=document.querySelector('.project-grid'),section=document.querySelector('.projects-section'),stage=document.querySelector('.project-stage');
+  if(!grid||!section||!stage)return()=>{};
   const toggle=document.querySelector('[data-gallery-mode]');toggle.hidden=false;
   let animation=null,gridMode=false,previousIndex=-1;
   const media=matchMedia('(min-width:1100px) and (pointer:fine)');
@@ -27,11 +27,11 @@ export function mountProjects({gsap,ScrollTrigger,register,signal}){
     toggle.setAttribute('aria-pressed',String(gridMode));
     if(!enabled)return;
     grid.classList.add('is-pinned');panel.hidden=false;
-    const distance=()=>Math.max(0,grid.scrollWidth-section.clientWidth+section.clientWidth*.12);
-    animation=gsap.to(grid,{x:()=>-distance(),ease:'none',scrollTrigger:{trigger:grid,start:'top 100px',end:()=>'+='+distance(),scrub:.7,pin:true,invalidateOnRefresh:true,onUpdate:self=>caption(self.progress)}});
+    const distance=()=>Math.max(0,grid.scrollWidth-stage.clientWidth);
+    animation=gsap.to(grid,{x:()=>-distance(),ease:'none',scrollTrigger:{trigger:stage,start:'top 100px',end:()=>'+='+distance(),scrub:.7,pin:true,invalidateOnRefresh:true,onUpdate:self=>caption(self.progress)}});
     caption(0);ScrollTrigger.refresh();
   }
-  const focus=event=>{if(animation&&event.target.closest('a')){gridMode=true;setup();event.target.scrollIntoView({block:'nearest'});}};
+  const focus=event=>{const link=event.target.closest('a');if(animation&&link?.matches(':focus-visible')){gridMode=true;setup();link.focus({preventScroll:true});link.scrollIntoView({block:'nearest'});}};
   grid.addEventListener('focusin',focus,{signal});
   toggle.addEventListener('click',()=>{gridMode=!gridMode;setup();},{signal});
   media.addEventListener('change',setup);window.addEventListener('pipeline:filter',setup,{signal});setup();

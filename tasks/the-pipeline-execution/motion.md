@@ -16,3 +16,10 @@ Implementado:
 Validação: build de assets, 8 testes Node, build Jekyll e checagem de rotas passaram. Chromium automatizado em 1440 px e 360 px: filtros Backend→Todos, grade, End de expertise, redução de movimento ao vivo, retorno dos efeitos e ausência de overflow/erros JS. Capturas inspecionadas.
 
 Pendências reais: retrato aprovado, ajuste visual com foto final, claims de carreira/números, teste em Safari/iPhone físico e medições LCP de campo. Não fecha as issues #13–#17 por inteiro.
+
+## Correções da revisão
+
+- O fallback para grade em `focusin` agora exige `:focus-visible`; cliques por mouse não desmontam o pin entre mousedown e mouseup.
+- A interface de detecção SVG foi corrigida para `SVGFEDisplacementMapElement`; caminho de refração validado com filtro criado e cópia visível em Chromium desktop.
+- Legenda e grade compartilham `.project-stage`, o contêiner pinado. No meio do pan, a legenda permaneceu em y≈120–184 px e o link de ci-guard manteve a posição durante o clique e abriu o estudo corretamente.
+- Build Jekyll, links e 8 testes Node passaram nesta branch. Os cenários de regressão de navegador são versionados na continuação #21, que introduz a infraestrutura Playwright.
