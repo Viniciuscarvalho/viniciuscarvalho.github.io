@@ -6,7 +6,7 @@ Este documento sucede propostas de conteúdo anteriores apenas no escopo de rede
 ## Resultado esperado
 Transformar o portfólio em uma demonstração de engenharia: Ideia → Spec → Agentes → PR → Produção. A apresentação comunica Senior Software Engineer, com profundidade em iOS e atuação em arquitetura, plataforma, ferramentas e IA aplicada.
 
-PT-BR padrão, EN com conteúdo equivalente. O /card é o primeiro entregável e funciona como apresentação rápida, compartilhável e utilizável em conferência.
+Stack definida pelo proprietário: Jekyll/Liquid + Tailwind, JavaScript no navegador e GitHub Pages via Actions. Não migrar para Next.js, React ou Vercel. PT-BR padrão, EN com conteúdo equivalente. O /card é o primeiro entregável e funciona como apresentação rápida, compartilhável e utilizável em conferência.
 
 ## Estado encontrado no repositório
 - Branch padrão master; Jekyll/Liquid + Tailwind 3.
@@ -87,7 +87,7 @@ NFC é tarefa física opcional posterior; nenhum gasto autorizado.
 Projetos podem usar pan horizontal com pin apenas em desktop compatível; mobile e reduced-motion usam lista vertical. Filtros recalculam limites e mantêm seleção válida.
 Transições de detalhe por círculo são opcionais; URL direta, Voltar, foco e Escape funcionam sem animação.
 Expertise apresenta todas as competências no DOM, sem depender de scroll para acesso. Setas agem somente com componente focado, nunca globalmente em inputs.
-Um relógio explícito para cenas de canvas/scroll; Motion continua responsável por suas springs de UI. Não prometer um único loop interno para bibliotecas independentes.
+Um relógio explícito para cenas de canvas/scroll; Motion na API JavaScript, sem motion/react, pode cuidar das springs de UI. Não prometer um único loop interno para bibliotecas independentes.
 Sem ambiência sonora, flash, hijack de scroll obrigatório ou conteúdo exclusivo em canvas.
 
 ## Prioridades
@@ -109,3 +109,35 @@ A direção visual deve existir mesmo com efeitos desligados.
 - Claims revisados e métricas com atribuição correta.
 - URLs antigas de blog/apps preservadas ou mapeadas; nenhum acervo removido sem inventário.
 - Domínio e QR final definidos antes de divulgar.
+
+## Adaptação definitiva para Jekyll
+O briefing visual e funcional permanece como escopo completo. Jekyll gera HTML; canvas, WebGL, SVG e JavaScript implementam as interações no navegador. Trocar o gerador não remove efeitos.
+- Dados PT/EN em _data/content.yml; projetos editoriais em _data/projects.yml; snapshot separado em _data/github.json.
+- Layouts Liquid para home, card e estudos; permalinks explícitos por idioma.
+- Motion JavaScript substitui motion/react. GSAP/ScrollTrigger e Lenis continuam disponíveis como módulos locais empacotados.
+- Arquivo .vcf substitui route handler; OG PNG no build substitui next/og; snapshot e rebuild substituem ISR.
+- Preservar Ruby/Bundler, Tailwind e publicação de _site; Node apenas para assets e scripts de build.
+- P1 e P2 representam ordem de execução, não exclusão automática. Qualquer corte por prazo deve ser registrado; não declarar briefing completo enquanto houver efeitos planejados ausentes.
+
+## Rastreabilidade do briefing completo
+| Pedido | Entrega em Jekyll |
+| --- | --- |
+| Hero gigante e revelação por letra | Texto Liquid no DOM, medição JS, spans decorativos e Motion JS/GSAP. |
+| Lente de vidro | SVG displacement com fallback leve; mesma identidade no mobile. |
+| Retrato ASCII/braille, glow, scanlines e partículas | Canvas 2D e assets próprios; WebGL2 apenas se necessário. |
+| Projetos em pan horizontal e parallax | GSAP/ScrollTrigger em desktop, lista acessível em mobile. |
+| Cards em pêndulo e arraste | Física JS com amortecimento, sem bloquear clique/scroll. |
+| Linha de corte sincronizada | Camadas DOM com clipping e progresso compartilhado, texto acessível único. |
+| Íris no detalhe | Overlay decorativo a partir do clique; permalink estático e histórico preservados. |
+| Estrelas e badges | Metadados GitHub no build e links reais de npm/Homebrew/CI; horário explícito. |
+| Filtros e arquivo | Tags em dados YAML, botões JS e grade HTML completa como fallback. |
+| Expertise por foco e teclado | Cinco competências e claims verificáveis; setas com componente focado. |
+| Formações e springs por progresso | Progresso de cena normalizado, poses reversíveis e controle de qualidade. |
+| Terminal de carreira | HTML semântico e typewriter progressivo; conteúdo imediato em reduced-motion. |
+| Segurar para ver retrato original | Pointer e botão acessível por teclado; não exigir gesto prolongado. |
+| Contato e lente leve | E-mail público, redes, vCard e efeitos decorativos. |
+| Card cartucho/pixel/dither | Layout Liquid dedicado, canvas pixel 5×7 e dither Bayer próprios. |
+| Flip, tilt e brilho | CSS 3D + JS/springs; botão explícito e giroscópio opcional com permissão. |
+| QR, palco e preview social | SVG/PNG estáticos, query stage=1 no navegador e OG PNG absoluto. |
+| PT/EN, SEO e build info | Rotas estáticas, lang/hreflang/canonical/Person e SHA/data reais do build. |
+| NFC e modo claro | Opcionais conforme briefing; NFC exige tag física. |
