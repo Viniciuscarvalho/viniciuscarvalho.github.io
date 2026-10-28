@@ -1,65 +1,57 @@
-name: Deploy Jekyll site to Pages
-
+name: Build and deploy Jekyll
 on:
   push:
-    branches: ["main", "master"]
+    branches: [master]
+  pull_request:
+    branches: [master]
   workflow_dispatch:
-
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
 concurrency:
-  group: "pages"
+  group: pages-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
-
 jobs:
   build:
+    permissions:
+      contents: read
+      pages: read
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: "20"
-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+          node-version: '22'
+          cache: npm
+      - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.2"
+          ruby-version: '3.2'
           bundler-cache: true
-
-      - name: Install Node dependencies
-        run: npm install --no-audit --no-fund
-
-      - name: Build Tailwind CSS
-        run: npm run build:css
-
+      - run: npm ci --no-audit --no-fund
+      - name: Build static assets
+        run: npm run build && npm test
       - name: Build Jekyll
         env:
           JEKYLL_ENV: production
         run: bundle exec jekyll build --destination ./_site
-
-      - name: Setup Pages
+      - name: Check content, links and bundle budget
+        run: node scripts/check.mjs --site
+      - name: Configure Pages
+        if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v3
         with:
-          path: "./_site"
-
+          path: ./_site
   deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
-
-

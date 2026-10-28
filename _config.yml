@@ -42,6 +42,15 @@ plugins:
 #  - jekyll-feed
 
 exclude:
+  - tests
+  - vendor
+  - scripts
+  - tests
+  - tasks
+  - templates
+  - assets/src
+  - package-lock.json
+  - _config.domain.yml
   - node_modules
   - package.json
   - postcss.config.js
@@ -50,6 +59,8 @@ exclude:
 
 # Collections
 collections:
+  projects:
+    output: true
   apps:
     output: true
     permalink: /apps/:name/
@@ -60,3 +71,6 @@ defaults:
       type: apps
     values:
       layout: app
+
+url: "https://viniciuscarvalho.github.io"
+baseurl: ""

@@ -80,3 +80,50 @@ O workflow em `.github/workflows/pages.yml` faz:
 No GitHub, configure **Settings → Pages** para usar **Source: GitHub Actions**.
 
 
+
+## The Pipeline (Jekyll)
+
+O redesign preserva Jekyll e o acervo de Apps/Blog. Novos dados editoriais estão
+em `_data/content.json` e `_data/projects.json`; estudos PT/EN em `_projects/`.
+
+```bash
+npm ci
+bundle install
+npm run build
+node --test tests/networking.test.mjs
+bundle exec jekyll build
+node scripts/check.mjs --site
+bundle exec jekyll serve
+```
+
+`npm run snapshot` atualiza somente os seis repositórios selecionados e mantém
+as observações anteriores se a API falhar. O build normal é offline em relação
+à API GitHub. Nunca colocar tokens em dados públicos.
+
+Assets de networking, fontes OFL locais e bundles são gerados por
+`npm run build:assets`. Os termos das fontes acompanham os arquivos publicados.
+As imagens de projetos são composições próprias, não cópias das referências.
+
+### Ativação de viniciuscarvalho.dev
+
+A compra e o DNS ainda precisam ser concluídos. `_config.domain.yml` prepara a
+URL futura; não altera a hospedagem por si só. No lançamento:
+
+1. Configurar o domínio no registrador e em Settings → Pages conforme a
+   [documentação oficial](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
+2. Atualizar `url` em `_config.yml` e `CNAME` juntos. Usar `SITE_URL` no build
+   de assets com o mesmo endereço. Não gerar QR com configurações divergentes.
+3. Gerar assets novamente, verificar HTTPS, canonical, OG e o QR em aparelhos.
+4. Somente então divulgar o endereço e imprimir materiais.
+
+Para ensaiar localmente a configuração futura:
+
+```bash
+SITE_URL=https://viniciuscarvalho.dev npm run build
+bundle exec jekyll build --config _config.yml,_config.domain.yml
+```
+
+O workflow verifica PRs sem publicar e faz deploy apenas de `master`.
+Rollback: reverter o commit de lançamento e executar novamente o workflow.
+Testes em navegador automatizado não substituem importação de contato e leitura
+do QR em iOS/Android reais; registrar essas etapas antes do lançamento.
