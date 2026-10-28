@@ -1,0 +1,17 @@
+{% assign graph = include.graph %}{% assign graph_key = 'arch-' | append: graph.id %}
+<section class="architecture-map" data-architecture="{{ graph.id }}" aria-labelledby="{{ graph_key }}-title"
+  data-play="{{ t.graph_play | escape }}" data-pause="{{ t.graph_pause | escape }}" data-step="{{ t.graph_step | escape }}"
+  data-done="{{ t.graph_done | escape }}" data-paused="{{ t.graph_paused | escape }}" data-limited="{{ t.graph_limited | escape }}">
+  <header class="arch-heading"><div><p class="eyebrow">THE PIPELINE / SYSTEM MAP</p><h3 id="{{ graph_key }}-title">{{ graph.title[page.lang] }}</h3></div><span class="arch-counter" data-arch-counter hidden aria-hidden="true">01 / {{ graph.nodes.size | prepend: '0' }}</span></header>
+  <p class="arch-description">{{ graph.description[page.lang] }}</p>
+  <div class="arch-controls" hidden><button type="button" class="button" data-arch-play aria-pressed="false">{{ t.graph_play }}</button><button type="button" class="button" data-arch-next>{{ t.graph_next }} →</button><span class="arch-reduced" hidden>{{ t.graph_reduced }}</span></div>
+  <div class="arch-board"><svg class="arch-wires" hidden aria-hidden="true" focusable="false"></svg>
+    <ol class="arch-nodes">{% for node in graph.nodes %}<li style="--column:{{ node.column }};--row:{{ node.row }}" data-arch-node="{{ node.id }}"><a class="arch-node" href="#{{ graph_key }}-{{ node.id }}" data-arch-target="{{ node.id }}"><span class="eyebrow">{{ forloop.index | prepend: '0' }} / {{ t.graph_step }}</span><strong>{{ node.label[page.lang] }}</strong><span class="arch-port" aria-hidden="true">↗</span></a></li>{% endfor %}</ol>
+  </div>
+  <div class="arch-explanations">{% for node in graph.nodes %}<section id="{{ graph_key }}-{{ node.id }}" data-arch-panel="{{ node.id }}" tabindex="-1"><p class="eyebrow">{{ t.graph_step }} {{ forloop.index }} / {{ graph.nodes.size }}</p><h4>{{ node.label[page.lang] }}</h4><p>{{ node.detail[page.lang] }}</p></section>{% endfor %}</div>
+  <p class="arch-principle">{{ graph.principle[page.lang] }}</p>
+  <details class="arch-relations"><summary>{{ t.graph_connections }}</summary><ul>{% for edge in graph.edges %}{% assign from = graph.nodes | where: 'id', edge.source | first %}{% assign to = graph.nodes | where: 'id', edge.target | first %}<li data-arch-edge data-from="{{ edge.source }}" data-to="{{ edge.target }}"><strong>{{ from.label[page.lang] }} → {{ to.label[page.lang] }}</strong><span>{{ edge.label[page.lang] }}</span></li>{% endfor %}</ul></details>
+  <div class="arch-sources"><span class="eyebrow">{{ t.graph_sources }}</span>{% for source in graph.sources %}<a href="{{ source.url }}">{{ source.label }} ↗</a>{% endfor %}</div>
+  <p class="arch-note">{{ t.graph_note }} {{ t.graph_updated }} {{ site.data.architecture.reviewed_at }}.</p>
+  <p class="sr-only" role="status" data-arch-status>{{ t.graph_idle }}</p>
+</section>

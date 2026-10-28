@@ -1,0 +1,5 @@
+<section class="section architecture-section" id="architecture" aria-labelledby="architecture-title" data-architecture-explorer>
+  <p class="eyebrow">BUILD / SYSTEMS & DECISIONS</p><h2 id="architecture-title">{{ t.architecture }}</h2><p class="architecture-intro">{{ t.architecture_intro }}</p>
+  <label class="arch-picker" hidden>{{ t.graph_select }}<select data-arch-select>{% for graph in site.data.architecture.graphs %}<option value="{{ graph.id }}">{{ graph.title[page.lang] }}</option>{% endfor %}</select></label>
+  {% for graph in site.data.architecture.graphs %}{% include pipeline/architecture-graph.html graph=graph %}{% endfor %}
+</section>

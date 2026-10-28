@@ -1,0 +1,1074 @@
+{
+  "reviewed_at": "2026-10-28",
+  "graphs": [
+    {
+      "id": "method",
+      "title": {
+        "pt": "Como estruturo uma entrega",
+        "en": "How I structure delivery"
+      },
+      "description": {
+        "pt": "Uma leitura dos padrões presentes nos seis projetos: tornar a intenção explícita, separar responsabilidades e produzir evidência antes de avançar.",
+        "en": "A reading of patterns across the six projects: make intent explicit, separate responsibilities and gather evidence before moving forward."
+      },
+      "principle": {
+        "pt": "A arquitetura aparece nas decisões e nos limites, não só na escolha da stack.",
+        "en": "Architecture is expressed through decisions and boundaries, as well as the stack."
+      },
+      "nodes": [
+        {
+          "id": "intent",
+          "label": {
+            "pt": "Intenção & critérios",
+            "en": "Intent & criteria"
+          },
+          "detail": {
+            "pt": "Definir problema, escopo e aceite em artefatos legíveis. Referências: Feature-marker e monozukuri.",
+            "en": "Define the problem, scope and acceptance criteria in readable artifacts. References: Feature-marker and monozukuri."
+          },
+          "column": 1,
+          "row": 1
+        },
+        {
+          "id": "spec",
+          "label": {
+            "pt": "Spec & decisões",
+            "en": "Spec & decisions"
+          },
+          "detail": {
+            "pt": "Transformar requisitos em plano técnico e tarefas; questionar lacunas antes de implementar. Referência: Feature-marker.",
+            "en": "Turn requirements into a technical plan and tasks; challenge gaps before implementation. Reference: Feature-marker."
+          },
+          "column": 2,
+          "row": 1
+        },
+        {
+          "id": "boundaries",
+          "label": {
+            "pt": "Fronteiras & contratos",
+            "en": "Boundaries & contracts"
+          },
+          "detail": {
+            "pt": "Separar extração, verificação e persistência no SavePlace; manter conexões Notion no backend do GastandoYa.",
+            "en": "Separate extraction, verification and persistence in SavePlace; keep Notion connections in the GastandoYa backend."
+          },
+          "column": 3,
+          "row": 1
+        },
+        {
+          "id": "build",
+          "label": {
+            "pt": "Execução isolada",
+            "en": "Isolated execution"
+          },
+          "detail": {
+            "pt": "Worktrees, agentes e controles de custo no monozukuri; artefatos de execução continuam no repositório.",
+            "en": "Worktrees, agents and cost controls in monozukuri; execution artifacts remain in the repository."
+          },
+          "column": 3,
+          "row": 2
+        },
+        {
+          "id": "validate",
+          "label": {
+            "pt": "Validação em camadas",
+            "en": "Layered validation"
+          },
+          "detail": {
+            "pt": "Revisar aderência à spec e arquitetura com swift-code-reviewer-skill; classificar falhas com ci-guard.",
+            "en": "Review specification adherence and architecture with swift-code-reviewer-skill; classify failures with ci-guard."
+          },
+          "column": 2,
+          "row": 2
+        },
+        {
+          "id": "handoff",
+          "label": {
+            "pt": "Entrega revisável",
+            "en": "Reviewable delivery"
+          },
+          "detail": {
+            "pt": "monozukuri abre PRs; Feature-marker termina em commit local e handoff. São contratos diferentes de entrega.",
+            "en": "monozukuri opens PRs; Feature-marker ends with a local commit and handoff. These are different delivery contracts."
+          },
+          "column": 1,
+          "row": 2
+        },
+        {
+          "id": "learn",
+          "label": {
+            "pt": "Feedback & memória",
+            "en": "Feedback & memory"
+          },
+          "detail": {
+            "pt": "Memória com proveniência no monozukuri e sugestões de padrões no reviewer alimentam a próxima iteração.",
+            "en": "Provenance-aware memory in monozukuri and proposed standards in the reviewer inform the next iteration."
+          },
+          "column": 1,
+          "row": 3
+        }
+      ],
+      "edges": [
+        {
+          "source": "intent",
+          "target": "spec",
+          "label": {
+            "pt": "Define o plano",
+            "en": "Defines the plan"
+          }
+        },
+        {
+          "source": "spec",
+          "target": "boundaries",
+          "label": {
+            "pt": "Explicita os contratos",
+            "en": "Makes contracts explicit"
+          }
+        },
+        {
+          "source": "boundaries",
+          "target": "build",
+          "label": {
+            "pt": "Orienta a implementação",
+            "en": "Guides implementation"
+          }
+        },
+        {
+          "source": "build",
+          "target": "validate",
+          "label": {
+            "pt": "Produz evidência",
+            "en": "Produces evidence"
+          }
+        },
+        {
+          "source": "validate",
+          "target": "handoff",
+          "label": {
+            "pt": "Sustenta a revisão",
+            "en": "Supports review"
+          }
+        },
+        {
+          "source": "handoff",
+          "target": "learn",
+          "label": {
+            "pt": "Registra aprendizados",
+            "en": "Records learnings"
+          }
+        },
+        {
+          "source": "learn",
+          "target": "intent",
+          "label": {
+            "pt": "Informa a próxima iteração",
+            "en": "Informs the next iteration"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "Feature-marker / README",
+          "url": "https://github.com/Viniciuscarvalho/Feature-marker/blob/main/README.md"
+        },
+        {
+          "label": "monozukuri / README",
+          "url": "https://github.com/Viniciuscarvalho/monozukuri/blob/main/README.md"
+        },
+        {
+          "label": "SavePlace / README",
+          "url": "https://github.com/Viniciuscarvalho/SavePlace/blob/main/README.md"
+        },
+        {
+          "label": "ci-guard / README",
+          "url": "https://github.com/Viniciuscarvalho/ci-guard/blob/main/README.md"
+        },
+        {
+          "label": "swift-code-reviewer-skill / README",
+          "url": "https://github.com/Viniciuscarvalho/swift-code-reviewer-skill/blob/main/README.md"
+        },
+        {
+          "label": "gastandoya-api / README",
+          "url": "https://github.com/Viniciuscarvalho/gastandoya-api/blob/main/README.md"
+        }
+      ]
+    },
+    {
+      "id": "monozukuri",
+      "title": {
+        "pt": "monozukuri",
+        "en": "monozukuri"
+      },
+      "description": {
+        "pt": "Orquestração fora do agente, execução por feature e memória entre entregas.",
+        "en": "Orchestration outside the agent, per-feature execution and memory across deliveries."
+      },
+      "principle": {
+        "pt": "Isolar o trabalho e preservar contexto sem acoplar o fluxo a um único agente.",
+        "en": "Isolate work and preserve context without coupling the workflow to one agent."
+      },
+      "nodes": [
+        {
+          "id": "backlog",
+          "label": {
+            "pt": "Backlog & seleção",
+            "en": "Backlog & selection"
+          },
+          "detail": {
+            "pt": "pick ordena ou seleciona features; loop coordena a fila de trabalho.",
+            "en": "pick ranks or selects features; loop coordinates the work queue."
+          },
+          "column": 1,
+          "row": 1
+        },
+        {
+          "id": "worktree",
+          "label": {
+            "pt": "Worktree isolada",
+            "en": "Isolated worktree"
+          },
+          "detail": {
+            "pt": "Cada feature ganha um espaço de trabalho independente para mudanças revisáveis.",
+            "en": "Each feature receives an independent workspace for reviewable changes."
+          },
+          "column": 2,
+          "row": 1
+        },
+        {
+          "id": "agent",
+          "label": {
+            "pt": "Fases do agente",
+            "en": "Agent phases"
+          },
+          "detail": {
+            "pt": "PRD, TechSpec, Tasks e Code rodam com o agente configurado e skills do projeto.",
+            "en": "PRD, TechSpec, Tasks and Code run with the configured agent and project skills."
+          },
+          "column": 3,
+          "row": 1
+        },
+        {
+          "id": "tests",
+          "label": {
+            "pt": "Testes & limites",
+            "en": "Tests & limits"
+          },
+          "detail": {
+            "pt": "Validar a entrega e respeitar limites de custo, tempo e tokens. Checkpoints permitem retomada.",
+            "en": "Validate delivery and respect cost, time and token limits. Checkpoints allow resumption."
+          },
+          "column": 3,
+          "row": 2
+        },
+        {
+          "id": "pr",
+          "label": {
+            "pt": "Pull request",
+            "en": "Pull request"
+          },
+          "detail": {
+            "pt": "O resultado é uma mudança separada, acompanhada de resumo e evidência para revisão.",
+            "en": "The result is a separate change accompanied by a summary and evidence for review."
+          },
+          "column": 2,
+          "row": 2
+        },
+        {
+          "id": "memory",
+          "label": {
+            "pt": "Memory v2",
+            "en": "Memory v2"
+          },
+          "detail": {
+            "pt": "Guardar aprendizado, origem e contexto de aplicação; o router injeta resumos antes de detalhes.",
+            "en": "Store learnings, provenance and application context; the router injects summaries before detail."
+          },
+          "column": 1,
+          "row": 2
+        }
+      ],
+      "edges": [
+        {
+          "source": "backlog",
+          "target": "worktree",
+          "label": {
+            "pt": "Seleciona uma feature",
+            "en": "Selects a feature"
+          }
+        },
+        {
+          "source": "worktree",
+          "target": "agent",
+          "label": {
+            "pt": "Fornece isolamento",
+            "en": "Provides isolation"
+          }
+        },
+        {
+          "source": "agent",
+          "target": "tests",
+          "label": {
+            "pt": "Entrega mudanças",
+            "en": "Delivers changes"
+          }
+        },
+        {
+          "source": "tests",
+          "target": "pr",
+          "label": {
+            "pt": "Validação da entrega",
+            "en": "Delivery validation"
+          }
+        },
+        {
+          "source": "pr",
+          "target": "memory",
+          "label": {
+            "pt": "Preserva aprendizados",
+            "en": "Preserves learnings"
+          }
+        },
+        {
+          "source": "memory",
+          "target": "agent",
+          "label": {
+            "pt": "Reutiliza contexto",
+            "en": "Reuses context"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "monozukuri / README",
+          "url": "https://github.com/Viniciuscarvalho/monozukuri/blob/main/README.md"
+        }
+      ]
+    },
+    {
+      "id": "saveplace",
+      "title": {
+        "pt": "SavePlace",
+        "en": "SavePlace"
+      },
+      "description": {
+        "pt": "Da evidência social ao lugar verificado, com salvamento explícito.",
+        "en": "From social evidence to a verified place, with explicit saving."
+      },
+      "principle": {
+        "pt": "A IA propõe candidatos. O provedor verifica o lugar. A pessoa decide salvar.",
+        "en": "AI proposes candidates. The provider verifies the place. The person decides to save."
+      },
+      "nodes": [
+        {
+          "id": "url",
+          "label": {
+            "pt": "URL pública",
+            "en": "Public URL"
+          },
+          "detail": {
+            "pt": "A entrada suportada é uma URL pública TikTok; o adaptador obtém metadados oficiais via oEmbed.",
+            "en": "The supported input is a public TikTok URL; the adapter obtains official oEmbed metadata."
+          },
+          "column": 1,
+          "row": 1
+        },
+        {
+          "id": "cache",
+          "label": {
+            "pt": "Cache & idempotência",
+            "en": "Cache & idempotency"
+          },
+          "detail": {
+            "pt": "Reaproveitar análise da fonte e replay; PostgreSQL separa cache reutilizável do histórico privado por sessão.",
+            "en": "Reuse source analysis and replay; PostgreSQL separates reusable cache from private per-session history."
+          },
+          "column": 2,
+          "row": 1
+        },
+        {
+          "id": "extract",
+          "label": {
+            "pt": "Extração com IA",
+            "en": "AI extraction"
+          },
+          "detail": {
+            "pt": "Metadados sustentam candidatos estruturados. Prompt, tokens, custo estimado e latência são registrados.",
+            "en": "Metadata supports structured candidates. Prompt, tokens, estimated cost and latency are recorded."
+          },
+          "column": 3,
+          "row": 1
+        },
+        {
+          "id": "provider",
+          "label": {
+            "pt": "PlaceProvider",
+            "en": "PlaceProvider"
+          },
+          "detail": {
+            "pt": "Google Places confirma identidade geográfica. Apenas o provedor pode marcar um lugar como verificado.",
+            "en": "Google Places confirms geographic identity. Only the provider can mark a place as verified."
+          },
+          "column": 3,
+          "row": 2
+        },
+        {
+          "id": "review",
+          "label": {
+            "pt": "Revisão & evidência",
+            "en": "Review & evidence"
+          },
+          "detail": {
+            "pt": "Ambiguidade ou falta de evidência vira um estado de revisão, sem inventar endereço ou coordenadas.",
+            "en": "Ambiguity or missing evidence becomes a review state, without inventing an address or coordinates."
+          },
+          "column": 2,
+          "row": 2
+        },
+        {
+          "id": "library",
+          "label": {
+            "pt": "Biblioteca privada",
+            "en": "Private library"
+          },
+          "detail": {
+            "pt": "O clique explícito salva um lugar verificado na biblioteca da sessão; dados podem ser gerenciados depois.",
+            "en": "An explicit click saves a verified place to the session library; saved data can be managed later."
+          },
+          "column": 1,
+          "row": 2
+        }
+      ],
+      "edges": [
+        {
+          "source": "url",
+          "target": "cache",
+          "label": {
+            "pt": "Consulta análise existente",
+            "en": "Looks up existing analysis"
+          }
+        },
+        {
+          "source": "cache",
+          "target": "extract",
+          "label": {
+            "pt": "Cache miss",
+            "en": "Cache miss"
+          }
+        },
+        {
+          "source": "extract",
+          "target": "provider",
+          "label": {
+            "pt": "Envia candidatos",
+            "en": "Sends candidates"
+          }
+        },
+        {
+          "source": "provider",
+          "target": "review",
+          "label": {
+            "pt": "Resultado ou ambiguidade",
+            "en": "Result or ambiguity"
+          }
+        },
+        {
+          "source": "review",
+          "target": "library",
+          "label": {
+            "pt": "Confirmação explícita",
+            "en": "Explicit confirmation"
+          }
+        },
+        {
+          "source": "cache",
+          "target": "review",
+          "label": {
+            "pt": "Cache hit ou replay",
+            "en": "Cache hit or replay"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "SavePlace / README",
+          "url": "https://github.com/Viniciuscarvalho/SavePlace/blob/main/README.md"
+        }
+      ]
+    },
+    {
+      "id": "ci-guard",
+      "title": {
+        "pt": "ci-guard",
+        "en": "ci-guard"
+      },
+      "description": {
+        "pt": "Uma falha de CI vira uma decisão classificada, com orçamento e verificação.",
+        "en": "A CI failure becomes a classified decision with budgets and verification."
+      },
+      "principle": {
+        "pt": "Corrigir código, investigar ou repetir são caminhos diferentes.",
+        "en": "Fixing code, investigating and retrying are different paths."
+      },
+      "nodes": [
+        {
+          "id": "snapshot",
+          "label": {
+            "pt": "Snapshot do CI",
+            "en": "CI snapshot"
+          },
+          "detail": {
+            "pt": "Capturar checks e logs da falha antes de qualquer tentativa de rerun.",
+            "en": "Capture failing checks and logs before any rerun attempt."
+          },
+          "column": 1,
+          "row": 1
+        },
+        {
+          "id": "classify",
+          "label": {
+            "pt": "Classificação",
+            "en": "Classification"
+          },
+          "detail": {
+            "pt": "Distinguir falha da branch, infraestrutura, teste flaky, dependência e desconhecido. Scripts Python não chamam LLM.",
+            "en": "Distinguish branch, infrastructure, flaky test, dependency and unknown failures. Python scripts make no LLM calls."
+          },
+          "column": 2,
+          "row": 1
+        },
+        {
+          "id": "budget",
+          "label": {
+            "pt": "Limite de retry",
+            "en": "Retry budget"
+          },
+          "detail": {
+            "pt": "Falhas elegíveis só podem repetir dentro dos limites por job, PR e minutos.",
+            "en": "Eligible failures may retry only within per-job, per-PR and minutes budgets."
+          },
+          "column": 3,
+          "row": 1
+        },
+        {
+          "id": "verify",
+          "label": {
+            "pt": "Verificar o verde",
+            "en": "Verify the green"
+          },
+          "detail": {
+            "pt": "Um teste flaky que ficou verde precisa de verificação adicional no mesmo SHA.",
+            "en": "A flaky test that turns green requires additional verification on the same SHA."
+          },
+          "column": 3,
+          "row": 2
+        },
+        {
+          "id": "ledger",
+          "label": {
+            "pt": "Ledger & decisão humana",
+            "en": "Ledger & human decision"
+          },
+          "detail": {
+            "pt": "Registrar histórico de flakiness; recomendar quarentena quando os critérios se aplicam. A pessoa decide.",
+            "en": "Record flakiness history; recommend quarantine when criteria apply. A person decides."
+          },
+          "column": 2,
+          "row": 2
+        },
+        {
+          "id": "patch",
+          "label": {
+            "pt": "Corrigir ou investigar",
+            "en": "Fix or investigate"
+          },
+          "detail": {
+            "pt": "branch_failure exige correção; unknown exige leitura manual dos logs. Orçamento esgotado interrompe o retry.",
+            "en": "branch_failure requires a fix; unknown requires manual log inspection. Exhausted budgets stop retries."
+          },
+          "column": 1,
+          "row": 2
+        }
+      ],
+      "edges": [
+        {
+          "source": "snapshot",
+          "target": "classify",
+          "label": {
+            "pt": "Reúne evidências",
+            "en": "Collects evidence"
+          }
+        },
+        {
+          "source": "classify",
+          "target": "budget",
+          "label": {
+            "pt": "Falha elegível para retry",
+            "en": "Failure eligible for retry"
+          }
+        },
+        {
+          "source": "classify",
+          "target": "patch",
+          "label": {
+            "pt": "Branch ou desconhecido",
+            "en": "Branch or unknown"
+          }
+        },
+        {
+          "source": "budget",
+          "target": "verify",
+          "label": {
+            "pt": "Flaky ficou verde",
+            "en": "Flaky turned green"
+          }
+        },
+        {
+          "source": "budget",
+          "target": "patch",
+          "label": {
+            "pt": "Limite esgotado",
+            "en": "Budget exhausted"
+          }
+        },
+        {
+          "source": "verify",
+          "target": "ledger",
+          "label": {
+            "pt": "Registra a verificação",
+            "en": "Records verification"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "ci-guard / README",
+          "url": "https://github.com/Viniciuscarvalho/ci-guard/blob/main/README.md"
+        }
+      ]
+    },
+    {
+      "id": "swift-code-reviewer-skill",
+      "title": {
+        "pt": "swift-code-reviewer-skill",
+        "en": "swift-code-reviewer-skill"
+      },
+      "description": {
+        "pt": "O mesmo núcleo de revisão, adaptado a quatro runtimes de agentes.",
+        "en": "One review core adapted to four agent runtimes."
+      },
+      "principle": {
+        "pt": "Revisar o código contra a intenção e os padrões do projeto.",
+        "en": "Review code against intent and project standards."
+      },
+      "nodes": [
+        {
+          "id": "context",
+          "label": {
+            "pt": "Diff, spec & padrões",
+            "en": "Diff, spec & standards"
+          },
+          "detail": {
+            "pt": "Ler mudanças, critérios de aceite e arquivo de padrões do projeto antes de avaliar código.",
+            "en": "Read changes, acceptance criteria and project standards before assessing code."
+          },
+          "column": 1,
+          "row": 1
+        },
+        {
+          "id": "wrappers",
+          "label": {
+            "pt": "Wrappers por agente",
+            "en": "Agent wrappers"
+          },
+          "detail": {
+            "pt": "Claude, Codex, Gemini e Kiro recebem instruções nos formatos e caminhos de cada runtime.",
+            "en": "Claude, Codex, Gemini and Kiro receive instructions in each runtime’s formats and paths."
+          },
+          "column": 2,
+          "row": 1
+        },
+        {
+          "id": "layers",
+          "label": {
+            "pt": "Sete camadas",
+            "en": "Seven layers"
+          },
+          "detail": {
+            "pt": "Spec, Swift, SwiftUI, performance, segurança, arquitetura e padrões do projeto.",
+            "en": "Specification, Swift, SwiftUI, performance, security, architecture and project standards."
+          },
+          "column": 3,
+          "row": 1
+        },
+        {
+          "id": "report",
+          "label": {
+            "pt": "Relatório priorizado",
+            "en": "Prioritized report"
+          },
+          "detail": {
+            "pt": "Achados por arquivo e severidade, com ações para orientar a próxima revisão.",
+            "en": "Findings by file and severity, with actions to guide the next review."
+          },
+          "column": 3,
+          "row": 2
+        },
+        {
+          "id": "patterns",
+          "label": {
+            "pt": "Padrões recorrentes",
+            "en": "Recurring patterns"
+          },
+          "detail": {
+            "pt": "Agrupar achados repetidos e propor regras para o projeto; sugestões não são aprovação automática.",
+            "en": "Group repeated findings and propose project rules; suggestions are not automatic approval."
+          },
+          "column": 2,
+          "row": 2
+        }
+      ],
+      "edges": [
+        {
+          "source": "context",
+          "target": "wrappers",
+          "label": {
+            "pt": "Contextualiza a revisão",
+            "en": "Provides review context"
+          }
+        },
+        {
+          "source": "wrappers",
+          "target": "layers",
+          "label": {
+            "pt": "Compartilha o núcleo",
+            "en": "Shares the core"
+          }
+        },
+        {
+          "source": "layers",
+          "target": "report",
+          "label": {
+            "pt": "Organiza os achados",
+            "en": "Organizes findings"
+          }
+        },
+        {
+          "source": "report",
+          "target": "patterns",
+          "label": {
+            "pt": "Detecta recorrência",
+            "en": "Detects recurrence"
+          }
+        },
+        {
+          "source": "patterns",
+          "target": "context",
+          "label": {
+            "pt": "Propõe novos padrões",
+            "en": "Proposes new standards"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "swift-code-reviewer-skill / README",
+          "url": "https://github.com/Viniciuscarvalho/swift-code-reviewer-skill/blob/main/README.md"
+        }
+      ]
+    },
+    {
+      "id": "feature-marker",
+      "title": {
+        "pt": "Feature-marker",
+        "en": "Feature-marker"
+      },
+      "description": {
+        "pt": "O pacote instala assets; o agente conduz o trabalho e deixa artefatos no repositório.",
+        "en": "The package installs assets; the agent drives work and leaves artifacts in the repository."
+      },
+      "principle": {
+        "pt": "Distribuição da skill e execução da feature têm responsabilidades separadas.",
+        "en": "Skill distribution and feature execution have separate responsibilities."
+      },
+      "nodes": [
+        {
+          "id": "install",
+          "label": {
+            "pt": "Instalador & templates",
+            "en": "Installer & templates"
+          },
+          "detail": {
+            "pt": "Copiar a skill e templates para Claude, Codex ou Gemini; o CLI não executa o workflow.",
+            "en": "Copy the skill and templates for Claude, Codex or Gemini; the CLI does not execute the workflow."
+          },
+          "column": 1,
+          "row": 1
+        },
+        {
+          "id": "prompt",
+          "label": {
+            "pt": "Pedido no agente",
+            "en": "Agent request"
+          },
+          "detail": {
+            "pt": "Invocar a skill em um projeto Git e trabalhar em uma feature branch.",
+            "en": "Invoke the skill in a Git project and work on a feature branch."
+          },
+          "column": 2,
+          "row": 1
+        },
+        {
+          "id": "artifacts",
+          "label": {
+            "pt": "PRD → Spec → Tasks",
+            "en": "PRD → Spec → Tasks"
+          },
+          "detail": {
+            "pt": "Produzir arquivos Markdown legíveis em tasks/{slug}, preservando intenção e plano.",
+            "en": "Produce readable Markdown files in tasks/{slug}, preserving intent and plan."
+          },
+          "column": 3,
+          "row": 1
+        },
+        {
+          "id": "grill",
+          "label": {
+            "pt": "Revisão do plano",
+            "en": "Implementation grill"
+          },
+          "detail": {
+            "pt": "Questionar escopo, testes e handoff antes da implementação; resolver lacunas nos artefatos.",
+            "en": "Challenge scope, tests and handoff before implementation; resolve gaps in the artifacts."
+          },
+          "column": 3,
+          "row": 2
+        },
+        {
+          "id": "code",
+          "label": {
+            "pt": "Implementar & verificar",
+            "en": "Implement & verify"
+          },
+          "detail": {
+            "pt": "Executar as tarefas e verificações no runtime do agente, preservando trabalho não relacionado.",
+            "en": "Run tasks and verification inside the agent runtime, preserving unrelated work."
+          },
+          "column": 2,
+          "row": 2
+        },
+        {
+          "id": "handoff",
+          "label": {
+            "pt": "Commit local & handoff",
+            "en": "Local commit & handoff"
+          },
+          "detail": {
+            "pt": "Entregar branch e comandos para push/PR. O fluxo não publica nem abre PR automaticamente.",
+            "en": "Deliver a branch and push/PR commands. The workflow does not publish or open PRs automatically."
+          },
+          "column": 1,
+          "row": 2
+        }
+      ],
+      "edges": [
+        {
+          "source": "install",
+          "target": "prompt",
+          "label": {
+            "pt": "Disponibiliza a skill",
+            "en": "Makes the skill available"
+          }
+        },
+        {
+          "source": "prompt",
+          "target": "artifacts",
+          "label": {
+            "pt": "Explicita a intenção",
+            "en": "Makes intent explicit"
+          }
+        },
+        {
+          "source": "artifacts",
+          "target": "grill",
+          "label": {
+            "pt": "Revisa o plano",
+            "en": "Reviews the plan"
+          }
+        },
+        {
+          "source": "grill",
+          "target": "code",
+          "label": {
+            "pt": "Resolve as lacunas",
+            "en": "Resolves gaps"
+          }
+        },
+        {
+          "source": "code",
+          "target": "handoff",
+          "label": {
+            "pt": "Entrega evidência",
+            "en": "Delivers evidence"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "Feature-marker / README",
+          "url": "https://github.com/Viniciuscarvalho/Feature-marker/blob/main/README.md"
+        }
+      ]
+    },
+    {
+      "id": "gastandoya-api",
+      "title": {
+        "pt": "gastandoya-api",
+        "en": "gastandoya-api"
+      },
+      "description": {
+        "pt": "Do OAuth por usuário às despesas normalizadas para o app iOS.",
+        "en": "From per-user OAuth to normalized expenses for the iOS app."
+      },
+      "principle": {
+        "pt": "Conexões ficam no servidor; o cliente consome um contrato de despesas.",
+        "en": "Connections stay on the server; the client consumes an expense contract."
+      },
+      "nodes": [
+        {
+          "id": "ios",
+          "label": {
+            "pt": "App iOS",
+            "en": "iOS app"
+          },
+          "detail": {
+            "pt": "Iniciar autorização e consumir os endpoints do backend com os cabeçalhos documentados.",
+            "en": "Start authorization and consume backend endpoints with the documented headers."
+          },
+          "column": 1,
+          "row": 1
+        },
+        {
+          "id": "api",
+          "label": {
+            "pt": "Backend & OAuth",
+            "en": "Backend & OAuth"
+          },
+          "detail": {
+            "pt": "Iniciar autorização, validar state no callback e trocar o code por token no servidor.",
+            "en": "Start authorization, validate state on callback and exchange the code for a token on the server."
+          },
+          "column": 2,
+          "row": 1
+        },
+        {
+          "id": "store",
+          "label": {
+            "pt": "Conexão por usuário",
+            "en": "Per-user connection"
+          },
+          "detail": {
+            "pt": "UserNotionConnectionStore usa KV quando configurado ou memória como fallback. Tokens não seguem para o cliente.",
+            "en": "UserNotionConnectionStore uses KV when configured or memory as fallback. Tokens are not sent to the client."
+          },
+          "column": 3,
+          "row": 1
+        },
+        {
+          "id": "discovery",
+          "label": {
+            "pt": "Database discovery",
+            "en": "Database discovery"
+          },
+          "detail": {
+            "pt": "Descobrir databases via Blocks API ou Search API e lidar com paginação e seleção.",
+            "en": "Discover databases through Blocks API or Search API and handle pagination and selection."
+          },
+          "column": 3,
+          "row": 2
+        },
+        {
+          "id": "expenses",
+          "label": {
+            "pt": "Serviço de despesas",
+            "en": "Expense service"
+          },
+          "detail": {
+            "pt": "Consultar o database selecionado e normalizar registros no formato ExpenseDTO.",
+            "en": "Query the selected database and normalize records into ExpenseDTO."
+          },
+          "column": 2,
+          "row": 2
+        },
+        {
+          "id": "dto",
+          "label": {
+            "pt": "ExpenseDTO → iOS",
+            "en": "ExpenseDTO → iOS"
+          },
+          "detail": {
+            "pt": "O app recebe dados normalizados; o callback OAuth retorna pelo deep link intermediário.",
+            "en": "The app receives normalized data; the OAuth callback returns through an intermediate deep link."
+          },
+          "column": 1,
+          "row": 2
+        }
+      ],
+      "edges": [
+        {
+          "source": "ios",
+          "target": "api",
+          "label": {
+            "pt": "Autoriza a conexão",
+            "en": "Authorizes the connection"
+          }
+        },
+        {
+          "source": "api",
+          "target": "store",
+          "label": {
+            "pt": "Armazena token no servidor",
+            "en": "Stores token on server"
+          }
+        },
+        {
+          "source": "store",
+          "target": "discovery",
+          "label": {
+            "pt": "Fornece conexão Notion",
+            "en": "Provides Notion connection"
+          }
+        },
+        {
+          "source": "discovery",
+          "target": "expenses",
+          "label": {
+            "pt": "Database configurado",
+            "en": "Configured database"
+          }
+        },
+        {
+          "source": "expenses",
+          "target": "dto",
+          "label": {
+            "pt": "Normaliza a resposta",
+            "en": "Normalizes response"
+          }
+        },
+        {
+          "source": "dto",
+          "target": "ios",
+          "label": {
+            "pt": "Exibe as despesas",
+            "en": "Displays expenses"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "gastandoya-api / README",
+          "url": "https://github.com/Viniciuscarvalho/gastandoya-api/blob/main/README.md"
+        }
+      ]
+    }
+  ]
+}
