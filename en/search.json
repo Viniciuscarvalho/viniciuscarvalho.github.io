@@ -1,0 +1,7 @@
+---
+layout: null
+lang: en
+sitemap: false
+---
+{% assign posts = site.posts | where: 'lang', page.lang %}
+[{% for post in posts %}{"title":{{ post.title | jsonify }},"url":{{ post.url | relative_url | jsonify }},"date":{{ post.date | date: '%Y-%m-%d' | jsonify }},"content":{{ post.content | strip_html | strip_newlines | truncate: 200 | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]

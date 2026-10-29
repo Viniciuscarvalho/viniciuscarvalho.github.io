@@ -1,20 +1,22 @@
 ---
 layout: default
 ---
+{% include locale-context.html %}
+{% assign posts = site.posts | where: 'lang', locale %}
 
 {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
 
 <section>
   <header class="mx-auto max-w-3xl">
-    <p class="section-label">Artigos</p>
+    <p class="section-label">{{ t.articles }}</p>
     <h1 class="text-3xl font-semibold tracking-tight text-text md:text-4xl">
       {{ page.title | escape }}
     </h1>
     <p class="mt-3 text-text-muted">
-      Artigos sobre iOS, arquitetura, carreira e aprendizado continuo.
+      {{ t.blog_intro }}
     </p>
     <div class="mt-3">
-      <span class="badge">{{ site.posts.size }} artigos</span>
+      <span class="badge">{{ posts.size }} {{ t.articles | downcase }}</span>
     </div>
   </header>
 </section>
@@ -30,7 +32,7 @@ layout: default
         id="searchbar"
         type="text"
         autocomplete="off"
-        placeholder="Buscar posts..."
+        placeholder="{{ t.search_posts }}" aria-label="{{ t.search_posts }}" data-search-index="{% if locale == 'en' %}{{ '/en/search.json' | relative_url }}{% else %}{{ '/search.json' | relative_url }}{% endif %}"
         class="w-full rounded-sharp border border-border bg-surface py-2.5 pl-10 pr-4 font-mono text-xs text-text placeholder:text-text-subtle transition-all duration-200 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/20"
       >
     </div>
@@ -40,13 +42,13 @@ layout: default
 {%- endif -%}
 
 <section class="mx-auto mt-8 max-w-3xl">
-  {%- if site.posts.size == 0 -%}
+  {%- if posts.size == 0 -%}
     <div class="card-static p-8 text-center">
-      <p class="text-text-muted text-sm">Sem posts ainda.</p>
+      <p class="text-text-muted text-sm">{{ t.no_posts }}</p>
     </div>
   {%- else -%}
     <div class="space-y-3">
-      {%- for post in site.posts -%}
+      {%- for post in posts -%}
         <a href="{{ post.url | relative_url }}" class="card group block p-5">
           <div class="flex items-start justify-between gap-4">
             <div class="min-w-0 flex-1">

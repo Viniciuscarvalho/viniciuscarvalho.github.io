@@ -1,0 +1,3 @@
+{% assign locale = page.lang | default: 'pt' %}{% assign t = site.data.content[locale] %}
+{% assign locale_home = t.home %}
+{% if locale == 'en' %}{% assign pt_url = page.alternate | default: '/' %}{% assign en_url = page.url %}{% else %}{% assign pt_url = page.url %}{% assign en_url = page.alternate | default: '/en/' %}{% endif %}

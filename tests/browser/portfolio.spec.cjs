@@ -10,7 +10,7 @@ test('gallery remains reachable through filters, keyboard and reduced motion',as
  await page.emulateMedia({reducedMotion:'reduce'});await expect(page.locator('.motion-lens')).toHaveCount(0);await expect(page.locator('.is-pinned')).toHaveCount(0);
  await page.emulateMedia({reducedMotion:'no-preference'});await expect(page.locator('.motion-lens')).toBeAttached();expect(errors).toEqual([]);
 });
-test('a direct EN case route and its PT counterpart are static',async({page})=>{await page.goto('/en/projects/monozukuri/');await expect(page.locator('html')).toHaveAttribute('lang','en');await expect(page.getByRole('heading',{level:1})).toHaveText('monozukuri');await page.getByRole('link',{name:'PT',exact:true}).click();await expect(page).toHaveURL(/\/projetos\/monozukuri\//);await expect(page.locator('html')).toHaveAttribute('lang','pt-BR');});
+test('a direct EN case route and its PT counterpart are static',async({page})=>{await page.goto('/en/projects/monozukuri/');await expect(page.locator('html')).toHaveAttribute('lang','en-US');await expect(page.getByRole('heading',{level:1})).toHaveText('monozukuri');await page.getByRole('link',{name:'PT-BR',exact:true}).click();await expect(page).toHaveURL(/\/projetos\/monozukuri\//);await expect(page.locator('html')).toHaveAttribute('lang','pt-BR');});
 
 async function panTo(page,fraction){
  await expect(page.locator('.is-pinned')).toHaveCount(1);

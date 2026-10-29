@@ -1,9 +1,10 @@
 ---
-title: "Escolhe Aí"
-tagline: "Escolha o que está afim de comer, sem perder tempo."
-description: "App para escolher restaurantes para sair com minha namorada, a partir de uma lista de ~120 lugares de diversos tipos."
-kind: "app"
-status: "Em evolução"
+title: Escolhe Aí
+tagline: Escolha o que está afim de comer, sem perder tempo.
+description: App para escolher restaurantes para sair com minha namorada, a
+  partir de uma lista de ~120 lugares de diversos tipos.
+kind: app
+status: Em evolução
 featured: true
 stack:
   - SwiftUI
@@ -11,14 +12,16 @@ stack:
   - CoreData
 links:
   website: ""
-  app_store: "https://apps.apple.com/br/app/choosethere/id6756740977"
+  app_store: https://apps.apple.com/br/app/choosethere/id6756740977
   github: ""
-cover_image: "/assets/apps/escolhe-ai/screen-1.png"
+cover_image: /assets/apps/escolhe-ai/screen-1.png
 screenshots: []
 highlights:
-  - "Lista curada com ~120 restaurantes"
-  - "Escolha rápida com filtros por tipo"
-  - "Histórico para não repetir sempre"
+  - Lista curada com ~120 restaurantes
+  - Escolha rápida com filtros por tipo
+  - Histórico para não repetir sempre
+lang: pt
+alternate: /en/apps/escolhe-ai/
 ---
 
 ## Visão geral

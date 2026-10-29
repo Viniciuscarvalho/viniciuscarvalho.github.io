@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "Algoritmos de Sorting, o que é isso macho?"
-date:   2021-02-24 12:00:36 +0530
-categories: Swift, DataStructure, Algorithm 
+title: Algoritmos de Sorting, o que é isso macho?
+date: 2021-02-24 12:00:36 +0530
+categories: Swift, DataStructure, Algorithm
+lang: pt
+alternate: /en/swift,/datastructure,/algorithm/2021/02/24/Algoritmos-de-Sorting,-o-que-%C3%A9-isso-macho.html
 ---
 
 Na continuação da série de posts sobre estrutura de dados em Swift, passamos agora por algoritmos de *sorting*, *bubble sort*, *selection sort,* *insertion sort*," mas eu só vi isso na faculdade ou nem vi e também nunca me fez falta", sempre falam. Não é que você vai ficar analisando qual o mais rápido ou ficar pensando na melhor solução sempre, mas o que se adequa mais para resolver o seu problema.

@@ -2,20 +2,24 @@
 layout: post
 title: "Monozukuri: architecture of an autonomous feature delivery system"
 date: 2026-05-14
-categories: [ios, automation, architecture, ai]
+categories:
+  - ios
+  - automation
+  - architecture
+  - ai
 tags:
-  [
-    monozukuri,
-    bash,
-    automation,
-    architecture,
-    agents,
-    ai,
-    claude,
-    feature-delivery,
-    orchestration,
-    worktree,
-  ]
+  - monozukuri
+  - bash
+  - automation
+  - architecture
+  - agents
+  - ai
+  - claude
+  - feature-delivery
+  - orchestration
+  - worktree
+lang: pt
+alternate: /en/ios/automation/architecture/ai/2026/05/14/monozukuri-architecture-autonomous-feature-delivery.html
 ---
 
 This post is for anyone who wants to understand what's running under the hood — not just what Monozukuri does, but how it does it and where there's still room to grow.

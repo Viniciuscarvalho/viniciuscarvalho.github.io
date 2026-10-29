@@ -21,5 +21,22 @@ if(process.argv.includes('--site')){
  for(const match of html.matchAll(/(?:href|src)="(\/[^"#?]*)/g)){const target=decodeURIComponent(match[1]);await stat('_site'+target+(target.endsWith('/')?'index.html':''));}
  }
  for(const path of ['blog/index.html','apps/index.html','sobre/index.html','thais/index.html'])await stat('_site/'+path);
+ const ptPosts=JSON.parse(await readFile('_site/search.json','utf8'));
+ const enPosts=JSON.parse(await readFile('_site/en/search.json','utf8'));
+ assert.equal(ptPosts.length,enPosts.length,'Every article needs an English counterpart');
+ const appFiles=(await readdir('_apps')).filter(file=>file.endsWith('-en.md'));
+ const enRoutes=['/en/','/en/card/','/en/apps/','/en/blog/','/en/about/','/en/404.html',...appFiles.map(file=>`/en/apps/${file.replace('-en.md','')}/`),...enPosts.map(post=>post.url)];
+ for(const route of enRoutes){
+  const path=decodeURI(route)+(route.endsWith('/')?'index.html':'');
+  const html=await readFile('_site'+path,'utf8');
+  assert(html.includes('<html lang="en-US">'),'Incorrect English language tag: '+route);
+  assert(html.includes('hreflang="pt-BR"')&&html.includes('hreflang="en-US"'),'Missing reciprocal language links: '+route);
+  for(const match of html.matchAll(/<a class="locale" href="([^"#?]+)"/g)){
+   const target=decodeURI(match[1]);await stat('_site'+target+(target.endsWith('/')?'index.html':''));
+  }
+ }
+ assert(ptPosts.every(post=>!post.url.startsWith('/en/')),'English article in PT search');
+ assert(enPosts.every(post=>post.url.startsWith('/en/')),'PT article in English search');
+
 }
 console.log(`Content, vCard and JS budget passed (${bytes} bytes gzip across all chunks).`);

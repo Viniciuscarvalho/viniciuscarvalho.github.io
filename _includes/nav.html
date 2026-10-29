@@ -1,11 +1,11 @@
 <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-20 focus:z-[60] focus:rounded-sharp focus:bg-accent focus:px-4 focus:py-2 focus:text-white focus:font-semibold">
-  Pular para o conteudo
+  {{ t.skip }}
 </a>
 
 <header id="site-nav" class="sticky top-0 z-50 border-b border-border/50 transition-all duration-300 bg-surface/80 backdrop-blur-md">
   <div class="container-page flex items-center justify-between py-4">
     <!-- Logo / Brand with photo -->
-    <a href="{{ "/" | relative_url }}" class="group flex items-center gap-3 no-underline">
+    <a href="{{ t.home | relative_url }}" class="group flex items-center gap-3 no-underline">
       <img
         src="{{ "/assets/perfil_site.png" | relative_url }}"
         alt="{{ site.plainwhite.name | default: site.title }}"
@@ -14,40 +14,41 @@
       >
       <div class="leading-tight">
         <span class="block text-sm font-bold tracking-tight text-text">{{ site.plainwhite.name | default: site.title }}</span>
-        <span class="block font-mono text-[9px] uppercase tracking-[0.1em] text-text-subtle">{{ site.plainwhite.tagline }}</span>
+        <span class="block font-mono text-[9px] uppercase tracking-[0.1em] text-text-subtle">{{ t.tagline }}</span>
       </div>
     </a>
 
     <!-- Desktop Nav -->
-    <nav class="hidden items-center gap-8 md:flex" aria-label="Navegacao principal">
-      <a class="link-hover" href="{{ "/" | relative_url }}">Home</a>
-      <a class="link-hover" href="{{ "/apps/" | relative_url }}">Apps</a>
-      <a class="link-hover" href="{{ "/blog/" | relative_url }}">Blog</a>
-      <a class="link-hover" href="{{ "/sobre/" | relative_url }}">Sobre</a>
+    <nav class="hidden items-center gap-8 md:flex" aria-label="{{ t.navigation }}">
+      <a class="link-hover" href="{{ t.home | relative_url }}">Home</a>
+      <a class="link-hover" href="{{ t.apps_url | relative_url }}">Apps</a>
+      <a class="link-hover" href="{{ t.blog_url | relative_url }}">Blog</a>
+      <a class="link-hover" href="{{ t.about_url | relative_url }}">{{ t.about_nav }}</a>
     </nav>
 
+    <div class="locale-desktop">{% include language-switcher.html %}
     <!-- Mobile Toggle -->
     <button
       id="nav-toggle"
       class="inline-flex items-center justify-center rounded-soft p-2 transition-colors md:hidden border border-border text-text-muted hover:text-text"
       type="button"
-      aria-label="Abrir menu"
+      aria-label="{{ t.open_menu }}"
       aria-controls="mobile-nav"
       aria-expanded="false"
     >
       <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
       </svg>
-    </button>
+    </button></div>
   </div>
 
   <!-- Mobile Nav -->
   <div id="mobile-nav" class="hidden md:hidden border-t border-border bg-surface">
     <div class="container-page flex flex-col gap-1 py-6">
-      <a class="px-3 py-3 font-mono text-xs uppercase tracking-widest text-text-muted hover:text-accent" href="{{ "/" | relative_url }}">Home</a>
-      <a class="px-3 py-3 font-mono text-xs uppercase tracking-widest text-text-muted hover:text-accent" href="{{ "/apps/" | relative_url }}">Apps</a>
-      <a class="px-3 py-3 font-mono text-xs uppercase tracking-widest text-text-muted hover:text-accent" href="{{ "/blog/" | relative_url }}">Blog</a>
-      <a class="px-3 py-3 font-mono text-xs uppercase tracking-widest text-text-muted hover:text-accent" href="{{ "/sobre/" | relative_url }}">Sobre</a>
+      <a class="px-3 py-3 font-mono text-xs uppercase tracking-widest text-text-muted hover:text-accent" href="{{ t.home | relative_url }}">Home</a>
+      <a class="px-3 py-3 font-mono text-xs uppercase tracking-widest text-text-muted hover:text-accent" href="{{ t.apps_url | relative_url }}">Apps</a>
+      <a class="px-3 py-3 font-mono text-xs uppercase tracking-widest text-text-muted hover:text-accent" href="{{ t.blog_url | relative_url }}">Blog</a>
+      <a class="px-3 py-3 font-mono text-xs uppercase tracking-widest text-text-muted hover:text-accent" href="{{ t.about_url | relative_url }}">{{ t.about_nav }}</a>
     </div>
   </div>
 </header>

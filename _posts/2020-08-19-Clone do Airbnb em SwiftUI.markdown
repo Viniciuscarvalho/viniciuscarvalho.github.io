@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "Clone do Airbnb em SwiftUI"
-date:   2020-08-19 12:00:36 +0530
-categories: iOS, SwiftUI 
+title: Clone do Airbnb em SwiftUI
+date: 2020-08-19 12:00:36 +0530
+categories: iOS, SwiftUI
+lang: pt
+alternate: /en/ios,/swiftui/2020/08/19/Clone-do-Airbnb-em-SwiftUI.html
 ---
 Olar a todos que estão chegando nesse blog, passaram-se alguns dias desde que escrevi a última vez, foi por falta de tempo mesmo, estava em processo de transição saindo do Itaú e indo para o iFood, um novo desafio e com poucas semanas aqui sei que vai ser muito massa encarar esse grande projeto que tem muito ainda a crescer, dito isto vamos ao projeto que não parou. o/
 

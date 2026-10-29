@@ -33,7 +33,7 @@ function setStage(value,update=true){
 }
 document.querySelector('[data-stage]').addEventListener('click',()=>setStage(true));
 document.querySelector('[data-exit-stage]').addEventListener('click',()=>setStage(false));
-document.querySelector('.locale')?.addEventListener('click',event=>{if(!stage.hidden){const url=new URL(event.currentTarget.href);url.searchParams.set('stage','1');event.currentTarget.href=url.href;}});
+document.querySelectorAll('.locale').forEach(link=>link.addEventListener('click',event=>{if(!stage.hidden){const url=new URL(event.currentTarget.href);url.searchParams.set('stage','1');event.currentTarget.href=url.href;}}));
 document.addEventListener('keydown',event=>{
  if(event.key==='Escape'){if(!stage.hidden)setStage(false);else if(flipped||turn){setFlipped(false,true);flip.focus();}}
  if(event.key==='Tab'&&!stage.hidden){event.preventDefault();stage.querySelector('button').focus();}

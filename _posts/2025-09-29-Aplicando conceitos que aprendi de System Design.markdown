@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "Applying concepts I learned from System Design"
-date:   2025-09-29 12:00:36 +0530
+title: Applying concepts I learned from System Design
+date: 2025-09-29 12:00:36 +0530
 categories: Swift, SwiftUI, Tuist, Architecture, TCA
+lang: pt
+alternate: /en/swift,/swiftui,/tuist,/architecture,/tca/2025/09/29/Aplicando-conceitos-que-aprendi-de-System-Design.html
 ---
 
 I started to delve deeper into the concepts of the book I mentioned in the previous article. If you haven't read it, go ahead and take a look at the tips. I decided to put the entire flow into practice to do three things I've wanted to do for a long time. One was to create an application from scratch for my portfolio, with many features, from conception to data modeling and screens. I also wanted to delve deeper into a specific architecture, which in this case is Composable or TCA, and invest time in learning more about the features of the system build, which is Tuist.

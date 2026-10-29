@@ -14,7 +14,7 @@ test('flip manages hidden faces, stage traps focus and locale preserves stage',a
  await page.getByRole('button',{name:'Modo palco',exact:true}).click();await expect(page).toHaveURL(/stage=1/);
  await page.keyboard.press('Tab');await expect(page.locator('[data-exit-stage]')).toBeFocused();
  await page.keyboard.press('Escape');await expect(page.locator('[data-stage]')).toBeFocused();await expect(page.locator('.stage-view')).toBeHidden();
- await page.goto('/en/card/?stage=1');await expect(page.locator('html')).toHaveAttribute('lang','en');await expect(page.locator('.stage-view')).toBeVisible();await page.keyboard.press('Escape');
+ await page.goto('/en/card/?stage=1');await expect(page.locator('html')).toHaveAttribute('lang','en-US');await expect(page.locator('.stage-view')).toBeVisible();await page.keyboard.press('Escape');
  await expect(page.getByRole('button',{name:'Show QR',exact:true})).toBeVisible();
 });
 

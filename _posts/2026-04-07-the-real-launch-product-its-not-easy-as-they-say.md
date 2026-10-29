@@ -1,21 +1,25 @@
 ---
 layout: post
-title: "The Real Product Launch — It's Not as Easy as They Say"
+title: The Real Product Launch — It's Not as Easy as They Say
 date: 2026-04-07
-categories: [ios, fittoday, testing, quality-assurance]
+categories:
+  - ios
+  - fittoday
+  - testing
+  - quality-assurance
 tags:
-  [
-    fittoday,
-    ios,
-    swift,
-    crashlytics,
-    revenuecat,
-    firebase,
-    apple-health,
-    testing,
-    qa,
-    launch,
-  ]
+  - fittoday
+  - ios
+  - swift
+  - crashlytics
+  - revenuecat
+  - firebase
+  - apple-health
+  - testing
+  - qa
+  - launch
+lang: pt
+alternate: /en/ios/fittoday/testing/quality-assurance/2026/04/07/the-real-launch-product-its-not-easy-as-they-say.html
 ---
 
 Everyone talks about launching a product like it's a natural step. You build the thing, you press the button, you ship. What they don't tell you is that before pressing that button, if you're doing it right, you've spent a significant amount of time making sure you actually know what's happening inside your own app.

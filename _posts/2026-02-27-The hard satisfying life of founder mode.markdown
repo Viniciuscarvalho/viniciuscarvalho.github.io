@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "The hard satisfying life of founder mode"
-date:   2026-02-27 12:00:36 +0530
+title: The hard satisfying life of founder mode
+date: 2026-02-27 12:00:36 +0530
 categories: Founder Mode, Product, iOS, Indie Dev
+lang: pt
+alternate: /en/founder/mode,/product,/ios,/indie/dev/2026/02/27/The-hard-satisfying-life-of-founder-mode.html
 ---
 
 Paul Graham wrote an essay called [Founder Mode](https://paulgraham.com/foundermode.html) that hit me harder than any technical article ever did. He talks about how founders operate differently from hired managers — they don't just delegate and disappear. They stay deeply involved, they break hierarchy when needed, and they trust their instincts even when conventional wisdom tells them to step back. Reading that, I realized I've been living a version of this without having a name for it.

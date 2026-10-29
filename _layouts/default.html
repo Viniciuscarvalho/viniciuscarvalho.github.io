@@ -1,11 +1,12 @@
+{% include locale-context.html %}
 <!DOCTYPE html>
-<html lang="{{ site.plainwhite.html_lang | default: "pt-br" }}">
+<html lang="{{ t.lang }}">
 
 <head>
   {%- include head.html -%}
 </head>
 
-<body class="bg-surface text-text antialiased">
+<body data-lang="{{ locale }}" class="bg-surface text-text antialiased">
   {%- include nav.html -%}
 
   <main id="main-content" {% if page.layout != 'home' %}class="container-page py-12"{% endif %}>
@@ -62,7 +63,6 @@
   {%- endif -%}
 
   {% if site.plainwhite.search %}
-  <script src="{{ "/assets/js/simple-jekyll-search.min.js" | relative_url }}"></script>
   <script src="{{ "/assets/js/search.js" | relative_url }}"></script>
   {% endif %}
 </body>

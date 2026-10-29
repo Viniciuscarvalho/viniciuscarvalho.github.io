@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "SOLID em aplicações reais, OCP - Open/Closed Principle"
-date:   2021-04-02 12:00:36 +0530
-categories: Swift, Design Patterns, Algorithm 
+title: SOLID em aplicações reais, OCP - Open/Closed Principle
+date: 2021-04-02 12:00:36 +0530
+categories: Swift, Design Patterns, Algorithm
+lang: pt
+alternate: /en/swift,/design/patterns,/algorithm/2021/04/02/SOLID-em-aplica%C3%A7%C3%B5es-reais,-OCP-Open-Closed-Principle.html
 ---
 
 Esta semana estava lendo o livro, Refatoração - Aperfeiçoando o design de códigos existentes do Martinho Fowler e me deparei com situações que acabam passando batido no nosso dia a dia quando estamos desenvolvendo algum software e possam se encaixar nos princípios do SOLID para entendermos como resolver tais problemas. Lembrando que esse texto é baseado nos estudos que faço em cima dos cursos do RayWenderlich.

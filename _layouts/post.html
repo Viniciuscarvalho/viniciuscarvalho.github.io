@@ -1,13 +1,14 @@
 ---
 layout: default
 ---
+{% include locale-context.html %}
 {%- assign date_format = site.plainwhite.date_format | default: "%B %d, %Y" -%}
 
 <article class="mx-auto max-w-3xl px-6 py-12 md:py-20">
   <!-- Navigation Header -->
   <nav class="reveal mb-12 flex items-center justify-between">
-    <a class="group inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-accent no-underline transition-all hover:translate-x-[-4px]" href="{{ "/blog/" | relative_url }}">
-      <span class="text-xs">←</span> BACK TO BLOG
+    <a class="group inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-accent no-underline transition-all hover:translate-x-[-4px]" href="{{ t.blog_url | relative_url }}">
+      <span class="text-xs">←</span> {{ t.back_blog }}
     </a>
     <div class="h-px grow mx-6 bg-border/50"></div>
     <span class="font-mono text-[10px] font-bold tracking-[0.2em] text-text-subtle uppercase">KNOWLEDGE / 04</span>
@@ -22,7 +23,7 @@ layout: default
       
       <div class="mt-8 flex flex-wrap items-center gap-6 border-y border-border/50 py-6">
         <div class="flex flex-col gap-1">
-          <span class="label !text-[9px]">Published on</span>
+          <span class="label !text-[9px]">{{ t.published }}</span>
           <time class="font-mono text-xs font-bold !text-white" datetime="{{ page.date | date_to_xmlschema }}">
             {{ page.date | date: date_format }}
           </time>
@@ -31,7 +32,7 @@ layout: default
         {%- if page.categories.size > 0 -%}
           <div class="h-8 w-px bg-border/50 hidden sm:block"></div>
           <div class="flex flex-col gap-1">
-            <span class="label !text-[9px]">Categorized as</span>
+            <span class="label !text-[9px]">{{ t.categorized }}</span>
             <div class="flex flex-wrap gap-2">
               {%- for tag in page.categories -%}
                 <span class="tech-pill">{{ tag }}</span>
@@ -51,7 +52,7 @@ layout: default
   <!-- Comments Section -->
   {%- if site.plainwhite.disqus_shortname -%}
     <div class="reveal mt-24 pt-16 border-t border-border">
-      <h2 class="font-mono text-xs font-bold tracking-[0.2em] text-accent mb-10 uppercase">Discussion</h2>
+      <h2 class="font-mono text-xs font-bold tracking-[0.2em] text-accent mb-10 uppercase">{{ t.discussion }}</h2>
       <div id="disqus_thread"></div>
       <script>
         var disqus_config = function () {
@@ -65,7 +66,7 @@ layout: default
           (d.head || d.body).appendChild(s);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the comments.</noscript>
+      <noscript>{{ t.enable_comments }}</noscript>
     </div>
   {%- endif -%}
 </article>

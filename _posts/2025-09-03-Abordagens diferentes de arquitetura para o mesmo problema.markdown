@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "Different architectural approaches to the same problem"
-date:   2025-09-03 12:00:36 +0530
+title: Different architectural approaches to the same problem
+date: 2025-09-03 12:00:36 +0530
 categories: Swift, SwiftUI, iOS, Architecture
+lang: pt
+alternate: /en/swift,/swiftui,/ios,/architecture/2025/09/03/Abordagens-diferentes-de-arquitetura-para-o-mesmo-problema.html
 ---
 
 Hoje vou tentar trazer um pouco como fiz a troca de arquitetura de uma aplicação que estava em MVVM para VIP-Clean em SwiftUI. Também vou

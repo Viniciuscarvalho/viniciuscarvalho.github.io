@@ -70,6 +70,11 @@ collections:
 
 defaults:
   - scope:
+      path: "en"
+    values:
+      lang: en
+      description: "Software engineering, iOS, architecture, applied AI, and developer tools by Vinicius Carvalho."
+  - scope:
       path: ""
       type: apps
     values:
