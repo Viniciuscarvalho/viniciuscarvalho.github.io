@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "Experiências de trabalhar remotamente"
-date:   2020-09-02 12:00:36 +0530
-categories: Remoto, Experiências 
+title: Experiências de trabalhar remotamente
+date: 2020-09-02 12:00:36 +0530
+categories: Remoto, Experiências
+lang: pt
+alternate: /en/remoto,/experi%C3%AAncias/2020/09/02/Experi%C3%AAncias-de-trabalhar-remotamente.html
 ---
 Essa semana não vai ser nada muito tech, vai ser um pouco da experiência de se trabalhar de casa e suas consequências nesse tempo.
 

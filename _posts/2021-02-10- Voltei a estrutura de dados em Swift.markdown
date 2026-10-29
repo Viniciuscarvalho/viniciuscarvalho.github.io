@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "Voltei a estrutura de dados em Swift e o porquê disso!"
-date:   2021-02-10 12:00:36 +0530
-categories: Swift, DataStructure, Algorithm 
+title: Voltei a estrutura de dados em Swift e o porquê disso!
+date: 2021-02-10 12:00:36 +0530
+categories: Swift, DataStructure, Algorithm
+lang: pt
+alternate: /en/swift,/datastructure,/algorithm/2021/02/10/Voltei-a-estrutura-de-dados-em-Swift.html
 ---
 
 Voltando a escrever depois de um hiato de final de ano e com o projeto do clone do Airbnb parado, por não estar focando tanto em SwiftUI agora, volto duas casas pra falar um pouco sobre estrutura de dados. Mas porque falar sobre isso sendo que a gente nem usa no nosso dia a dia? Aí que você está enganado, vou passar por algumas das implementações de fila, pilha, fifo, aquilo tudo que você deixa passar na faculdade ou estudou só pra passar, assim como eu, veremos novamente aqui.

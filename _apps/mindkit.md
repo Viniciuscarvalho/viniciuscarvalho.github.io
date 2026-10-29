@@ -4,16 +4,26 @@ title: MindKit
 kind: app
 featured: true
 image: /assets/apps/mindkit/og-image.png
-tech: ["AI", "productivity", "development", "configuration"]
-stack: ["TypeScript", "Claude Code", "AI SDK", "Node.js"]
-highlights: [
-  "Forge your AI development mind by syncing configurations",
-  "Seamless integration with Claude Code environment",
-  "Orchestrate specialized AI agent teams",
-  "High-performance strategic analysis tools"
-]
-description: Forge your AI development mind — MindKit allows you to sync and manage your AI development configurations seamlessly across projects.
+tech:
+  - AI
+  - productivity
+  - development
+  - configuration
+stack:
+  - TypeScript
+  - Claude Code
+  - AI SDK
+  - Node.js
+highlights:
+  - Forge your AI development mind by syncing configurations
+  - Seamless integration with Claude Code environment
+  - Orchestrate specialized AI agent teams
+  - High-performance strategic analysis tools
+description: Forge your AI development mind — MindKit allows you to sync and
+  manage your AI development configurations seamlessly across projects.
 github_url: https://github.com/Viniciuscarvalho/MindKit
+lang: pt
+alternate: /en/apps/mindkit/
 ---
 
 MindKit is designed for developers who want to push the boundaries of AI-assisted development. By providing a structured way to manage AI context and specialized agent personas, it ensures that your technical feasibility reports and strategic analysis are consistent and high-quality.

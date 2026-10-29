@@ -1,8 +1,9 @@
 ---
 layout: default
 ---
+{% include locale-context.html %}
 
-{%- assign only_apps = site.apps | where: "kind", "app" -%}
+{%- assign only_apps = site.apps | where: "lang", locale | where: "kind", "app" -%}
 {%- assign featured = only_apps | where: "featured", true | sort: "title" -%}
 {%- assign others = only_apps | where_exp: "a", "a.featured != true" | sort: "title" -%}
 {%- assign apps = featured | concat: others -%}
@@ -14,7 +15,7 @@ layout: default
       {{ page.title | escape }}
     </h1>
     <p class="mt-3 text-text-muted">
-      Apps que eu construo (ou estou construindo). Cada um e um laboratorio de produto, arquitetura e UX.
+      {{ t.apps_intro }}
     </p>
     <div class="mt-3">
       <span class="badge">{{ apps.size }} apps</span>
@@ -25,7 +26,7 @@ layout: default
 <section class="mt-12">
   {%- if apps.size == 0 -%}
     <div class="card-static p-8 text-center">
-      <p class="text-text-muted text-sm">Nenhum app cadastrado ainda.</p>
+      <p class="text-text-muted text-sm">{{ t.no_apps }}</p>
     </div>
   {%- else -%}
     <div class="grid gap-4 md:grid-cols-2">
@@ -36,7 +37,7 @@ layout: default
               <img src="{{ app.cover_image | relative_url }}" alt="" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
               {%- if app.featured -%}
                 <div class="absolute left-4 top-4">
-                  <span class="badge badge-accent">Destaque</span>
+                  <span class="badge badge-accent">{{ t.featured }}</span>
                 </div>
               {%- endif -%}
             </div>
@@ -83,7 +84,7 @@ layout: default
             {%- endif -%}
 
             <div class="mt-4 flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-accent transition-colors group-hover:text-accent-hover">
-              Ver detalhes
+              {{ t.details }}
               <svg class="h-3 w-3 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>

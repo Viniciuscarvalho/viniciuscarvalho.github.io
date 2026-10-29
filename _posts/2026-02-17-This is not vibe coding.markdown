@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "This is not vibe coding"
-date:   2026-02-17 12:00:36 +0530
+title: This is not vibe coding
+date: 2026-02-17 12:00:36 +0530
 categories: Swift, SwiftUI, Architecture, iOS, Clean Architecture
+lang: pt
+alternate: /en/swift,/swiftui,/architecture,/ios,/clean/architecture/2026/02/17/This-is-not-vibe-coding.html
 ---
 
 Everyone is talking about vibe coding. Prompt something, ship whatever comes out, hope for the best, and call it a product. Twitter is full of "I built an app in 2 hours with AI" threads. And look, I love AI tools — I use Cursor every single day. But there's a difference between using AI as a tool and using AI as a substitute for understanding what you're building.

@@ -1,9 +1,24 @@
 ---
 layout: post
-title: "Building my Second Brain — How I designed a Mission Control system for real"
+title: Building my Second Brain — How I designed a Mission Control system for real
 date: 2026-03-07
-categories: [productivity, automation, openclaw, discord, linear]
-tags: [second-brain, mission-control, openclaw, linear, github, discord, notion, automation]
+categories:
+  - productivity
+  - automation
+  - openclaw
+  - discord
+  - linear
+tags:
+  - second-brain
+  - mission-control
+  - openclaw
+  - linear
+  - github
+  - discord
+  - notion
+  - automation
+lang: pt
+alternate: /en/productivity/automation/openclaw/discord/linear/2026/03/07/building-my-second-brain-mission-control.html
 ---
 
 I've been running an OpenClaw instance as my Mission Control for a while now. It connects to my Google Workspace, reads my Notion notes, pulls data from Paperclip for my company, and even runs a Tech Journal that curates relevant news for me every day. But I felt like something was missing. Everything was reactive — I was the one asking, always pulling information. I wanted the system to push things to me, challenge my priorities, and actually help me ship products faster.

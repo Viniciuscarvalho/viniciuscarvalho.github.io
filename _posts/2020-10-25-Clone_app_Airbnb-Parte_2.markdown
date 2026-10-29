@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "Clone do Aibnb em SwiftUI - Parte 2"
-date:   2020-10-21 12:00:36 +0530
-categories: SwiftUI, iOS 
+title: Clone do Aibnb em SwiftUI - Parte 2
+date: 2020-10-21 12:00:36 +0530
+categories: SwiftUI, iOS
+lang: pt
+alternate: /en/swiftui,/ios/2020/10/21/Clone_app_Airbnb-Parte_2.html
 ---
 Passei muito tempo sem aparecer por aqui não é? Confesso que é um pouco difícil conciliar trabalho, vida e produzir conteúdo, tem que conseguir equilibrar tudo isso.
 Voltamos com uma abordagem dois para o desafio de recriar o design do app do Aibnb.

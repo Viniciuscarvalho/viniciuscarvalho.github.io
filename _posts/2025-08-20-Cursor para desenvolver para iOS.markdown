@@ -1,12 +1,14 @@
 ---
 layout: post
-title:  "Utilizando VSCode/Cursor para desenvolver para iOS"
-date:   2025-08-19 12:00:36 +0530
+title: Utilizando VSCode/Cursor para desenvolver para iOS
+date: 2025-08-19 12:00:36 +0530
 categories:
   - Swift
   - IA
   - SwiftUI
   - Claude
+lang: pt
+alternate: /en/swift/ia/swiftui/claude/2025/08/19/Cursor-para-desenvolver-para-iOS.html
 ---
 
 Nos últimos tempos quem não utiliza alguma IA pode se sentir que está um pouco atrasado ou ficando para trás não é mesmo?

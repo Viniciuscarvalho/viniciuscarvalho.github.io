@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "Side Projects - Todo mundo tem um mas nunca termina, agora em SwiftUI"
-date:   2020-08-06 12:00:36 +0530
-categories: iOS, SwiftUI, Projetos Pessoais 
+title: Side Projects - Todo mundo tem um mas nunca termina, agora em SwiftUI
+date: 2020-08-06 12:00:36 +0530
+categories: iOS, SwiftUI, Projetos Pessoais
+lang: pt
+alternate: /en/ios,/swiftui,/projetos/pessoais/2020/08/06/Side-Projects-Todo-mundo-tem-um-mas-nunca-termina,-agora-em-SwiftUI.html
 ---
 Quem nunca começou um projeto pessoal e parou pela metade que atire a primeira pedra! Eu mesmo tenho vários, começava super empolgado e quando dava pouco mais de um mês eu já não triscava mais naquele repositório. Falta de determinação? Preguiça? Falta de tempo? Ficou um pouco mais difícil e você já desistiu? Tudo isso passa quando você ta fazendo um projeto pessoal e no seu tempo livre você quer mais aprender algo novo e não ter dificuldades a mais do que se tem no trabalho não é mesmo? Por isso dessa vez e mais uma vez, vou tentar começar um projeto paralelo que espero manter uma continuidade e que eu saiba que irei aprender bastante pois é um assunto que to curtindo muito estudar. Espero ir contando toda semana sobre esse desafio!
 

@@ -1,0 +1,5 @@
+<span class="language-switcher" role="group" aria-label="{{ t.language }}">
+  <a class="locale" href="{{ pt_url | relative_url }}" lang="pt-BR" hreflang="pt-BR"{% if locale == 'pt' %} aria-current="page"{% endif %}>PT-BR</a>
+  <span aria-hidden="true">/</span>
+  <a class="locale" href="{{ en_url | relative_url }}" lang="en-US" hreflang="en-US"{% if locale == 'en' %} aria-current="page"{% endif %}>EN-US</a>
+</span>

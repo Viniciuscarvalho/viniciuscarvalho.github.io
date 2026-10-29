@@ -2,7 +2,7 @@
   <div class="container-page py-12">
     <div class="flex flex-col items-center justify-between gap-8 sm:flex-row">
       <!-- Brand -->
-      <a href="{{ "/" | relative_url }}" class="group flex items-center gap-3 no-underline">
+      <a href="{{ t.home | relative_url }}" class="group flex items-center gap-3 no-underline">
         <div class="leading-tight">
           <span class="block text-sm font-bold tracking-tight text-text">{{ site.plainwhite.name | default: site.title }}</span>
           <span class="block font-mono text-[9px] uppercase tracking-[0.1em] text-text-subtle">iOS Engineer</span>
@@ -25,7 +25,7 @@
       <!-- Copyright -->
       <div class="flex flex-col items-center sm:items-end">
         <span class="font-mono text-[10px] uppercase tracking-[0.15em] text-text-subtle">
-          &copy; {{ "now" | date: "%Y" }} / Crafted with Swift Spirit
+          &copy; {{ "now" | date: "%Y" }} / {{ t.footer_credit }}
         </span>
       </div>
     </div>

@@ -169,3 +169,17 @@ leitura do QR. O giroscópio só é solicitado após tocar em “Ativar moviment
 
 Os PRs de continuação são empilhados: base #19 → motion → acabamento do card.
 Mesclar na ordem e revisar a base dos PRs seguintes quando cada um entrar.
+
+### Idiomas: PT-BR / EN-US
+
+O seletor no topo usa links estáticos para a página equivalente, sem depender de
+JavaScript. A versão em inglês começa em `/en/`; apps, artigos, sobre, cartão e
+páginas de projeto têm pares com `lang` e `alternate` no front matter. URLs
+históricas continuam válidas. A navegação e a busca mantêm o idioma escolhido.
+
+Textos compartilhados ficam em `_data/content.json`. Para um novo artigo ou app,
+adicione a tradução com `lang: en`, um `permalink` sob `/en/` e `alternate`
+apontando para a versão original; o original deve apontar de volta. Exemplos de
+código e imagens históricas são preservados. `npm test` verifica os pares e a
+integridade do código; os testes de navegador cobrem troca de idioma, busca,
+mobile e acessibilidade nas duas versões.

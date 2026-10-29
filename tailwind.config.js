@@ -34,7 +34,7 @@ module.exports = {
         text: {
           DEFAULT: "#fafafa", // zinc-50
           muted: "#a1a1aa", // zinc-400
-          subtle: "#71717a" // zinc-500
+          subtle: "#a1a1aa" // zinc-400: readable for small labels on dark surfaces
         }
       },
       fontFamily: {

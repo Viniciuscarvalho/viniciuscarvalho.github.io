@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "SwiftUI - Uma aventura distante?"
-date:   2020-07-23 12:00:36 +0530
-categories: iOS, SwiftUI, Apple 
+title: SwiftUI - Uma aventura distante?
+date: 2020-07-23 12:00:36 +0530
+categories: iOS, SwiftUI, Apple
+lang: pt
+alternate: /en/ios,/swiftui,/apple/2020/07/23/SwiftU-uma-aventura-distante.html
 ---
 Olá bacharéis e diplomatas, em um outro post eu explico o porque dessa denominação rs, no post de hoje irei abordar um pouco do que vi e ouvi sobre SwiftUI, algumas aventuras e alguns cursos também que andei fazendo nesse período.
 

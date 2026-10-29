@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "You need System Design to understand software"
-date:   2025-09-16 12:00:36 +0530
+title: You need System Design to understand software
+date: 2025-09-16 12:00:36 +0530
 categories: Swift, SwiftUI, iOS, Architecture
+lang: pt
+alternate: /en/swift,/swiftui,/ios,/architecture/2025/09/16/Voc%C3%AA-precisa-de-System-Design-pra-entender-o-software.html
 ---
 
 Continuando os posts em inglês, agora vou contar um pouco sobre como tem sido estudar mais sobre System Design e não a parte visual que é o Design System, isso é uma coisa totaaaalmente diferente tá? E acho que todo desenvolvedor de software, seja mobile ou não, deveria conhecer ponta a ponta a estrutura e montagem de um sistema assim mesmo que você não precise se aprofundar bastante.

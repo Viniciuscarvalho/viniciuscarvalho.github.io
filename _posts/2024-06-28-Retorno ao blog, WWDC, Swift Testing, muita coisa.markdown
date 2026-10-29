@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "Retorno ao blog, WWDC, Swift Testing, muita coisa!"
-date:   2024-06-28 12:00:36 +0530
-categories: Swift, WWDC, Tests, Novidades 
+title: Retorno ao blog, WWDC, Swift Testing, muita coisa!
+date: 2024-06-28 12:00:36 +0530
+categories: Swift, WWDC, Tests, Novidades
+lang: pt
+alternate: /en/swift,/wwdc,/tests,/novidades/2024/06/28/Retorno-ao-blog,-WWDC,-Swift-Testing,-muita-coisa.html
 ---
 
 # Voltei!

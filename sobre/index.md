@@ -1,4 +1,6 @@
 ---
+lang: pt
+alternate: /en/about/
 layout: page
 title: Sobre
 permalink: /sobre/
